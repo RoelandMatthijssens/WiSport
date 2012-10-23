@@ -1,0 +1,23 @@
+<h1>Listing trainings_sessions</h1>
+
+<table>
+  <tr>
+    <th>Exercise</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @trainings_sessions.each do |trainings_session| %>
+  <tr>
+    <td><%= trainings_session.exercise %></td>
+    <td><%= link_to 'Show', trainings_session %></td>
+    <td><%= link_to 'Edit', edit_trainings_session_path(trainings_session) %></td>
+    <td><%= link_to 'Destroy', trainings_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Trainings session', new_trainings_session_path %>

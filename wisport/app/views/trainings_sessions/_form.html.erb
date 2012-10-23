@@ -1,0 +1,21 @@
+<%= form_for(@trainings_session) do |f| %>
+  <% if @trainings_session.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trainings_session.errors.count, "error") %> prohibited this trainings_session from being saved:</h2>
+
+      <ul>
+      <% @trainings_session.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :exercise %><br />
+    <%= f.text_field :exercise %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
