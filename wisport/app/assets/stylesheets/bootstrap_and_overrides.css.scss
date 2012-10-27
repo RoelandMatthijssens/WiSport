@@ -2,18 +2,40 @@
 $iconSpritePath: image-path('glyphicons-halflings.png');
 $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 
+$navbarHeight: 50px;
 $navbarBackground: #555;
 $navbarBackgroundHighlight: #888;
 $navbarText: #eee;
 $navbarLinkColor: #eee;
 
 @import "bootstrap";
+@font-face {
+  font-family: 'DigitalSansEF';    
+  src: url('/assets/Digital_Sans_EF_Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body { padding-top: 60px; }
 
 abbr[title] {
 	cursor: none;
 	border-bottom: none;
+}
+
+.logo_sport {
+	color: rgb(33, 170, 211);
+	font-style:italic;
+	font-family: DigitalSansEF;
+	font-size: 1.4em;
+}
+.logo_wi {
+	font-family: DigitalSansEF;
+	font-size: 1.4em;
+}
+
+.nav {
+	font-size: 1.3em;
 }
 
 @import "bootstrap-responsive";
