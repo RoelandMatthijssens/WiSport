@@ -3,10 +3,8 @@ $iconSpritePath: image-path('glyphicons-halflings.png');
 $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 
 $navbarHeight: 50px;
-$navbarBackground: #555;
-$navbarBackgroundHighlight: #888;
-$navbarText: #eee;
-$navbarLinkColor: #eee;
+$navbarLinkColorHover: rgb(33, 170, 211);
+
 
 @import "bootstrap";
 @font-face {

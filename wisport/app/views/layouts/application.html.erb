@@ -24,11 +24,16 @@
 					</a>
 					<a class="brand" href="#"><span class="logo_wi">Wi</span><span class="logo_sport">Sport</span></a>
 					<div class="nav-collapse">
-						<ul class="nav">
+						<ul class="nav pull-left">
 							<li><%= link_to "Browse Products" %></li>
 							<li><%= link_to "Price List" %></li>
 							<li><%= link_to "Contact Us" %></li>
 							<li><%= link_to "Cart" %></li>
+						</ul>
+						<ul class="nav pull-right">
+							<li> <%= link_to "Log In", login_path %>  </li>
+							<li class="divider"></li>
+							<li> <%= link_to "Sign Up", signup_path %>  </li>
 						</ul>
 					</div>
 				</div>
