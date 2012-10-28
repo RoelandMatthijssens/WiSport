@@ -5,6 +5,13 @@ $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 $navbarHeight: 50px;
 $navbarLinkColorHover: rgb(33, 170, 211);
 
+$hilightColor0: rgb(33, 170, 211); //blue
+$hilightColor1: #87b409; //green
+$hilightColor2: #D5861B; //orange
+
+$blue: $hilightColor0;
+$green: $hilightColor1;
+$orange: $hilightColor2;
 
 @import "bootstrap";
 @font-face {
@@ -22,7 +29,7 @@ abbr[title] {
 }
 
 .logo_sport {
-	color: rgb(33, 170, 211);
+	color: $hilightColor0;
 	font-style:italic;
 	font-family: DigitalSansEF;
 	font-size: 1.4em;
@@ -35,5 +42,24 @@ abbr[title] {
 .nav {
 	font-size: 1.3em;
 }
+
+.navbar .navbar-inner .nav .hilight a {
+	color: $hilightColor1;
+	&:hover {
+	      color: $navbarLinkColorHover;
+	    }
+}
+
+#container {
+	background: #fff;
+	padding-left: 5px;
+	padding-right: 5px;
+	@include border-radius(5px);
+}
+
+body {
+	background: url('/assets/background/low_contrast_linen_@2X.png');
+}
+
 
 @import "bootstrap-responsive";
