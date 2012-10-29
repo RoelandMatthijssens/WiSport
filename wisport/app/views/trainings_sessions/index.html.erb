@@ -10,7 +10,7 @@
 
 <% @trainings_sessions.each do |trainings_session| %>
   <tr>
-    <td><%= trainings_session.exercise %></td>
+    <td><%= trainings_session.exercises %></td>
     <td><%= link_to 'Show', trainings_session %></td>
     <td><%= link_to 'Edit', edit_trainings_session_path(trainings_session) %></td>
     <td><%= link_to 'Destroy', trainings_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
