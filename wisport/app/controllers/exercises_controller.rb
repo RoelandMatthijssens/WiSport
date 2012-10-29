@@ -25,7 +25,7 @@ class ExercisesController < ApplicationController
   # GET /exercises/new.json
   def new
     @exercise = Exercise.new
-
+    @exercise.information = Information.new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @exercise }

@@ -1,25 +1,12 @@
-<%= form_for(@information) do |f| %>
-  <% if @information.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@information.errors.count, "error") %> prohibited this information from being saved:</h2>
-
-      <ul>
-      <% @information.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :media %><br />
-    <%= f.text_field :media %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+<%= simple_form_for(@information, html: {class: 'form-horizontal' }) do |f| %>
+	<%= f.error_notification %>
+	
+	<%= f.input :media %>
+	<%= f.input :description, input_html: {:rows => 5} %>
+	
+	<%= f.error :base %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn btn-primary' %>
+		<%= link_to 'Cancel', information_index_path, class: 'btn btn-danger' %>
   </div>
 <% end %>
