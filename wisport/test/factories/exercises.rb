@@ -1,8 +1,8 @@
 FactoryGirl.define do
 	factory :exercise do
-		name Faker::Lorem.words 1
-		title Faker::Lorem.words 3
-		typee Faker::Lorem.words 1
+		sequence(:name ) {|n| Faker::Lorem.word}
+		sequence(:title) {|n| Faker::Lorem.sentence}
+		sequence(:typee) {|n| Faker::Lorem.word}
 		information
 	end
 end
