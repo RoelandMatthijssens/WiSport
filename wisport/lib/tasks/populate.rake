@@ -30,12 +30,20 @@ namespace :db do
 			puts "created exercise #{x.name}"
 		end
 		Information.delete_all
-		puts "-------------------"
+		puts "--------------------"
 		puts "Creating information"
-		puts "-------------------"
+		puts "--------------------"
 		@amount.times do
 			x = FactoryGirl.create(:information)
 			puts "created information #{x.media}"
+		end
+		TrainingsSession.delete_all
+		puts "---------------------------"
+		puts "Creating trainings_sessions"
+		puts "---------------------------"
+		@amount.times do
+			x = FactoryGirl.create(:trainings_session)
+			puts "created trainings_session #{x.id}"
 		end
 	end
 end
