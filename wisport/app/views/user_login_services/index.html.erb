@@ -1,0 +1,31 @@
+<h1>Listing user_login_services</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Provider</th>
+    <th>Uid</th>
+    <th>Login</th>
+    <th>Acces token</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_login_services.each do |user_login_service| %>
+  <tr>
+    <td><%= user_login_service.user %></td>
+    <td><%= user_login_service.provider %></td>
+    <td><%= user_login_service.uid %></td>
+    <td><%= user_login_service.login %></td>
+    <td><%= user_login_service.acces_token %></td>
+    <td><%= link_to 'Show', user_login_service %></td>
+    <td><%= link_to 'Edit', edit_user_login_service_path(user_login_service) %></td>
+    <td><%= link_to 'Destroy', user_login_service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User login service', new_user_login_service_path %>
