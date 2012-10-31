@@ -42,7 +42,8 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
+gem 'rvm-capistrano'
 
 # To use debugger
 # gem 'debugger'
@@ -52,6 +53,3 @@ gem "mocha", :group => :test
 gem 'simple_form'
 gem 'omniauth-google-oauth2'
 
-group :production do
-	gem 'rvm'
-end
