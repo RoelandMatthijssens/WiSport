@@ -26,15 +26,19 @@
 					<%= link_to content_tag(:span, "Wi", class: "logo_wi")+content_tag(:span, "Sport", class: "logo_sport"), root_path, class: "brand" %>
 					<div class="nav-collapse">
 						<ul class="nav pull-left">
-							<li><%= link_to "Browse Products" %></li>
-							<li><%= link_to "Price List" %></li>
-							<li><%= link_to "Contact Us" %></li>
-							<li><%= link_to "Cart" %></li>
+							<li><%= link_to "Exercices" %></li>
+							<li><%= link_to "Events" %></li>
 						</ul>
 						<ul class="nav pull-right">
-							<li> <%= link_to "Log In", login_path %>  </li>
-							<li class="divider-vertical"></li>
-							<li class="hilight"> <%= link_to "Sign Up", signup_path %>  </li>
+							<% if current_user %>
+								<li> <%= link_to "Welcome #{current_user.username}", current_user %>  </li>
+								<li class="divider-vertical"></li>
+								<li class="hilight"> <%= link_to "Log Out", logout_path %>  </li>
+							<% else %>
+								<li> <%= link_to "Log In", login_path %>  </li>
+								<li class="divider-vertical"></li>
+								<li class="hilight"> <%= link_to "Sign Up", signup_path %>  </li>
+							<% end %>
 						</ul>
 					</div>
 				</div>

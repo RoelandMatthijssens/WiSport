@@ -9,18 +9,13 @@ server "134.184.49.8", :web, :app, :db, primary: true
 set :application, "wisport"
 set :user, "webandinfosys_deploy"
 set :deploy_to, "/home/#{user}/apps/#{application}"
-#set :deploy_via, :remote_cache
+ssh_options[:keys] = "#{ENV['HOME']}/.ssh/github_rsa"
+set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
 set :repository,  "git@github.com:rikvanmechelen/web_info_sys_sport.git"
 set :branch, "master"
-
-#set :deploy_to, "/your_path_here"
-set :deploy_via, :copy
-set :copy_remote_dir, "#{shared_path}/tmp"
-set :copy_strategy, :export
-
 
 
 # https://rvm.io/integration/capistrano/
