@@ -24,6 +24,26 @@ class User < ActiveRecord::Base
   def encrypt_password(pass)
     BCrypt::Engine.hash_secret(pass, password_salt)
   end
+  
+  def self.from_omniauth(auth)
+    joins(:user_login_services).where("user_login_services.provider = ? AND user_login_services.uid = ?", auth["provider"], auth["uid"]).first || create_from_omniauth(auth)
+  end
+
+  def self.create_from_omniauth(auth)
+    new_user = new do |user|
+      user.username = auth["info"]["name"]
+      user.email = auth["info"]["email"]
+      user.user_login_services.new( provider: auth["provider"], uid: auth["uid"], 
+      login: auth["info"]["email"], acces_token: auth["credentials"]["token"],
+      refresh_token: auth["credentials"]["refresh_token"],
+      token_expiration: Time.at(auth["credentials"]["expires_at"].to_i),
+      image: auth["info"]["image"],
+      profile_link: auth["extra"]["raw_info"]["link"]
+      )
+    end
+    new_user.save(:validate => false)
+    new_user
+  end
 
   private
 

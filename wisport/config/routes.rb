@@ -8,6 +8,10 @@ Wisport::Application.routes.draw do
   match 'logout' => 'sessions#destroy', :as => :logout
 
   match 'login' => 'sessions#new', :as => :login
+  
+  match 'auth/:provider/callback', to: 'sessions#create'
+  
+  match 'auth/failure', to: redirect('/')
 
   resources :sessions
 

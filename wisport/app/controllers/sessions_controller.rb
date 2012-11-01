@@ -3,7 +3,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.authenticate(params[:signin][:login], params[:signin][:password])
+    if env["omniauth.auth"]
+      user = User.from_omniauth(env["omniauth.auth"])
+    else
+      user = User.authenticate(params[:signin][:login], params[:signin][:password])
+    end
     if user
       session[:user_id] = user.id
       redirect_to_target_or_default root_url, :notice => "Logged in successfully."
