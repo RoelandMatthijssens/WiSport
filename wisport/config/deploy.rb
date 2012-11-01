@@ -9,19 +9,20 @@ server "134.184.49.8", :web, :app, :db, primary: true
 set :application, "wisport"
 set :user, "webandinfosys_deploy"
 set :deploy_to, "/home/#{user}/apps/#{application}"
-ssh_options[:keys] = "#{ENV['HOME']}/.ssh/github_rsa"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
 set :repository,  "git@github.com:rikvanmechelen/web_info_sys_sport.git"
+set :deploy_subdir, "wisport"
 set :branch, "master"
 
 
 # https://rvm.io/integration/capistrano/
-set :rvm_ruby_string, "ruby-1.9.3-p286@#{application}"
+set :rvm_ruby_string, "ruby-1.9.3-p286@wisport"
 set :rvm_type, :system  # Copy the exact line. I really mean :system here
 require "rvm/capistrano"
+require "bundler/capistrano"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
