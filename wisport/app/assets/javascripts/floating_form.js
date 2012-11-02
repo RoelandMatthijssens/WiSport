@@ -1,9 +1,23 @@
+function hide_popups(){
+	delay_hide('.popup', 0);
+	delay_hide('.floating_form', 0);}
+function delay_hide(queryStr, time) { $(function() {
+    setTimeout(function() {
+		        $(queryStr).hide('fast')
+						    }, time);
+								});}
+$(document).keyup(function(e) {
+	if (e.keyCode == 27) { hide_popups() }   // esc
+		});
+
 function show(s){
 	var obj = document.getElementById(s);
+	obj.style.display='block';
 	obj.className=obj.className.replace('hidden','');
 }
 function hide(s){
 	var obj = document.getElementById(s);
+	obj.style.display='none';
 	obj.className+='hidden'
 }
 function show_overlay(){
