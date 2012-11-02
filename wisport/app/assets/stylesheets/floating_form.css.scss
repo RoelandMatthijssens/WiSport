@@ -1,0 +1,110 @@
+$floating_form_bg_color: #393631;
+$floating_form_text_color: white;
+$floating_form_border_color: #fdb600;
+$floating_form_success_bg_color: #143614;
+$floating_form_success_border_color: #325b08;
+$floating_form_failure_bg_color: #660000;
+$floating_form_failure_border_color: #1e0000;
+$overlay_bb_color: gray;
+
+.floating_form{
+	padding:5px;
+	top: 30%;
+	opacity: 0.85;
+	background-color: $floating_form_bg_color;
+	border-radius: 20px;
+	color: $floating_form_text_color;
+	border: 3px solid $floating_form_border_color;
+	z-index:1302;
+	margin-left:25%;
+	position:fixed;
+}
+.floating_form form{
+	padding:5px;
+	float:left;
+	width: 97%;
+	font-size: x-large;
+	border: 1px dotted $floating_form_border_color;
+	border-radius: 10px;
+}
+.floating_form div.image{
+	padding:5px;
+	width: 30%;
+	float:left;
+}
+
+.floating_form div.image img
+{
+	border-radius: 10px;
+	width: 100%;
+}
+.floating_form input.button{
+	margin:5px;
+	font-size: large;
+	border-radius:5px;
+	width:44.8%;
+	cursor:pointer;
+}
+
+.floating_form input{
+	margin:5px;
+	clear: both;
+	font-size: large;
+	width:90%;
+	border-radius:5px;
+}
+
+.floating_form input.wide{
+	width: 95%;
+}
+.floating_form span { 
+	font-size: large;
+	float: left; 
+	width: 35%; 
+	text-align: left;
+}
+
+#overlay{
+	width:100%;
+	height: 100%;
+	background-color: $overlay_bb_color;
+	opacity: 0.4;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 1031;
+}
+
+.floating_form_success {
+	background-color: $floating_form_success_bg_color;
+	border-color: $floating_form_success_border_color;
+}
+
+.floating_form_failure {
+	background-color: $floating_form_failure_bg_color;
+	border-color: $floating_form_failure_border_color;
+}
+
+.floating_form_success form {
+	padding:5px;
+	float:left;
+	width: 62%;
+	font-size: x-large;
+	border: 1px dotted $floating_form_success_border_color;
+	border-radius: 10px;
+}
+
+.floating_form_failure form {
+	padding:5px;
+	float:left;
+	width: 62%;
+	font-size: x-large;
+	border: 1px dotted $floating_form_failure_border_color;
+	border-radius: 10px;
+}
+
+.floating_form_full_width form{
+	width: 100%;
+	border-width: 0;
+}
+

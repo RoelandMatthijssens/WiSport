@@ -35,7 +35,7 @@
 								<li class="divider-vertical"></li>
 								<li class="hilight"> <%= link_to "Log Out", logout_path %>  </li>
 							<% else %>
-								<li> <%= link_to "Log In", login_path %>  </li>
+								<li> <%= link_to "Log In", "#", id: "login_btn" %>  </li>
 								<li class="divider-vertical"></li>
 								<li class="hilight"> <%= link_to "Sign Up", signup_path %>  </li>
 							<% end %>
@@ -55,6 +55,13 @@
 
 				<%= content_tag :h1, yield(:title) if show_title? %>
 				<%= yield %>
+				
+				<% unless current_user %>
+					<div id="overlay" class="popup hidden" style="display: block; "></div>
+					<div id="login" class="floating_form hidden" style="display: block; ">
+						<%= render :partial => "sessions/login_form" %>
+					</div>
+				<% end %>
 
 				<% if Rails.env.development? %>
 				<div id="debug">

@@ -6,7 +6,7 @@ class Exercise < ActiveRecord::Base
 
   validates_presence_of :name
   validates_presence_of :title
-  validates_presence_of :typee
+  validates_presence_of :type
   validates_presence_of :information
 
   accepts_nested_attributes_for :information, allow_destroy: true
@@ -15,4 +15,25 @@ class Exercise < ActiveRecord::Base
     ["All", "Friends", "Private"]
   end
 
+	def self.select_options
+		descendants.map{ |c| c.to_s }.sort
+	end
+end
+
+class DistanceExercise < Exercise
+	attr_accessible :distance
+
+	validates_presence_of :distance
+end
+class TimeExercise < Exercise
+	attr_accessible :hours, :minutes, :seconds
+
+	validates_presence_of :hours
+	validates_presence_of :minuts
+	validates_presence_of :seconds
+end
+class RepsExercise < Exercise
+	attr_accessible :reps
+
+	validates_presence_of :reps
 end
