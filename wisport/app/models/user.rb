@@ -26,8 +26,34 @@ class User < ActiveRecord::Base
   end
   
   def self.from_omniauth(auth)
-    joins(:user_login_services).where("user_login_services.provider = ? AND user_login_services.uid = ?", auth["provider"], auth["uid"]).first || create_from_omniauth(auth)
+    user = joins(:user_login_services).where("user_login_services.provider = ? AND user_login_services.uid = ?", auth["provider"], auth["uid"]).first
+    if user
+      user.set_service(auth)
+      user
+    else
+      create_from_omniauth(auth)
+    end
   end
+  
+  def set_service(auth)
+    s = user_login_services.where("provider = ?", auth["provider"])
+    if s.empty?
+      user_login_services.new( provider: auth["provider"], uid: auth["uid"], 
+      login: auth["info"]["email"], acces_token: auth["credentials"]["token"],
+      refresh_token: auth["credentials"]["refresh_token"],
+      token_expiration: Time.at(auth["credentials"]["expires_at"].to_i),
+      image: auth["info"]["image"],
+      profile_link: auth["extra"]["raw_info"]["link"]
+      )
+    else
+      s.first.update_attributes!( acces_token: auth["credentials"]["token"],
+      refresh_token: auth["credentials"]["refresh_token"],
+      token_expiration: Time.at(auth["credentials"]["expires_at"].to_i),
+      image: auth["info"]["image"],
+      profile_link: auth["extra"]["raw_info"]["link"]
+      )
+    end
+  end  
 
   def self.create_from_omniauth(auth)
     new_user = new do |user|

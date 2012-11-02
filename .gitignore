@@ -17,3 +17,5 @@ pickle-email-*.html
 *.zip
 .rvmrc
 *.lock
+*.gslides
+*.gdocs
