@@ -1,8 +1,8 @@
 class CreateExercisesTrainingsSessions < ActiveRecord::Migration
 	def change
 		create_table :exercises_trainings_sessions do |t|
-			t.references :exercises, :null => false
-			t.references :trainings_sessions, :null => false
+			t.references :exercise, :null => false
+			t.references :trainings_session, :null => false
 		end
 	end
 end

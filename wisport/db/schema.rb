@@ -16,10 +16,15 @@ ActiveRecord::Schema.define(:version => 20121101191952) do
   create_table "exercises", :force => true do |t|
     t.string   "name"
     t.string   "title"
-    t.string   "typee"
+    t.string   "type"
+    t.float    "distance",       :default => 0.0
+    t.integer  "reps",           :default => 0
+    t.integer  "hours",          :default => 0
+    t.integer  "minutes",        :default => 0
+    t.integer  "seconds",        :default => 0
     t.integer  "information_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "exercises_trainings_sessions", :force => true do |t|
@@ -30,9 +35,9 @@ ActiveRecord::Schema.define(:version => 20121101191952) do
   create_table "information", :force => true do |t|
     t.string   "media"
     t.text     "description"
+    t.integer  "exercise_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "exercise_id"
   end
 
   create_table "trainings_sessions", :force => true do |t|

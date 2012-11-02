@@ -1,13 +1,35 @@
 class Exercise < ActiveRecord::Base
-  attr_accessible :name, :title, :typee, :information, :information_attributes
+  attr_accessible :name, :title, :type, :information, :information_attributes
 
   has_one :information
   has_and_belongs_to_many :trainings_sessions
 
 	validates_presence_of :name
 	validates_presence_of :title
-	validates_presence_of :typee
+	validates_presence_of :type
 	validates_presence_of :information
 	
 	accepts_nested_attributes_for :information, allow_destroy: true
+
+	def self.select_options
+		descendants.map{ |c| c.to_s }.sort
+	end
+end
+
+class DistanceExercise < Exercise
+	attr_accessible :distance
+
+	validates_presence_of :distance
+end
+class TimeExercise < Exercise
+	attr_accessible :hours, :minutes, :seconds
+
+	validates_presence_of :hours
+	validates_presence_of :minuts
+	validates_presence_of :seconds
+end
+class RepsExercise < Exercise
+	attr_accessible :reps
+
+	validates_presence_of :reps
 end

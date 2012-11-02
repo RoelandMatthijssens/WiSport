@@ -3,6 +3,7 @@ class CreateInformation < ActiveRecord::Migration
     create_table :information do |t|
       t.string :media
       t.text :description
+			t.references :exercise
 
       t.timestamps
     end
