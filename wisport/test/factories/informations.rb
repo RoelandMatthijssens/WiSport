@@ -1,6 +1,6 @@
 FactoryGirl.define do
 	factory :information do
-		media Faker::Lorem.sentence
-		description Faker::Lorem.paragraph
+		sequence(:media )       {|n| Faker::Lorem.sentence}
+		sequence(:description ) {|n| Faker::Lorem.paragraph}
 	end
 end
