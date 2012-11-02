@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
   def new
+    respond_to do |format|
+			format.html
+			format.js
+		end
   end
 
   def create
@@ -10,20 +14,17 @@ class SessionsController < ApplicationController
     end
     respond_to do |format|
       if user
+        session[:user_id] = user.id
         format.html do 
-          session[:user_id] = user.id
           redirect_to_target_or_default root_url, :notice => "Logged in successfully."
         end
-        format.json do 
-          session[:user_id] = user.id
-          render json: user, status: :created, location: user 
-        end
+        format.js {render js: %(window.location.pathname='') }
       else
         format.html do
           flash.now[:alert] = "Invalid login or password." 
           render action: "new" 
         end
-        format.json { render json: "error", status: :unprocessable_entity }
+        format.js
       end
     end
   end
