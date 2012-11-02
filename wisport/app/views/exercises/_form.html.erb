@@ -4,9 +4,11 @@
 	<%= f.input :name %>
 	<%= f.input :title %>
 	<%= f.input :typee, label: "Type" %>
+	<%= f.input :visibility, :collection => Exercise.visibility_options %>
 	<%= f.simple_fields_for :information do |information_form| %>
 		<%= information_form.input :media %>
 		<%= information_form.input :description, input_html: {:rows => 5} %>
+
 	<% end %>
 	
 	
