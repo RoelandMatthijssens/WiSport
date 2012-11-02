@@ -1,10 +1,10 @@
 function show(s){
 	var obj = document.getElementById(s);
-	obj.style.display='block';
+	obj.className=obj.className.replace('hidden','');
 }
 function hide(s){
 	var obj = document.getElementById(s);
-	obj.style.display='none';
+	obj.className+='hidden'
 }
 function show_overlay(){
 	show('overlay');
@@ -15,10 +15,10 @@ function hide_overlay(){
 function open_floating_form(s){
 	var obj = document.getElementById(s);
 	show_overlay();
-	obj.style.display='block';
+	show(obj.id);
 }
 function close_floating_form(s){
 	var obj = document.getElementById(s);
 	hide_overlay();
-	obj.style.display='none';
+	hide(obj.id);
 }
