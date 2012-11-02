@@ -4,11 +4,7 @@ namespace :db do
 	task :populate => :environment do
 		require 'faker'
 		@amount = 10
-
-		User.delete_all
-		puts "--------------"
-		puts "Creating Users"
-		puts "--------------"
+		ActiveRecord::Base.subclasses.each(&:delete_all)
 		User.create(
 			:id => 1,
 			:username => "Enermis",
@@ -16,34 +12,10 @@ namespace :db do
 			:password => "roeland1",
 			:password_confirmation => "roeland1"
 		)
-		puts "created Enermis"
-		@amount.times do
-			x = FactoryGirl.create(:user)
-			puts "created user #{x.username}"
-		end
-		Exercise.delete_all
-		puts "------------------"
-		puts "Creating exercises"
-		puts "------------------"
-		@amount.times do
-			x = FactoryGirl.create(:exercise)
-			puts "created exercise #{x.name}"
-		end
-		Information.delete_all
-		puts "--------------------"
-		puts "Creating information"
-		puts "--------------------"
-		@amount.times do
-			x = FactoryGirl.create(:information)
-			puts "created information #{x.media}"
-		end
-		TrainingsSession.delete_all
-		puts "---------------------------"
-		puts "Creating trainings_sessions"
-		puts "---------------------------"
-		@amount.times do
-			x = FactoryGirl.create(:trainings_session)
-			puts "created trainings_session #{x.id}"
+		FactoryGirl.factories.each do |f|
+			@amount.times do 
+				FactoryGirl.create(f.name)
+			end
 		end
 	end
 end
