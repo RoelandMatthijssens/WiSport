@@ -1,4 +1,5 @@
-<%= simple_form_for(@exercise, html: {class: 'form-horizontal' }) do |f| %>
+<h1>New exercise</h1>
+<%= simple_form_for(@exercise, remote: true, html: {class: 'form-horizontal' }) do |f| %>
 	<%= f.error_notification %>
 
 	<%= f.input :name %>
@@ -12,7 +13,7 @@
 	<% end %>
 	
 	<%= f.error :base %>
-  <div class="form-actions">
+  <div class="form_buttons">
     <%= f.button :submit, class: 'btn btn-primary' %>
 		<%= link_to 'Cancel', exercises_path, class: 'btn btn-danger' %>
   </div>

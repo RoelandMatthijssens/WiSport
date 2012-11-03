@@ -29,6 +29,7 @@ class ExercisesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @exercise }
+      format.js
     end
   end
 
@@ -46,9 +47,10 @@ class ExercisesController < ApplicationController
       if @exercise.save
         format.html { redirect_to @exercise, notice: 'Exercise was successfully created.' }
         format.json { render json: @exercise, status: :created, location: @exercise }
-      else
+      else        
         format.html { render action: "new" }
         format.json { render json: @exercise.errors, status: :unprocessable_entity }
+        format.js { render action: "new"}
       end
     end
   end

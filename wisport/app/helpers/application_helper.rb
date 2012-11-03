@@ -16,12 +16,21 @@ module ApplicationHelper
     classes+= " floating_form_success" if form_type == :notice
     classes+= " floating_form_failure" if form_type == :error
     
-    content_tag :div, 
-      (content_tag :div,
-        (title ? (content_tag :h4, title)+floating_form_flash+render(partial) : floating_form_flash+render(partial)), 
-        class:"floating_form span#{span} offset#{offset} pagination-centered #{classes}"), 
+    content_tag :div,
+      set_floating_form_content(title, partial, span, offset, classes), 
       class:"row",
       id: id
+  end
+  
+  def set_floating_form_content title, partial, span, offset, classes, skip_flash=false
+    content = content_tag(:a, "X",class: "floating_form_close", href: "#")
+    content += content_tag(:h4, title) if title
+    content += floating_form_flash unless skip_flash
+    content += render(partial)
+    
+    content_tag :div,
+      content, 
+      class:"floating_form span#{span} offset#{offset} pagination-centered #{classes}"
   end
   
   def floating_form_no_flash partial, hash_arguments = {}
@@ -30,10 +39,8 @@ module ApplicationHelper
     offset = (12 - span) / 2
     classes = hash_arguments[:class] || ""
     title = hash_arguments[:title]
-    content_tag :div, 
-      (content_tag :div,
-        (title ? (content_tag :h4, title)+render(partial) : render(partial)), 
-        class:"floating_form span#{span} offset#{offset} pagination-centered #{classes}"), 
+    content_tag :div,
+      set_floating_form_content(title, partial, span, offset, classes, true), 
       class:"row",
       id: id
   end
@@ -43,14 +50,14 @@ module ApplicationHelper
     flash.each do |name, msg| 
 		  name == :notice ? type = :success : type = :error
 		end
-		type
+		@form_type || type
   end
     
   def floating_form_flash
-    content = content_tag :div, ""
+    content = ActiveSupport::SafeBuffer.new
     flash.each do |name, msg| 
 		  content+=content_tag(:h4, msg)
-		end 
+		end
 		content
   end
 end
