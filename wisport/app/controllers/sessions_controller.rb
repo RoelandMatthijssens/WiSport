@@ -20,11 +20,9 @@ class SessionsController < ApplicationController
         end
         format.js {render js: %(window.location.pathname='') }
       else
-        format.html do
-          flash.now[:alert] = "Invalid login or password." 
-          render action: "new" 
-        end
-        format.js
+        flash.now[:alert] = "Invalid login or password."
+        format.html {render action: "new"}
+        format.js {render action: "new"}
       end
     end
   end

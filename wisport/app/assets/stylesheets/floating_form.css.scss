@@ -1,6 +1,6 @@
-$floating_form_bg_color: #393631;
+$floating_form_bg_color: #262626;
 $floating_form_text_color: white;
-$floating_form_border_color: #fdb600;
+$floating_form_border_color: $hilightColor1;
 $floating_form_success_bg_color: #143614;
 $floating_form_success_border_color: #325b08;
 $floating_form_failure_bg_color: #660000;
@@ -9,7 +9,6 @@ $overlay_bb_color: gray;
 
 .floating_form{
 	top:30%;
-	padding:5px;
 	opacity: 0.85;
 	background-color: $floating_form_bg_color;
 	border-radius: 20px;
@@ -17,16 +16,14 @@ $overlay_bb_color: gray;
 	border: 3px solid $floating_form_border_color;
 	z-index:1302;
 	position:absolute;
-	text-align:center;
+	//text-align:center;
 }
 .floating_form form{
-	padding:5px;
 	font-size: x-large;
-	border: 1px dotted $floating_form_border_color;
 	border-radius: 10px;
+	display:inline-block;
 }
 .floating_form div.image{
-	padding:5px;
 	float:left;
 }
 
@@ -35,26 +32,17 @@ $overlay_bb_color: gray;
 	border-radius: 10px;
 }
 .floating_form input.button{
-	margin:5px;
-	font-size: large;
-	border-radius:5px;
-	cursor:pointer;
+
 }
 
 .floating_form input{
-	margin-left:auto;
-	margin-right:auto;
-	clear: both;
-	font-size: large;
-	border-radius:5px;
+
 }
 
 .floating_form input.wide{
 }
 .floating_form span { 
-	font-size: large;
-	float: left; 
-	text-align: left;
+
 }
 
 #overlay{
@@ -79,19 +67,11 @@ $overlay_bb_color: gray;
 }
 
 .floating_form_success form {
-	padding:5px;
-	float:left;
-	font-size: x-large;
-	border: 1px dotted $floating_form_success_border_color;
-	border-radius: 10px;
+
 }
 
 .floating_form_failure form {
-	padding:5px;
-	float:left;
-	font-size: x-large;
-	border: 1px dotted $floating_form_failure_border_color;
-	border-radius: 10px;
+
 }
 
 .floating_form_full_width form{
