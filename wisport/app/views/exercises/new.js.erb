@@ -1,0 +1,4 @@
+$('#ex_form').remove();
+$('#container').prepend(' <%=j floating_form "form", id: "ex_form" %>');
+$(".floating_form_close").click(function() {hide_popups();});
+open_floating_form('ex_form');

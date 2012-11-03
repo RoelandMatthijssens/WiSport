@@ -1,3 +1,4 @@
 $('#login_form').remove();
 $('#container').prepend(' <%=j floating_form "login_form", span: 6 %>');
+$(".floating_form_close").click(function() {hide_popups();});
 open_floating_form('login_form');

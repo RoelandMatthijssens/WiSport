@@ -5,23 +5,54 @@ $floating_form_success_bg_color: #143614;
 $floating_form_success_border_color: #325b08;
 $floating_form_failure_bg_color: #660000;
 $floating_form_failure_border_color: #1e0000;
+$floating_form_boder_radius: 20px;
 $overlay_bb_color: gray;
 
 .floating_form{
-	top:30%;
+	//top:30%;
 	opacity: 0.85;
 	background-color: $floating_form_bg_color;
-	border-radius: 20px;
+	border-radius: $floating_form_boder_radius;
 	color: $floating_form_text_color;
 	border: 3px solid $floating_form_border_color;
 	z-index:1302;
 	position:absolute;
-	//text-align:center;
 }
+
+.floating_form_close {
+	margin-right: $floating_form_boder_radius/2;
+	margin-top: $floating_form_boder_radius/4;
+	color: $white;
+	float: right;
+	opacity: 0.2;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 20px;
+	opacity: 0.7;
+	filter: alpha(opacity=20);
+	cursor: pointer;
+	&:hover {
+		opacity: 1;
+		color: $white;
+		text-decoration: none;
+	}
+}
+
 .floating_form form{
-	font-size: x-large;
 	border-radius: 10px;
 	display:inline-block;
+	text-align: left;
+	.alert-danger, .alert-error{
+		background: rgba(0, 0, 0, 0.0);
+		border-color: rgba(0, 0, 0, 0.0);
+		text-decoration: none;
+		text-shadow: none;
+		font-size: 1.3em;
+		text-align: center;
+	}
+	.form_buttons {
+		text-align: center;
+	}
 }
 .floating_form div.image{
 	float:left;
@@ -36,7 +67,7 @@ $overlay_bb_color: gray;
 }
 
 .floating_form input{
-
+	padding-top: 5px;
 }
 
 .floating_form input.wide{

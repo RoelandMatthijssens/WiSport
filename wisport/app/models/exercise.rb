@@ -1,5 +1,5 @@
 class Exercise < ActiveRecord::Base
-  attr_accessible :name, :title, :typee, :information, :visibility, :information_attributes
+  attr_accessible :name, :title, :type, :information, :visibility, :information_attributes
   validates_inclusion_of :visibility, :in=>["all", "friends", "private"], :allow_nil => false
   has_one :information
   has_and_belongs_to_many :trainings_sessions

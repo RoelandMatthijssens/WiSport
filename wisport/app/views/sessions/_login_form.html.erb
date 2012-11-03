@@ -11,5 +11,8 @@
 	  <%= f.input :password %>
 	
 		<%= f.error :base %>
-	  <%= f.button :submit, "Log In" %>
+		
+	  <div class="form_buttons"> 
+			<%= f.button :submit, "Log In", class: 'btn btn-primary' %> 
+		</div>
 	<% end %>

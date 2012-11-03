@@ -9,7 +9,7 @@ function delay_hide(queryStr, time) { $(function() {
 $(document).keyup(function(e) {
 	if (e.keyCode == 27) { hide_popups() }   // esc
 		});
-
+			
 function show(s){
 	var obj = document.getElementById(s);
 	obj.style.display='block';
