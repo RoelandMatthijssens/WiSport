@@ -15,3 +15,4 @@
 /log/*.log
 /tmp
 .pow*
+/db/schema.rb

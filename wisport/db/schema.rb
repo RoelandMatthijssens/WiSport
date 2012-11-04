@@ -16,8 +16,6 @@ ActiveRecord::Schema.define(:version => 20121102150808) do
   create_table "exercises", :force => true do |t|
     t.string   "name"
     t.string   "title"
-    t.integer  "user_id"
-    t.string   "visibility"
     t.string   "type"
     t.float    "distance",       :default => 0.0
     t.integer  "reps",           :default => 0
@@ -45,6 +43,11 @@ ActiveRecord::Schema.define(:version => 20121102150808) do
     t.integer  "exercise_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "tests", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "trainings_sessions", :force => true do |t|
