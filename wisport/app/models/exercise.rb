@@ -21,6 +21,16 @@ class Exercise < ActiveRecord::Base
 	def self.select_options
 		descendants.map{ |c| c.to_s }.sort
 	end
+def self.inherited(child)
+	child.instance_eval do
+		def model_name
+			Exercise.model_name
+		end
+	end
+	super
+end
+
+
 end
 
 class DistanceExercise < Exercise
