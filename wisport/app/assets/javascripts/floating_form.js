@@ -30,7 +30,7 @@ function open_floating_form(s){
 	var obj = document.getElementById(s);
 	show_overlay();
 	show(obj.id);
-	$(obj).effect("highlight", {color:'#660000'}, 3000);
+	$('.floating_form_failure').effect("highlight", {color:'#660000'}, 3000);
 }
 function close_floating_form(s){
 	var obj = document.getElementById(s);
