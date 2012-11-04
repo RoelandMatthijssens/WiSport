@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.effects.all
 //= require bootstrap
 //= require_tree .

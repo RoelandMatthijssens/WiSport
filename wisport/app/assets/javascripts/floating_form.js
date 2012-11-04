@@ -3,9 +3,9 @@ function hide_popups(){
 	delay_hide('.floating_form', 0);}
 function delay_hide(queryStr, time) { $(function() {
     setTimeout(function() {
-		        $(queryStr).hide('fast')
-						    }, time);
-								});}
+        $(queryStr).hide('fast')
+    }, time);
+});}
 $(document).keyup(function(e) {
 	if (e.keyCode == 27) { hide_popups() }   // esc
 		});
@@ -30,6 +30,7 @@ function open_floating_form(s){
 	var obj = document.getElementById(s);
 	show_overlay();
 	show(obj.id);
+	$(obj).effect("highlight", {color:'#660000'}, 3000);
 }
 function close_floating_form(s){
 	var obj = document.getElementById(s);

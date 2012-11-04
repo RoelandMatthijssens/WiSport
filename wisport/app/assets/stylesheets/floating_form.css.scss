@@ -93,8 +93,9 @@ $overlay_bb_color: gray;
 }
 
 .floating_form_failure {
-	background-color: $floating_form_failure_bg_color;
-	border-color: $floating_form_failure_border_color;
+//	background-color: $floating_form_failure_bg_color;
+	border-color: $floating_form_success_border_color;
+	//border-color: $floating_form_failure_border_color;
 }
 
 .floating_form_success form {
