@@ -1,6 +1,7 @@
 class Exercise < ActiveRecord::Base
+  
   attr_accessible :name, :title, :type, :information, :visibility, :information_attributes
-  validates_inclusion_of :visibility, :in=>["all", "friends", "private"], :allow_nil => false
+  
   has_one :information
   has_and_belongs_to_many :trainings_sessions
 
@@ -14,6 +15,8 @@ class Exercise < ActiveRecord::Base
   def self.visibility_options
     ["All", "Friends", "Private"]
   end
+  
+  validates_inclusion_of :visibility, :in=>visibility_options, :allow_nil => false
 
 	def self.select_options
 		descendants.map{ |c| c.to_s }.sort
