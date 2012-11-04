@@ -47,6 +47,7 @@ class ExercisesController < ApplicationController
       if @exercise.save
         format.html { redirect_to @exercise, notice: 'Exercise was successfully created.' }
         format.json { render json: @exercise, status: :created, location: @exercise }
+        format.js { render js: %(window.location.pathname='#{exercises_path}') }
       else        
         format.html { render action: "new" }
         format.json { render json: @exercise.errors, status: :unprocessable_entity }
