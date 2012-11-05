@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
 	def follow
 		@user = User.find_by_id(params[:id])
-		@user.friends << @current_user unless @user.friends.include? @current_user
+		@current_user.friends << @user unless @current_user.friends.include? @user
 		respond_to do |format|
 			format.html
 			format.js
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 	end
 	def unfollow
 		@user = User.find_by_id(params[:id])
-		@user.friends.delete(@current_user) if @user.friends.include? @current_user
+		@current_user.friends.delete(@user) if @current_user.friends.include? @user
 		respond_to do |format|
 			format.html
 			format.js

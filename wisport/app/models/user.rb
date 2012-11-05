@@ -75,6 +75,10 @@ attr_accessor :password
     new_user
   end
 
+	def followers
+		User.joins(:friends).find(:all, :conditions => ["friend_id=?", self])
+	end
+
   private
 
   def prepare_password
