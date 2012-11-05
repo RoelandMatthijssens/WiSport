@@ -3,13 +3,7 @@
 	<div class="profile_image span3">
 		<%= image_tag profile_picture(@user) %>
 		<br/>
-		<%= "#{@user.friends.size} #{"follower".pluralize(@user.friends.size)}" %>
-		<br/>
-		<% if @user.friends.include?(@current_user) %>
-			<%= link_to "Unfollow", unfollow_user_path(@user), class: "btn btn-danger", :method => :put %>
-		<% else %>
-			<%= link_to "Follow", follow_user_path(@user), class: "btn btn-primary", :method => :put %>
-		<% end %>
+		<%= render :partial => 'follow' %>
 	</div>
 	<div class="span9">
 		<div class="user_info">
