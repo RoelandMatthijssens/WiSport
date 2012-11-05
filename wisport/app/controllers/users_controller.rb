@@ -37,7 +37,12 @@ class UsersController < ApplicationController
 
 	def follow
 		user = User.find_by_id(params[:id])
-		user.friends << @current_user
+		user.friends << @current_user unless user.friends.include? @current_user
+		redirect_to user
+	end
+	def unfollow
+		user = User.find_by_id(params[:id])
+		user.friends.delete(@current_user) if user.friends.include? @current_user
 		redirect_to user
 	end
 end
