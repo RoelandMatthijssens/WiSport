@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
+	<div class="profile_image span3">
+		<%= image_tag profile_picture(@user) %>
+		<br/>
+		<%= "#{@user.friends.size} #{"follower".pluralize(@user.friends.size)}" %>
+		<br/>
+		<%= link_to "Follow", follow_user_path(@user), class: "btn btn-primary", action:'follow', :method => :put %>
+	</div>
 	<div class="span9">
 		<div class="user_info">
 			<p>
@@ -46,19 +53,9 @@
 						<%=link_to  "#{user_service.provider} profile", user_service.profile_link %>
 					</p>
 			<% end %>
-
+			<%= link_to 'Edit', edit_user_path(@user) %> |
+			<%= link_to 'Back', users_path %>
 		</div>
-	</div>
-	<div class="profile_image span3">
-		<%= image_tag profile_picture(@user) %>
 	</div>
 </div>
 
-<br/>
-<br/>
-<br/>
-<br/>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

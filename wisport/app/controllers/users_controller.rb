@@ -34,4 +34,10 @@ class UsersController < ApplicationController
       render :action => 'edit'
     end
   end
+
+	def follow
+		user = User.find_by_id(params[:id])
+		user.friends << @current_user
+		redirect_to user
+	end
 end
