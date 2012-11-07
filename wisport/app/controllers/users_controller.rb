@@ -34,4 +34,21 @@ class UsersController < ApplicationController
       render :action => 'edit'
     end
   end
+
+	def follow
+		@user = User.find_by_id(params[:id])
+		@user.friends << @current_user unless @user.friends.include? @current_user
+		respond_to do |format|
+			format.html
+			format.js
+		end
+	end
+	def unfollow
+		@user = User.find_by_id(params[:id])
+		@user.friends.delete(@current_user) if @user.friends.include? @current_user
+		respond_to do |format|
+			format.html
+			format.js
+		end
+	end
 end
