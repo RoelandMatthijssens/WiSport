@@ -1,0 +1,31 @@
+<h1>Listing images</h1>
+
+<table>
+  <tr>
+    <th>Original</th>
+    <th>Imagur page</th>
+    <th>Delete page</th>
+    <th>Small square</th>
+    <th>Large thumbnail</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @images.each do |image| %>
+  <tr>
+    <td><%= image.original %></td>
+    <td><%= image.imagur_page %></td>
+    <td><%= image.delete_page %></td>
+    <td><%= image.small_square %></td>
+    <td><%= image.large_thumbnail %></td>
+    <td><%= link_to 'Show', image %></td>
+    <td><%= link_to 'Edit', edit_image_path(image) %></td>
+    <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Image', new_image_path %>

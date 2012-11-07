@@ -9,6 +9,19 @@
 	<li> <%= link_to "users", users_path %> </li>
 </ul>
 
+<%= text_field_tag "imgur_field" %><%= link_to "post", "#", class: "btn", id: "imgur_submit" %>
+
+<script type="text/javascript">
+	$("#imgur_submit").click(function() {var img = $("#imgur_field").val(); upload(img);});
+</script>
+
+<%= form_tag 'http://api.imgur.com/2/upload', html: {class: 'form-horizontal' } do |f| %>
+
+	<%= hidden_field_tag 'key', '541f5d27b647da18a8349aa3743c23b9' %>
+	<%= hidden_field_tag "image", "http://www.stvv.com/image/banner_home/20121104_13486418575096e5eb70ec7.jpg" %>
+
+	<%= submit_tag  %>
+<% end %>
 
 <br/>
 <%= link_to "test", login_url, :remote => true %>
