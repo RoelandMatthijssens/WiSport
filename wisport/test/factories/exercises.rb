@@ -5,5 +5,6 @@ FactoryGirl.define do
 		type ["DistanceExercise","TimeExercise","RepsExercise"].sample()
 		visibility ["All", "Friends", "Private"].sample()
 		information
+		owner User.all.sample()
 	end
 end

@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20121102150808) do
     t.integer  "hours",          :default => 0
     t.integer  "minutes",        :default => 0
     t.integer  "seconds",        :default => 0
+    t.integer  "owner_id"
     t.integer  "information_id"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false

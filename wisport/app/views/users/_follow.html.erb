@@ -1,8 +1,5 @@
 <div class="follow" id='follow'>
 	<%= "#{@user.followers.size} #{"follower".pluralize(@user.followers.size)}" %>
-	<% @user.followers.each do |follower| %>
-		<%= follower.username %><br/>
-	<% end %>
 	<br/>
 	<% if @user.friends.include?(@current_user) %>
 		<%= button_to "Unfollow", unfollow_user_path(@user), class: "btn btn-danger", :method => :put, :remote => true %>

@@ -1,14 +1,16 @@
 class Exercise < ActiveRecord::Base
   
-  attr_accessible :name, :title, :type, :information, :visibility, :information_attributes
+  attr_accessible :name, :title, :type, :information, :visibility, :information_attributes, :owner
   
   has_one :information
+	belongs_to :owner, :class_name => "User"
   has_and_belongs_to_many :trainings_sessions
 
   validates_presence_of :name
   validates_presence_of :title
   validates_presence_of :type
   validates_presence_of :information
+	#validates_presence_of :owner
 
   accepts_nested_attributes_for :information, allow_destroy: true
 
@@ -42,7 +44,7 @@ class TimeExercise < Exercise
 	attr_accessible :hours, :minutes, :seconds
 
 	validates_presence_of :hours
-	validates_presence_of :minuts
+	validates_presence_of :minutes
 	validates_presence_of :seconds
 end
 class RepsExercise < Exercise
