@@ -31,7 +31,7 @@
 
 <p>
   <b>Delete link:</b>
-  <%= link_to "delete this image", "http://api.imgur.com/2/delete/#{@image.delete_hash}.json", :method => :delete %>
+	<%= link_to 'Destroy', @image, method: :delete, data: { confirm: 'Are you sure?' } %>
 </p>
 
 <%= link_to 'Edit', edit_image_path(@image) %> |

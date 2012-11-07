@@ -22,6 +22,16 @@ class Image < ActiveRecord::Base
     return new_image
   end
   
+  def delete_imgur
+    require "uri"
+    require "net/http"
+    http = Net::HTTP.new("api.imgur.com") # url should not include resource path, only domain info
+    request = Net::HTTP::Delete.new("/2/delete/#{delete_hash}.json")
+    response = http.request(request)
+    response = ActiveSupport::JSON.decode(response.body)
+    response["delete"] && response["delete"]["message"] == "Success"
+  end
+  
   private
   
   def self.to_base64 file
