@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Original:</b>
+  <%= image_tag @image.original %>
+</p>
+
+
+
+<p>
+  <b>Small square:</b>
+  <%= image_tag @image.small_square %>
+</p>
+
+<p>
+  <b>Large thumbnail:</b>
+  <%= image_tag @image.large_thumbnail %>
+</p>
+
+
+<p>
+  <b>Imagur page:</b>
+  <%= @image.imagur_page %>
+</p>
+
+<p>
+  <b>Delete page:</b>
+  <%= @image.delete_page %>
+</p>
+
+
+<p>
+  <b>Delete link:</b>
+  <%= link_to "delete this image", "http://api.imgur.com/2/delete/#{@image.delete_hash}.json", :method => :delete %>
+</p>
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>
