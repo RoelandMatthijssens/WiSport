@@ -1,4 +1,6 @@
 Wisport::Application.routes.draw do
+  resources :images
+
   resources :user_login_services
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user
@@ -15,7 +17,10 @@ Wisport::Application.routes.draw do
 
   resources :sessions
 
-  resources :users
+  resources :users do
+		put :follow, :on => :member
+		put :unfollow, :on => :member
+	end
 
   resources :trainings_sessions
 
