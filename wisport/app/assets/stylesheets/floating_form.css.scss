@@ -79,8 +79,11 @@ $overlay_bb_color: gray;
 #overlay{
 	width:100%;
 	height: 100%;
-	background-color: $overlay_bb_color;
-	opacity: 0.4;
+	//background-color: $overlay_bb_color;
+	//opacity: 0.4;
+	background: #666 url(/assets/background/ui-bg_diagonals-thick.png) 50% 50% repeat;
+	opacity: .50;
+	filter: Alpha(Opacity=50);
 	position: fixed;
 	top: 0px;
 	left: 0px;

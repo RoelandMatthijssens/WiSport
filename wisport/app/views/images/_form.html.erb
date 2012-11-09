@@ -1,8 +1,8 @@
-<%= form_for(@image, html: {class: 'form-horizontal', multipart: true}) do |f| %>
+<%= simple_form_for(@image, html: {class: 'form-horizontal', multipart: true}) do |f| %>
 
   <div class="form-inputs">
 
-		<%= file_field "image", "file" %>
+		<%= f.input "file", as: :file %>
   </div>
 
   <div class="form-actions">
