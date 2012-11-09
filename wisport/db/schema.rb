@@ -61,8 +61,12 @@ ActiveRecord::Schema.define(:version => 20121105080446) do
   end
 
   create_table "trainings_sessions", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "description"
+    t.string   "visibility"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "user_login_services", :force => true do |t|

@@ -1,4 +1,5 @@
 class Exercise < ActiveRecord::Base
+	self.per_page = 10
   
   attr_accessible :name, :title, :type, :information, :visibility, :information_attributes, :owner
   

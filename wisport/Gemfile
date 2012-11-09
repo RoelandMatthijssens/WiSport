@@ -57,4 +57,4 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'css-social-buttons-rails'
-
+gem 'will_paginate'
