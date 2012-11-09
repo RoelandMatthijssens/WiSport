@@ -2,7 +2,7 @@
 	<%= "#{@user.followers.size} #{"follower".pluralize(@user.followers.size)}" %>
 	<br/>
 <% if @user != @current_user  %>
-	<% if @user.friends.include?(@current_user) %>
+	<% if @current_user.friends.include?(@user) %>
 		<%= button_to "Unfollow", unfollow_user_path(@user), class: "btn btn-danger", :method => :put, :remote => true %>
 	<% else %>
 		<%= button_to "Follow", follow_user_path(@user), class: "btn btn-primary", :method => :put, :remote => true %>
