@@ -40,7 +40,7 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
-    @image = Image.new_imgur(params[:image][:file])
+    @image = Image.new(params[:image])
     #file_content = file.read
     #raise tmp_file_path
     respond_to do |format|
