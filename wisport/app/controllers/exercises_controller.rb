@@ -42,6 +42,7 @@ class ExercisesController < ApplicationController
   # POST /exercises.json
   def create
     @exercise = Exercise.new(params[:exercise])
+		@exercise.owner = current_user
 
     respond_to do |format|
       if @exercise.save

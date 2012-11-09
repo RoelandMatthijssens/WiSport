@@ -3,14 +3,14 @@ class Exercise < ActiveRecord::Base
   attr_accessible :name, :title, :type, :information, :visibility, :information_attributes, :owner
   
   has_one :information
-	belongs_to :owner, :class_name => "User"
+	belongs_to :owner, :class_name => "User", :foreign_key => "owner_id"
   has_and_belongs_to_many :trainings_sessions
 
   validates_presence_of :name
   validates_presence_of :title
   validates_presence_of :type
   validates_presence_of :information
-	#validates_presence_of :owner
+	validates_presence_of :owner
 
   accepts_nested_attributes_for :information, allow_destroy: true
 
