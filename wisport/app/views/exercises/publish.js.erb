@@ -1,0 +1,3 @@
+var x = $("#publish_btn_<%= @exercise.id %>");
+x.after(' <%= j render :partial => "publish_button", :locals => {:exercise => @exercise} %>');
+x.remove();

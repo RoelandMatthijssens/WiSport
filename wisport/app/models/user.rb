@@ -83,7 +83,7 @@ attr_accessor :password
 	def followers_exercises
 		@exercises = []
 		friends.each do |friend|
-			@exercises += friend.exercises
+			@exercises += friend.exercises.published
 		end
 		return @exercises
 	end

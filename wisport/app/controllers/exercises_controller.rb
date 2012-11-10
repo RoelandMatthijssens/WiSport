@@ -86,4 +86,19 @@ class ExercisesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+	def publish
+		@exercise = Exercise.find_by_id(params[:id])
+		logger.debug(@exercise.visibility)
+		if @exercise.visibility=="Private"
+			@exercise.visibility = "Published"
+		else
+			@exercise.visibility = "Private"
+		end
+		@exercise.save
+		respond_to do |format|
+			format.html
+			format.js
+		end
+	end
 end
