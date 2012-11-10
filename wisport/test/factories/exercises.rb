@@ -3,7 +3,7 @@ FactoryGirl.define do
 		sequence(:name ) {|n| Faker::Lorem.word}
 		sequence(:title) {|n| Faker::Lorem.sentence}
 		type ["DistanceExercise","TimeExercise","RepsExercise"].sample()
-		visibility ["All", "Friends", "Private"].sample()
+		visibility ["Public", "Private"].sample()
 		information
 		f.association :owner, :factory => :user
 	end
