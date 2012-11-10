@@ -1,24 +1,20 @@
 <%= simple_form_for(@image, html: {class: 'form-horizontal', multipart: true}) do |f| %>
-
+<div>
+	
   <div class="form-inputs">
 
-		<%= f.input "file", as: :file %>
+		<%= f.input "file", as: :file, :wrapper_html => { :id => 'upload' }, label: "Add a file" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-<div>
   <div id="holder">
 	<div class="loading hidden"></div>
   </div> 
-  <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
   <p id="filereader">File API & FileReader API not supported</p>
   <p id="formdata">XHR2's FormData is not supported</p>
   <p id="progress">XHR2's upload progress isn't supported</p>
   <p>Drag an image from your desktop on to the drop zone above to see the browser both render the preview, but also upload automatically to this server.</p>
 </div>
+
+<% end %>
 
 <script>
 var holder = document.getElementById('holder'),
@@ -39,7 +35,7 @@ var holder = document.getElementById('holder'),
       'image/gif': true
     },
     progress = document.getElementById('uploadprogress'),
-    fileupload = document.getElementById('upload');
+    fileupload = $('#upload');
 
 "filereader formdata progress".split(' ').forEach(function (api) {
   if (tests[api] === false) {
@@ -97,18 +93,17 @@ function post_image(formData, id) {
 	});
 }
 
-if (tests.dnd) { 
-  holder.ondragover = function () { this.className = 'hover'; return false; };
-  holder.ondragend = function () { this.className = ''; return false; };
-  holder.ondrop = function (e) {
-    this.className = '';
-    e.preventDefault();
-    readfiles(e.dataTransfer.files);
-  }
-} else {
-  fileupload.className = 'hidden';
-  fileupload.querySelector('input').onchange = function () {
-    readfiles(this.files);
-  };
+
+fileupload.find('input').change(function () {
+	readfiles(this.files);
+	$('#upload').replaceWith( $('#upload').clone( true ) );	
+});
+holder.ondragover = function () { this.className = 'hover'; return false; };
+holder.ondragend = function () { this.className = ''; return false; };
+holder.ondrop = function (e) {
+  this.className = '';
+  e.preventDefault();
+  readfiles(e.dataTransfer.files);
 }
+
 </script>
