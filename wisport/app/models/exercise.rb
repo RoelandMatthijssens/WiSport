@@ -1,14 +1,13 @@
 class Exercise < ActiveRecord::Base
 	self.per_page = 10
 #	default_scope where("visibility IS 'Published'")
-  attr_accessible :name, :title, :type, :information, :visibility, :information_attributes, :owner
+  attr_accessible :name, :type, :information, :visibility, :information_attributes, :owner
 
   has_one :information
 	belongs_to :owner, :class_name => "User", :foreign_key => "owner_id"
   has_and_belongs_to_many :trainings_sessions
 
   validates_presence_of :name
-  validates_presence_of :title
   validates_presence_of :type
   validates_presence_of :information
 	validates_presence_of :owner
