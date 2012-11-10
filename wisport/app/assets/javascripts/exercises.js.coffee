@@ -15,3 +15,10 @@ $(document).on 'click', '.add_fields', (event) ->
   $(this).before($(this).data('fields').replace(regexp, time))
   event.preventDefault()
 
+$(document).on 'change', '#exercise_type', (event) ->
+	$("#time_exercise").removeClass "hidden"
+	$("#distance_exercise").removeClass "hidden"
+	$("#reps_exercise").removeClass "hidden"
+
+
+

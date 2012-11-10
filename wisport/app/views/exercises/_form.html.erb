@@ -4,6 +4,17 @@
 
 	<%= f.input :name %>
 	<%= f.input :type, :collection => Exercise.select_options %>
+	<div id="distance_exercise" class="hidden">
+		<%= f.input :distance %>
+	</div>
+	<div id="reps_exercise" class="hidden">
+		<%= f.input :reps %>
+	</div>
+	<div id="time_exercise" class="hidden">	
+		<%= f.input :hours %>
+		<%= f.input :minutes %>
+ 		<%= f.input :seconds %>
+	</div>
 	<% if false %>
 		<%= f.input :visibility, :collection => Exercise.visibility_options %>
 	<% end %>
