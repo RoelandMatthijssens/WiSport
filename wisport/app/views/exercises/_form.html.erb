@@ -5,8 +5,10 @@
 	<%= f.input :name %>
 	<%= f.input :title %>
 	<%= f.input :type, :collection => Exercise.select_options %>
-	<%= f.input :visibility, :collection => Exercise.visibility_options %>
-   <%= f.simple_fields_for :information do |builder| %>
+	<% if false %>
+		<%= f.input :visibility, :collection => Exercise.visibility_options %>
+	<% end %>
+	<%= f.simple_fields_for :information do |builder| %>
 		<%= render 'information_form', f: builder %>
 	<% end %>
 	

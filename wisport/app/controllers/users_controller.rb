@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	require 'will_paginate/array'
   before_filter :login_required, :except => [:new, :create]
 
 	def index
@@ -20,7 +21,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-		@exercises = @user.exercises.paginate(:page => params[:page])
+		@exercises = @user.exercises.paginate(:page => params[:my_exercises_page])
+		@followers_exercises = @user.followers_exercises.paginate(:page => params[:followers_page])
   end
 
   def edit
@@ -36,17 +38,13 @@ class UsersController < ApplicationController
     end
   end
 
-	def follow
+	def toggle_follow
 		@user = User.find_by_id(params[:id])
-		@current_user.friends << @user unless @current_user.friends.include? @user
-		respond_to do |format|
-			format.html
-			format.js
+		if @current_user.friends.include? @user
+			@current_user.friends.delete(@user)
+		else
+			@current_user.friends << @user
 		end
-	end
-	def unfollow
-		@user = User.find_by_id(params[:id])
-		@current_user.friends.delete(@user) if @current_user.friends.include? @user
 		respond_to do |format|
 			format.html
 			format.js

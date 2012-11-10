@@ -55,4 +55,12 @@
 		</div>
 	</div>
 </div>
-<%= render :partial => "exercises/exercise_list", :locals => {:exercise_list => @exercises} %>
+<% unless @followers_exercises.empty? %>
+	<h2>Followed Exercises</h2>
+	<%= render :partial => "exercises/exercise_list", :locals => {:exercise_list => @followers_exercises, :param_name => :followers_page} %>
+<% end %>
+<% unless @exercises.empty? %>
+<br/>
+<h2>My Exercises</h2>
+<%= render :partial => "exercises/exercise_list", :locals => {:exercise_list => @exercises, :publishable => true, :param_name => :my_exercises_page} %>
+<% end %>

@@ -18,8 +18,7 @@ Wisport::Application.routes.draw do
   resources :sessions
 
   resources :users do
-		put :follow, :on => :member
-		put :unfollow, :on => :member
+		put :toggle_follow, :on => :member
 	end
 
   resources :trainings_sessions

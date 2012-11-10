@@ -80,6 +80,14 @@ attr_accessor :password
 		User.joins(:friends).find(:all, :conditions => ["friend_id=?", self])
 	end
 
+	def followers_exercises
+		@exercises = []
+		friends.each do |friend|
+			@exercises += friend.exercises
+		end
+		return @exercises
+	end
+
   private
 
   def prepare_password
