@@ -11,6 +11,7 @@
 <% end %>
 <div>
   <div id="holder">
+	<div class="loading hidden"></div>
   </div> 
   <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
   <p id="filereader">File API & FileReader API not supported</p>
@@ -52,19 +53,11 @@ var holder = document.getElementById('holder'),
   }
 });
 
-function previewfile(file) {
+function previewfile(file, id) {
   if (tests.filereader === true && acceptedTypes[file.type] === true) {
     var reader = new FileReader();
     reader.onload = function (event) {
-      var image = new Image();
-      image.src = event.target.result;
-      image.width = 200; // a fake resize
-      var divTag = document.createElement("div"); 
-			divTag.className = "loading";
-      //holder.appendChild(image);
-			//holder.appendChild(divTag);
-			$("#holder").append('<div><div class="loading"><img src="'+event.target.result+'" width=200></div></div>');
-			
+			$("#holder").append('<div><div class="loading" id='+id+' ><img src="'+event.target.result+'" width=200></div></div>');
     };
 
     reader.readAsDataURL(file);
@@ -76,46 +69,32 @@ function previewfile(file) {
 
 function readfiles(files) {
     //debugger;
+		id_extra = 1000000000
     var formData = tests.formdata ? new FormData() : null;
     for (var i = 0; i < files.length; i++) {
+			var formData = new FormData();
+			var id = new Date().getTime();
+			id -= id_extra
+			id_extra += 1000000000
       if (tests.formdata) formData.append('image[file]', files[i]);
-			//document.getElementById('image_file')
-      previewfile(files[i]);
-			//$("#image_file").val(files[i]);
+      previewfile(files[i], id);
+			if (tests.formdata){
+				post_image(formData, id);
+			}
     }
-		
-		//if (tests.formdata){
-		//	$.ajax({
-		//	  type: 'POST',
-		//	  url: '/images.json',
-		//	  data: formData,
-		//		processData: false,
-		//	  contentType: false,
-		//	  success: function(data){
-		//		    alert(data);
-		//		  }
-		//	});
-		//}
+}
 
-    // now post a new XHR request
-    //if (tests.formdata) {
-    //  var xhr = new XMLHttpRequest();
-    //  xhr.open('POST', '/images.json');
-    //  xhr.onload = function() {
-    //    progress.value = progress.innerHTML = 100;
-    //  };
-    //
-    //  if (tests.progress) {
-    //    xhr.upload.onprogress = function (event) {
-    //      if (event.lengthComputable) {
-    //        var complete = (event.loaded / event.total * 100 | 0);
-    //        progress.value = progress.innerHTML = complete;
-    //      }
-    //    }
-    //  }
-    //  xhr.send(formData);
-    //
-    //}
+function post_image(formData, id) {
+	$.ajax({
+	  type: 'POST',
+	  url: '/images.json',
+	  data: formData,
+		processData: false,
+	  contentType: false,
+	  success: function(data){
+		    $("#"+id).removeClass("loading");
+		  }
+	});
 }
 
 if (tests.dnd) { 
