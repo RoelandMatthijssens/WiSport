@@ -1,0 +1,30 @@
+<% publishable ||= false %>
+<% param_name ||= :page %>
+<table class="table table-striped">
+  <tr>
+		<th>Owner</th>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Type</th>
+		<th colspan=4><%= link_to 'New', new_exercise_path, remote: true, class: "btn btn-primary" %></th>
+  </tr>
+
+<% exercise_list.each do |exercise| %>
+  <tr>
+    <td><%= link_to exercise.owner.username, exercise.owner %></td>
+    <td><%= link_to exercise.name, exercise %></td>
+    <td><%= exercise.title %></td>
+    <td><%= exercise.type %></td>
+    <td><%= link_to 'Do!', exercise, method: :put, class: "btn" %></td>
+		<% if exercise.owner == current_user %>
+			<td><%= link_to 'Edit', edit_exercise_path(exercise), class: "btn", remote: true %></td>
+			<% if publishable %>
+				<td><%= render :partial => "exercises/publish_button", :locals => {:exercise => exercise} %></td>
+			<% end %>
+			<td><%= link_to 'Destroy', exercise, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
+		<% end %>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate exercise_list, :param_name => param_name %>

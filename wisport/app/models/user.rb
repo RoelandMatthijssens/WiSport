@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   # new columns need to be added here to be writable through mass assignment
-  attr_accessible :username, :email, :password, :password_confirmation
+  attr_accessible :username, :email, :password, :password_confirmation, :exercises
 
+	has_many :exercises, :foreign_key => "owner_id"
   has_many :user_login_services
   has_and_belongs_to_many :friends,
 			  :class_name => "User",
@@ -74,6 +75,18 @@ attr_accessor :password
     new_user.save(:validate => false)
     new_user
   end
+
+	def followers
+		User.joins(:friends).find(:all, :conditions => ["friend_id=?", self])
+	end
+
+	def followers_exercises
+		@exercises = []
+		friends.each do |friend|
+			@exercises += friend.exercises.published
+		end
+		return @exercises
+	end
 
   private
 

@@ -2,7 +2,7 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
-    @exercises = Exercise.all
+    @exercises = Exercise.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,12 +42,13 @@ class ExercisesController < ApplicationController
   # POST /exercises.json
   def create
     @exercise = Exercise.new(params[:exercise])
+		@exercise.owner = current_user
 
     respond_to do |format|
       if @exercise.save
         format.html { redirect_to @exercise, notice: 'Exercise was successfully created.' }
         format.json { render json: @exercise, status: :created, location: @exercise }
-        format.js { render js: %(window.location.pathname='#{exercises_path}') }
+        format.js { render js: %(window.location='#{exercises_path}') }
       else        
         format.html { render action: "new" }
         format.json { render json: @exercise.errors, status: :unprocessable_entity }
@@ -65,9 +66,11 @@ class ExercisesController < ApplicationController
       if @exercise.update_attributes(params[:exercise])
         format.html { redirect_to @exercise, notice: 'Exercise was successfully updated.' }
         format.json { head :no_content }
+        format.js { render js: %(window.location='#{exercises_path}') }
       else
         format.html { render action: "edit" }
         format.json { render json: @exercise.errors, status: :unprocessable_entity }
+        format.js { render action: "edit"}
       end
     end
   end
@@ -83,4 +86,19 @@ class ExercisesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+	def publish
+		@exercise = Exercise.find_by_id(params[:id])
+		logger.debug(@exercise.visibility)
+		if @exercise.visibility=="Private"
+			@exercise.visibility = "Published"
+		else
+			@exercise.visibility = "Private"
+		end
+		@exercise.save
+		respond_to do |format|
+			format.html
+			format.js
+		end
+	end
 end

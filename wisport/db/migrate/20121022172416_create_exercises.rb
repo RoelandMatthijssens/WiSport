@@ -12,6 +12,7 @@ class CreateExercises < ActiveRecord::Migration
       t.integer :minutes, :default => 0
       t.integer :seconds, :default => 0
 
+      t.references :owner
       t.references :information
 
       t.timestamps

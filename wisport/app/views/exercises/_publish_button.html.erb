@@ -1,0 +1,7 @@
+<% if exercise.owner == current_user %>
+	<% if exercise.visibility == "Private" %>
+		<%= link_to "Publish", publish_exercise_path(exercise), class: "btn", id: "publish_btn_#{exercise.id}", :method => :put, :remote => true %>
+	<% else %>
+		<%= link_to "Un Publish", publish_exercise_path(exercise), class: "btn btn-danger", id: "publish_btn_#{exercise.id}", :method => :put, :remote => true %>
+	<% end %>
+<% end %>

@@ -7,6 +7,7 @@
 	</div>
 	<div class="span9">
 		<div class="user_info">
+                        <h1> User Info </h1>
 			<p>
 				<b>Name:</b>
 				<%= @user.username %>
@@ -47,9 +48,19 @@
 						<%=link_to  "#{user_service.provider} profile", user_service.profile_link %>
 					</p>
 			<% end %>
+                        <% if @user == @current_user %>
 			<%= link_to 'Edit', edit_user_path(@user) %> |
+                        <% end %>
 			<%= link_to 'Back', users_path %>
 		</div>
 	</div>
 </div>
-
+<% unless @followers_exercises.empty? %>
+	<h2>Followed Exercises</h2>
+	<%= render :partial => "exercises/exercise_list", :locals => {:exercise_list => @followers_exercises, :param_name => :followers_page} %>
+<% end %>
+<% unless @exercises.empty? %>
+<br/>
+<h2>My Exercises</h2>
+<%= render :partial => "exercises/exercise_list", :locals => {:exercise_list => @exercises, :publishable => true, :param_name => :my_exercises_page} %>
+<% end %>

@@ -14,7 +14,11 @@
   <b>Type:</b>
   <%= @exercise.type %>
 </p>
+<p>
+  <b>owner:</b>
+  <%= @exercise.owner.username %>
+</p>
 
-
+<%= render :partial => "publish_button", :locals => {:exercise => @exercise} %>
 <%= link_to 'Edit', edit_exercise_path(@exercise) %> |
 <%= link_to 'Back', exercises_path %>

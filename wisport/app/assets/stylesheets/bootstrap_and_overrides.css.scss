@@ -13,6 +13,8 @@ $blue: $hilightColor0;
 $green: $hilightColor1;
 $orange: $hilightColor2;
 
+
+$tableBackgroundAccent: #D9D9D9;
 @import "bootstrap";
 @font-face {
   font-family: 'DigitalSansEF';    
@@ -61,5 +63,14 @@ body {
 	background: url('/assets/background/low_contrast_linen_@2X.png');
 }
 
+.pagination .current{
+  float: left;
+  padding: 0 14px;
+  line-height: ($baseLineHeight * 2) - 2;
+  text-decoration: none;
+  background-color: $paginationBackground;
+  border: 1px solid $paginationBorder;
+  border-left-width: 0;
+}
 
 @import "bootstrap-responsive";
