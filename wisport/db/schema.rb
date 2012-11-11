@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(:version => 20121105080446) do
 
   create_table "exercises", :force => true do |t|
     t.string   "name"
-    t.string   "title"
     t.integer  "user_id"
     t.string   "visibility"
     t.string   "type"

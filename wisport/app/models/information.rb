@@ -1,5 +1,5 @@
 class Information < ActiveRecord::Base
-  attr_accessible :description, :media, :images_attributes
+  attr_accessible :description, :images_attributes, :image_ids
 
   belongs_to :exercise
   has_many :images
