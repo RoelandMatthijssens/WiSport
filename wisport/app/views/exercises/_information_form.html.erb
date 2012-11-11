@@ -1,5 +1,10 @@
 
 <%= f.input :description, input_html: {:rows => 5} %>
+<div id="pictures hidden">  
+	<% @exercise.information.images.each do |img| %>
+		<%= hidden_field_tag 'exercise[information_attributes][image_ids][]', img.id %>
+	<% end %>
+</div>
 <div>
 	
   <div class="form-inputs">
@@ -11,6 +16,9 @@
 		<p>Drop Pictures here! </p>
 		<p id="filereader">Drag and drop is not supported</p>
 	  <p id="formdata">Drag and dropis not supported</p>
+		<% @exercise.information.images.each do |img| %>
+			<%= image_tag img.large_thumbnail, width: "200" %>
+		<% end %>
   </div> 
 </div>
 
@@ -58,6 +66,10 @@ function previewfile(file, id) {
   }
 }
 
+function showlink(link){
+	$("#holder").append('<div><div ><img src="'+link+'" width=200></div></div>');
+}
+
 function readfiles(files) {
     //debugger;
 		id_extra = 1000000000
@@ -84,7 +96,7 @@ function post_image(formData, id) {
 	  contentType: false,
 	  success: function(data){
 		    $("#"+id).removeClass("loading_white");
-				$("#exercise_information_attributes_description").after("<input class='hidden' id='exercise_information_attributes_image_ids' name='exercise[information_attributes][image_ids][]' type='hidden' value="+data["id"]+">")
+				$("#pictures").append("<input class='hidden' id='exercise_information_attributes_image_ids' name='exercise[information_attributes][image_ids][]' type='hidden' value="+data["id"]+">")
 		  }
 	});
 }
