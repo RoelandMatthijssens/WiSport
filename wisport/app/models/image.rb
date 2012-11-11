@@ -6,8 +6,10 @@ class Image < ActiveRecord::Base
   
   #validates :delete_page, :imagur_page, :large_thumbnail, :original, :small_square,  :presence => true
     
-  def file
-    original
+	before_destroy :delete_imgur
+
+	def file
+		original
   end
   
   def file=(file)

@@ -74,16 +74,10 @@ class ImagesController < ApplicationController
   # DELETE /images/1.json
   def destroy
     @image = Image.find(params[:id])
-    deleted = @image.delete_imgur
-    @image.destroy if deleted
+    @image.destroy
     respond_to do |format|
-      if deleted
         format.html { redirect_to images_url }
         format.json { head :no_content }
-      else
-        format.html { redirect_to @image, alert: "Delete failed, please contact the administrators"}
-        format.json { head :no_content }
-      end
     end
   end
 end
