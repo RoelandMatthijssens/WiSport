@@ -10,11 +10,8 @@
 	<div id="reps_exercise" class="hidden">
 		<%= f.input :reps %>
 	</div>
-	<div id="time_exercise" class="hidden">	
-		<%= f.input :hours %>
-		<%= f.input :minutes %>
- 		<%= f.input :seconds %>
-	</div>
+	<%= render partial: 'time_exercise', locals: {f: f} %>
+
 	<% if false %>
 		<%= f.input :visibility, :collection => Exercise.visibility_options %>
 	<% end %>
