@@ -43,7 +43,7 @@ class ExercisesController < ApplicationController
   def create
     @exercise = Exercise.new(params[:exercise])
 		@exercise.owner = current_user
-
+		@exercise.visibility = "Private"
     respond_to do |format|
       if @exercise.save
         format.html { redirect_to @exercise, notice: 'Exercise was successfully created.' }
