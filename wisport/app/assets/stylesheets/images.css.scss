@@ -7,6 +7,7 @@
 	min-height: 300px; 
 	margin: 20px auto; 
 	position: relative;
+	text-align: center;
 	}
 	
 #holder.hover { 
@@ -29,6 +30,18 @@
 }
 #holder .loading img{
 	background: black;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+}
+#holder .loading_white {
+
+	background-image:url('/assets/ajax-loader-white.gif'); 
+	background-position:center; 
+	background-repeat:no-repeat; 
+	height: 100%;
+}
+#holder .loading_white img{
+	background: white;
 	opacity:0.4;
 	filter:alpha(opacity=40);
 }

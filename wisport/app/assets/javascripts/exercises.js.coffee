@@ -15,3 +15,21 @@ $(document).on 'click', '.add_fields', (event) ->
   $(this).before($(this).data('fields').replace(regexp, time))
   event.preventDefault()
 
+$(document).on 'change', '#exercise_type', (event) ->
+	if $("#exercise_type").val() is 'TimeExercise'
+		$("#time_exercise").removeClass "hidden" 
+		$("#reps_exercise").addClass "hidden" 
+		$("#distance_exercise").addClass "hidden" 
+	if $("#exercise_type").val() is 'DistanceExercise'
+		$("#distance_exercise").removeClass "hidden"
+		$("#reps_exercise").addClass "hidden" 
+		$("#time_exercise").addClass "hidden" 
+	if $("#exercise_type").val() is 'RepsExercise'
+		$("#reps_exercise").removeClass "hidden"
+		$("#time_exercise").addClass "hidden" 
+		$("#distance_exercise").addClass "hidden" 
+	if $("#exercise_type").val() is ''
+                $("#reps_exercise").addClass "hidden"
+                $("#time_exercise").addClass "hidden"    
+                $("#distance_exercise").addClass "hidden" 
+

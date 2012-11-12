@@ -12,9 +12,10 @@ namespace :db do
 			:password => "roeland1",
 			:password_confirmation => "roeland1"
 		)
+		exeptions = [:image]
 		FactoryGirl.factories.each do |f|
 			@amount.times do 
-				FactoryGirl.create(f.name)
+				FactoryGirl.create(f.name) unless exeptions.include?(f.name)
 			end
 		end
 	end

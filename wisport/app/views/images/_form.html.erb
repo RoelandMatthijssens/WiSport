@@ -1,23 +1,20 @@
 <%= simple_form_for(@image, html: {class: 'form-horizontal', multipart: true}) do |f| %>
-
+<div>
+	
   <div class="form-inputs">
 
-		<%= f.input "file", as: :file %>
+		<%= f.input "file", as: :file, :wrapper_html => { :id => 'upload' }, label: "Add a file" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-<div>
   <div id="holder">
+	<div class="loading hidden"></div>
   </div> 
-  <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
   <p id="filereader">File API & FileReader API not supported</p>
   <p id="formdata">XHR2's FormData is not supported</p>
   <p id="progress">XHR2's upload progress isn't supported</p>
   <p>Drag an image from your desktop on to the drop zone above to see the browser both render the preview, but also upload automatically to this server.</p>
 </div>
+
+<% end %>
 
 <script>
 var holder = document.getElementById('holder'),
@@ -38,7 +35,7 @@ var holder = document.getElementById('holder'),
       'image/gif': true
     },
     progress = document.getElementById('uploadprogress'),
-    fileupload = document.getElementById('upload');
+    fileupload = $('#upload');
 
 "filereader formdata progress".split(' ').forEach(function (api) {
   if (tests[api] === false) {
@@ -52,19 +49,11 @@ var holder = document.getElementById('holder'),
   }
 });
 
-function previewfile(file) {
+function previewfile(file, id) {
   if (tests.filereader === true && acceptedTypes[file.type] === true) {
     var reader = new FileReader();
     reader.onload = function (event) {
-      var image = new Image();
-      image.src = event.target.result;
-      image.width = 200; // a fake resize
-      var divTag = document.createElement("div"); 
-			divTag.className = "loading";
-      //holder.appendChild(image);
-			//holder.appendChild(divTag);
-			$("#holder").append('<div><div class="loading"><img src="'+event.target.result+'" width=200></div></div>');
-			
+			$("#holder").append('<div><div class="loading" id='+id+' ><img src="'+event.target.result+'" width=200></div></div>');
     };
 
     reader.readAsDataURL(file);
@@ -76,60 +65,45 @@ function previewfile(file) {
 
 function readfiles(files) {
     //debugger;
+		id_extra = 1000000000
     var formData = tests.formdata ? new FormData() : null;
     for (var i = 0; i < files.length; i++) {
+			var formData = new FormData();
+			var id = new Date().getTime();
+			id -= id_extra
+			id_extra += 1000000000
       if (tests.formdata) formData.append('image[file]', files[i]);
-			//document.getElementById('image_file')
-      previewfile(files[i]);
-			//$("#image_file").val(files[i]);
+      previewfile(files[i], id);
+			if (tests.formdata){
+				post_image(formData, id);
+			}
     }
-		
-		//if (tests.formdata){
-		//	$.ajax({
-		//	  type: 'POST',
-		//	  url: '/images.json',
-		//	  data: formData,
-		//		processData: false,
-		//	  contentType: false,
-		//	  success: function(data){
-		//		    alert(data);
-		//		  }
-		//	});
-		//}
-
-    // now post a new XHR request
-    //if (tests.formdata) {
-    //  var xhr = new XMLHttpRequest();
-    //  xhr.open('POST', '/images.json');
-    //  xhr.onload = function() {
-    //    progress.value = progress.innerHTML = 100;
-    //  };
-    //
-    //  if (tests.progress) {
-    //    xhr.upload.onprogress = function (event) {
-    //      if (event.lengthComputable) {
-    //        var complete = (event.loaded / event.total * 100 | 0);
-    //        progress.value = progress.innerHTML = complete;
-    //      }
-    //    }
-    //  }
-    //  xhr.send(formData);
-    //
-    //}
 }
 
-if (tests.dnd) { 
-  holder.ondragover = function () { this.className = 'hover'; return false; };
-  holder.ondragend = function () { this.className = ''; return false; };
-  holder.ondrop = function (e) {
-    this.className = '';
-    e.preventDefault();
-    readfiles(e.dataTransfer.files);
-  }
-} else {
-  fileupload.className = 'hidden';
-  fileupload.querySelector('input').onchange = function () {
-    readfiles(this.files);
-  };
+function post_image(formData, id) {
+	$.ajax({
+	  type: 'POST',
+	  url: '/images.json',
+	  data: formData,
+		processData: false,
+	  contentType: false,
+	  success: function(data){
+		    $("#"+id).removeClass("loading");
+		  }
+	});
 }
+
+
+fileupload.find('input').change(function () {
+	readfiles(this.files);
+	$('#upload').replaceWith( $('#upload').clone( true ) );	
+});
+holder.ondragover = function () { this.className = 'hover'; return false; };
+holder.ondragend = function () { this.className = ''; return false; };
+holder.ondrop = function (e) {
+  this.className = '';
+  e.preventDefault();
+  readfiles(e.dataTransfer.files);
+}
+
 </script>
