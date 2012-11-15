@@ -14,8 +14,18 @@ namespace :db do
 		)
 		exeptions = [:image]
 		FactoryGirl.factories.each do |f|
+			puts "Creating #{f.name.to_s.pluralize}"
 			@amount.times do 
-				FactoryGirl.create(f.name) unless exeptions.include?(f.name)
+				x = FactoryGirl.create(f.name) unless exeptions.include?(f.name)
+				if x
+					x = x.attributes
+					x.delete "id"
+					x.delete "created_at"
+					x.delete "updated_at"
+					x.delete "password_hash"
+					x.delete "password_salt"
+					puts "\t #{x}"
+				end
 			end
 		end
 	end
