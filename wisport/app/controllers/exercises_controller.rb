@@ -41,7 +41,15 @@ class ExercisesController < ApplicationController
   # POST /exercises
   # POST /exercises.json
   def create
-    @exercise = Exercise.new(params[:exercise])
+		x = {"DistanceExercise"=>DistanceExercise, "RepsExercise"=>RepsExercise, "TimeExercise"=>TimeExercise}
+		params[:exercise].delete "distance" if params[:exercise][:type] != "DistanceExercise"
+		params[:exercise].delete "reps" if params[:exercise][:type] != "RepsExercise"
+		if params[:exercise][:type] != "TimeExercise"
+			params[:exercise].delete "hours"
+			params[:exercise].delete "minutes"
+			params[:exercise].delete "seconds"
+		end
+    @exercise = x[params[:exercise][:type]].new(params[:exercise])
 		@exercise.owner = current_user
 		@exercise.visibility = "Private"
     respond_to do |format|
@@ -49,7 +57,7 @@ class ExercisesController < ApplicationController
         format.html { redirect_to @exercise, notice: 'Exercise was successfully created.' }
         format.json { render json: @exercise, status: :created, location: @exercise }
         format.js { render js: %(window.location='#{exercises_path}') }
-      else        
+      else
         format.html { render action: "new" }
         format.json { render json: @exercise.errors, status: :unprocessable_entity }
         format.js { render action: "new"}
