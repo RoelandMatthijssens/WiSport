@@ -28,5 +28,10 @@ namespace :db do
 				end
 			end
 		end
+		TrainingsSession.all.each do |ts|
+			3.times do
+				ts.exercises << Exercise.all.sample
+			end
+		end
 	end
 end

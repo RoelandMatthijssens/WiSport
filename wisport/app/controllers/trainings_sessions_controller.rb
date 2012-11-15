@@ -14,6 +14,7 @@ class TrainingsSessionsController < ApplicationController
   # GET /trainings_sessions/1.json
   def show
     @trainings_session = TrainingsSession.find(params[:id])
+		@exercise_list = @trainings_session.exercises.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # show.html.erb

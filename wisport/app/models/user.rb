@@ -3,12 +3,12 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :exercises
 
 	has_many :exercises, :foreign_key => "owner_id"
+	has_many :trainings_sessions
   has_many :user_login_services
   has_and_belongs_to_many :friends,
-			  :class_name => "User",
-			  :association_foreign_key => "friend_id",
-			  :join_table => "friends"
-  
+		:class_name => "User",
+		:association_foreign_key => "friend_id",
+		:join_table => "friends"
 attr_accessor :password
   before_save :prepare_password
 

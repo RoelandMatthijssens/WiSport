@@ -1,27 +1,27 @@
 class Exercise < ActiveRecord::Base
 	self.per_page = 10
 #	default_scope where("visibility IS 'Published'")
-  attr_accessible :name, :type, :information, :visibility, :information_attributes, :owner
+	attr_accessible :name, :type, :information, :visibility, :information_attributes, :owner
 
-  has_one :information
+	has_one :information
 	belongs_to :owner, :class_name => "User", :foreign_key => "owner_id"
-  has_and_belongs_to_many :trainings_sessions
+	has_and_belongs_to_many :trainings_sessions
 
-  validates_presence_of :name
-  validates_presence_of :type
-  validates_presence_of :information
+	validates_presence_of :name
+	validates_presence_of :type
+	validates_presence_of :information
 	validates_presence_of :owner
 
-  accepts_nested_attributes_for :information, allow_destroy: true
+	accepts_nested_attributes_for :information, allow_destroy: true
 
 	def self.published
 		where("visibility IS 'Published'")
 	end
-  def self.visibility_options
-    ["Published", "Private"]
-  end
-  
-  validates_inclusion_of :visibility, :in=>visibility_options, :allow_nil => false
+	def self.visibility_options
+		["Published", "Private"]
+	end
+	
+	validates_inclusion_of :visibility, :in=>visibility_options, :allow_nil => false
 
 	def self.select_options
 		descendants.map{ |c| c.to_s }.sort

@@ -1,8 +1,10 @@
 <h1>Listing trainings_sessions</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
-    <th>Exercise</th>
+    <th>Owner</th>
+    <th>Title</th>
+    <th>Description</th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,10 +12,11 @@
 
 <% @trainings_sessions.each do |trainings_session| %>
   <tr>
-    <td><%= trainings_session.exercises %></td>
-    <td><%= link_to 'Show', trainings_session %></td>
-    <td><%= link_to 'Edit', edit_trainings_session_path(trainings_session) %></td>
-    <td><%= link_to 'Destroy', trainings_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to trainings_session.owner.username, trainings_session.owner %></td>
+    <td><%= link_to trainings_session.title, trainings_session %></td>
+    <td><%= trainings_session.description %></td>
+    <td><%= link_to 'Edit', edit_trainings_session_path(trainings_session), class:"btn" %></td>
+    <td><%= link_to 'Destroy', trainings_session, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
   </tr>
 <% end %>
 </table>

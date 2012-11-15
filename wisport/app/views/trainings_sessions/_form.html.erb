@@ -1,12 +1,10 @@
 <%= simple_form_for(@trainings_session) do |f| %>
 	<%= f.error_notification %>
-
-
-    <%= f.association :exercises %>
-			
-  <%= f.error :base %>
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn btn-primary' %>
+	<%= f.association :exercises %>
+	
+	<%= f.error :base %>
+	<div class="form-actions">
+		<%= f.button :submit, :class => 'btn btn-primary' %>
 		<%= link_to 'Cancel', information_index_path, class: 'btn btn-danger' %>
-  </div>
+	</div>
 <% end %>
