@@ -42,6 +42,8 @@ class TrainingsSessionsController < ApplicationController
   # POST /trainings_sessions.json
   def create
     @trainings_session = TrainingsSession.new(params[:trainings_session])
+		@trainings_session.visibility = "Private"
+		@trainings_session.owner = current_user if current_user
 
     respond_to do |format|
       if @trainings_session.save
