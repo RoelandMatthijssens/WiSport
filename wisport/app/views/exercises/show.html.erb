@@ -20,5 +20,7 @@
 </p>
 
 <%= render :partial => "publish_button", :locals => {:exercise => @exercise} %>
-<%= link_to 'Edit', edit_exercise_path(@exercise) %> |
+<% if @exercise.owner == current_user %>
+	<%= link_to 'Edit', edit_exercise_path(@exercise) %> |
+<% end %>
 <%= link_to 'Back', exercises_path %>

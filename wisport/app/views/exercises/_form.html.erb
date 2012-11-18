@@ -4,12 +4,9 @@
 
 	<%= f.input :name %>
 	<%= f.input :type, :collection => Exercise.select_options %>
-	<div id="distance_exercise" class="hidden">
-		<%= f.input :distance %>
-	</div>
-	<div id="reps_exercise" class="hidden">
-		<%= f.input :reps %>
-	</div>
+
+	<%= render partial: 'distance_exercise', locals: {f: f} %>
+	<%= render partial: 'reps_exercise', locals: {f: f} %>
 	<%= render partial: 'time_exercise', locals: {f: f} %>
 
 	<% if false %>
