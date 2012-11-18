@@ -55,8 +55,10 @@
 		</div>
 	</div>
 </div>
-<% if @followers_exercises.empty? %>
+<% if @user.friends.empty? %>
 	<p>You are not following anyone that published exercises. Look for more <%= link_to "friends", users_path %> to follow </p>
+<% elsif @followers_exercises.empty? %>
+	<p>None of you friends has published any exercises. Look for more <%= link_to "friends", users_path %> to follow </p>
 <% else %>
 	<h2>Followed Exercises</h2>
 	<%= render :partial => "exercises/exercise_list", :locals => {:exercise_list => @followers_exercises, :param_name => :followers_page} %>
