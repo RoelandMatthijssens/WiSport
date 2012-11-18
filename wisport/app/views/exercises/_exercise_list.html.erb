@@ -9,6 +9,7 @@
   </tr>
 
 <% exercise_list.each do |exercise| %>
+<% if exercise.owner == current_user || exercise.visibility == "Published"  %>
   <tr>
     <td><%= link_to exercise.owner.username, exercise.owner %></td>
     <td><%= link_to exercise.name, exercise %></td>
@@ -22,6 +23,7 @@
 			<td><%= link_to 'Destroy', exercise, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
 		<% end %>
   </tr>
+<% end %>
 <% end %>
 </table>
 
