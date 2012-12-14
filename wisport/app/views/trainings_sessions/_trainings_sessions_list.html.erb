@@ -1,11 +1,10 @@
 
-<table class="table">
+<table class="table table-striped">
   <tr>
     <th>Title</th>	
     <th>Owner</th>
     <th>Description</th>
-    <th></th>
-    <th></th>
+    <th colspan=3><%= link_to 'New', new_trainings_session_path, remote: true, class: "btn btn-primary" %></th>
   </tr>
 
 <% @trainings_sessions.each do |trainings_session| %>

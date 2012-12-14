@@ -30,6 +30,7 @@ class TrainingsSessionsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @trainings_session }
+			format.js
     end
   end
 
@@ -49,9 +50,11 @@ class TrainingsSessionsController < ApplicationController
       if @trainings_session.save
         format.html { redirect_to @trainings_session, notice: 'Trainings session was successfully created.' }
         format.json { render json: @trainings_session, status: :created, location: @trainings_session }
+				format.js { render js: %(window.location='#{trainings_sessions_path}') }
       else
         format.html { render action: "new" }
         format.json { render json: @trainings_session.errors, status: :unprocessable_entity }
+				format.js { render action: "new"}
       end
     end
   end

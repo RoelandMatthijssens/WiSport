@@ -1,0 +1,5 @@
+$('#ex_form').remove();
+$('#container').prepend(' <%=j floating_form "form", id: "ts_form" %>');
+$(".floating_form_close").click(function() {hide_popups();});
+$("a:contains('Cancel')").attr("href", "#").click(function() {hide_popups();});
+open_floating_form('ts_form');
