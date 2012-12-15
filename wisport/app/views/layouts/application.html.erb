@@ -27,8 +27,11 @@
 					<%= link_to content_tag(:span, "Wi", class: "logo_wi")+content_tag(:span, "Sport", class: "logo_sport"), root_path, class: "brand" %>
 					<div class="nav-collapse">
 						<ul class="nav pull-left">
-							<li><%= link_to "Exercices", exercises_path %></li>
-							<li><%= link_to "Events" %></li>
+							<% if current_user %>
+								<li><%= link_to "Exercices", exercises_path %></li>
+								<li><%= link_to "Training Sessions", trainings_sessions_path %></li>
+								<li><%= link_to "Events" %></li>
+							<% end %>
 						</ul>
 						<ul class="nav pull-right">
 							<% if current_user %>

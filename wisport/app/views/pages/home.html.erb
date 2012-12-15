@@ -1,17 +1,7 @@
 <h1> <%= @title %> </h1>
-<ul> 
-	<li> <%= link_to "log in", login_path %> </li>
-	<li> <%= link_to "log out", logout_path %> </li>
-	<li> <%= link_to "sign up", signup_path %> </li>
-	<li> <%= link_to "trainings_sessions", trainings_sessions_path %> </li>
-	<li> <%= link_to "information_index", information_index_path %> </li>
-	<li> <%= link_to "exercises", exercises_path %> </li>
-	<li> <%= link_to "users", users_path %> </li>
-</ul>
-
-<% if @client %>
-	<%= @result.inspect %>
-<% end %>
-
-<br/>
-<%= link_to "test", login_url, :remote => true %>
+<% if current_user %>
+<%=render 'logged_in' %>
+<%end%>
+<% if ! current_user %>
+<%=render 'not_logged_in' %>
+<%end%>

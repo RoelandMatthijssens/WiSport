@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
-	<div class="profile_image span3">
+	<div class="profile_image span2" >
 		<%= image_tag profile_picture(@user) %>
 		<br/>
 		<%= render :partial => 'follow' %>
@@ -19,32 +19,7 @@
 			</p>
 			<% @user.user_login_services.each do |user_service| %>
 					<p>
-						<b>provider:</b>
-						<%= user_service.provider %>
-					</p>
-					
-					<p>
-						<b>login:</b>
-						<%= user_service.login %>
-					</p>
-					<p>
-						<b>uid:</b>
-						<%= user_service.uid %>
-					</p>
-					<p>
-						<b>acces_token:</b>
-						<%= user_service.acces_token %>
-					</p>
-					<p>
-						<b>refresh_token:</b>
-						<%= user_service.refresh_token %>
-					</p>
-					<p>
-						<b>token_expiration:</b>
-						<%= user_service.token_expiration %>
-					</p>
-					<p>
-						<b>profile_link:</b>
+						<b>Link to Google+ profile:</b>
 						<%=link_to  "#{user_service.provider} profile", user_service.profile_link %>
 					</p>
 			<% end %>
