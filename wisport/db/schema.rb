@@ -11,7 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105080446) do
+ActiveRecord::Schema.define(:version => 20121215191218) do
+
+  create_table "do_exercises", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "visibility"
+    t.float    "distance"
+    t.integer  "reps"
+    t.integer  "hours"
+    t.integer  "minutes"
+    t.integer  "seconds"
+    t.integer  "exercise_id"
+    t.integer  "do_session_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "do_exercises", ["do_session_id"], :name => "index_do_exercises_on_do_session_id"
+  add_index "do_exercises", ["exercise_id"], :name => "index_do_exercises_on_exercise_id"
+  add_index "do_exercises", ["user_id"], :name => "index_do_exercises_on_user_id"
+
+  create_table "do_sessions", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "visibility"
+    t.text     "remarks"
+    t.integer  "trainings_session_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "do_sessions", ["trainings_session_id"], :name => "index_do_sessions_on_trainings_session_id"
+  add_index "do_sessions", ["user_id"], :name => "index_do_sessions_on_user_id"
 
   create_table "exercises", :force => true do |t|
     t.string   "name"

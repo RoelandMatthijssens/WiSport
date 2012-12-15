@@ -1,0 +1,29 @@
+<h1>Listing do_sessions</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Visibility</th>
+    <th>Remarks</th>
+    <th>Trainings session</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @do_sessions.each do |do_session| %>
+  <tr>
+    <td><%= do_session.user %></td>
+    <td><%= do_session.visibility %></td>
+    <td><%= do_session.remarks %></td>
+    <td><%= do_session.trainings_session %></td>
+    <td><%= link_to 'Show', do_session %></td>
+    <td><%= link_to 'Edit', edit_do_session_path(do_session) %></td>
+    <td><%= link_to 'Destroy', do_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Do session', new_do_session_path %>

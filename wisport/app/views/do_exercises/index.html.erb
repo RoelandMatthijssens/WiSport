@@ -1,0 +1,39 @@
+<h1>Listing do_exercises</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Visibility</th>
+    <th>Distance</th>
+    <th>Reps</th>
+    <th>Hours</th>
+    <th>Minutes</th>
+    <th>Seconds</th>
+    <th>Exercise</th>
+    <th>Do session</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @do_exercises.each do |do_exercise| %>
+  <tr>
+    <td><%= do_exercise.user %></td>
+    <td><%= do_exercise.visibility %></td>
+    <td><%= do_exercise.distance %></td>
+    <td><%= do_exercise.reps %></td>
+    <td><%= do_exercise.hours %></td>
+    <td><%= do_exercise.minutes %></td>
+    <td><%= do_exercise.seconds %></td>
+    <td><%= do_exercise.exercise %></td>
+    <td><%= do_exercise.do_session %></td>
+    <td><%= link_to 'Show', do_exercise %></td>
+    <td><%= link_to 'Edit', edit_do_exercise_path(do_exercise) %></td>
+    <td><%= link_to 'Destroy', do_exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Do exercise', new_do_exercise_path %>

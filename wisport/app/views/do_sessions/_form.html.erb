@@ -1,0 +1,34 @@
+<h2>Do a session</h2>
+
+<%= simple_form_for(@do_session, html: {class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user, as: :hidden %>
+    <%= f.input :visibility %>
+    <%= f.input :remarks, input_html: {:rows => 5} %>
+    <%= f.association :trainings_session, as: :hidden %>
+		
+		<%= f.simple_fields_for :do_exercises do |do_ex_form| %>
+		<% ex = do_ex_form.object.exercise %>
+		<fieldset>
+			<legend class="floating_form_legend"><%= ex.name %></legend>
+			<%= do_ex_form.association :user, as: :hidden %>
+	    <%= do_ex_form.input :visibility, :as => :hidden %>
+	    <%= do_ex_form.input :distance unless ex.distance == 0 %>
+	    <%= do_ex_form.input :reps unless ex.reps == 0 %>
+			<% unless ex.hours == 0 && ex.minutes == 0 && ex.seconds == 0 %>
+	    	<%= do_ex_form.input :hours %>
+	    	<%= do_ex_form.input :minutes %>
+	    	<%= do_ex_form.input :seconds %>
+			<% end %>
+	    <%= do_ex_form.association :exercise, as: :hidden %>
+	    <%= do_ex_form.association :do_session, as: :hidden %>
+		</fieldset>
+		<% end %>
+  </div>
+
+  <div >
+    <%= f.button :submit, "I did it!", :class => 'btn btn-primary' %>
+  </div>
+<% end %>

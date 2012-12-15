@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @do_session.user %>
+</p>
+
+<p>
+  <b>Visibility:</b>
+  <%= @do_session.visibility %>
+</p>
+
+<p>
+  <b>Remarks:</b>
+  <%= @do_session.remarks %>
+</p>
+
+<p>
+  <b>Trainings session:</b>
+  <%= @do_session.trainings_session %>
+</p>
+
+
+<%= link_to 'Edit', edit_do_session_path(@do_session) %> |
+<%= link_to 'Back', do_sessions_path %>
