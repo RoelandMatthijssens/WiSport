@@ -2,9 +2,11 @@
 	<div class="span8 offset2 center">
 	</div>
 </div>
-<%= render 'slide_frame' %>
-<br/>
+
 <% if current_user %>
-<%=render 'logged_in' %>
-<%end%>
-<%=render 'not_logged_in' %>
+	<%= render 'logged_in' %>
+<% else %>
+	<%= render 'slide_frame' %>
+	<br/>
+	<%=render 'not_logged_in' %>
+<% end %>
