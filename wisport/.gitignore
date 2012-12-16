@@ -16,3 +16,4 @@
 /tmp
 .pow*
 /db/schema.rb
+.rvmrc
