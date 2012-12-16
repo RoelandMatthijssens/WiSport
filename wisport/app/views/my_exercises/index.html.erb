@@ -4,7 +4,7 @@
 <%= render :partial => "exercise_list", :locals => {:exercise_list => @my_likes_exercises, :param_name => "my_ex"} %>
 
 <h3> My Published Exercises </h3>
-<%= render :partial => "exercise_list", :locals => {:exercise_list => @my_published_exercises, :param_name => "my_ex"} %>
+<%= render :partial => "exercise_list", :locals => {:exercise_list => @my_published_exercises, :param_name => "my_ex", :publishable => true} %>
 
 <h3> My Unpublished Exercises </h3>
 <%= render :partial => "exercise_list", :locals => {:exercise_list => @my_unpublished_exercises, :param_name => "my_ex", :publishable => true} %>
