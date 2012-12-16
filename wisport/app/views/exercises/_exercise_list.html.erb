@@ -12,7 +12,7 @@
 
 <% exercise_list.each do |exercise| %>
 	<tr>
-		<td id='likes_<%= exercise.id %>' >
+		<td id='likes_<%= exercise.id %>' class='likes_<%= exercise.id %>' >
 			<% if Like.by_exercise(exercise.id).for_user(current_user.id).size == 0 %>
 				<%= render :partial => 'likes/like_form', :locals => {exercise: exercise} %>
 			<% else %>
