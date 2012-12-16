@@ -7,6 +7,10 @@ Wisport::Application.routes.draw do
 
   resources :user_login_services
 
+	resources :my_exercises
+	
+	resources :my_sessions
+
   match 'user/edit' => 'users#edit', :as => :edit_current_user
 
   match 'signup' => 'users#new', :as => :signup

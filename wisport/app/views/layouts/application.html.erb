@@ -30,8 +30,26 @@
 					<div class="nav-collapse">
 						<ul class="nav pull-left">
 							<% if current_user %>
-								<li><%= link_to "Exercices", exercises_path %></li>
-								<li><%= link_to "Training Sessions", trainings_sessions_path %></li>
+								<li class="dropdown">
+								  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								    Exercices
+								    <b class="caret"></b>
+								  </a>
+								  <ul class="dropdown-menu">
+								    <li><%= link_to "My Exercices", my_exercises_path %></li>
+										<li><%= link_to "All Exercices", exercises_path %></li>
+								  </ul>
+								</li>
+								<li class="dropdown">
+								  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								    Training Sessions
+								    <b class="caret"></b>
+								  </a>
+								  <ul class="dropdown-menu">
+								    <li><%= link_to "My Training Sessions", my_sessions_path %></li>
+										<li><%= link_to "All Training Sessions", trainings_sessions_path %></li>
+								  </ul>
+								</li>
 								<li><%= link_to "Events" %></li>
 							<% end %>
 						</ul>
@@ -65,29 +83,6 @@
 		</div class="row-fluid">
 	</div>
 		<% if Rails.env.development? %>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
 		<br/>
 		<div id="debug">
 			<pre>

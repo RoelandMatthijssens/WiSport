@@ -1,0 +1,15 @@
+<h1>My exercises <%= link_to 'New', new_exercise_path, remote: true, class: "btn btn-primary" %></h1>
+
+<h3> My Liked Exercises </h3>
+<%= render :partial => "exercise_list", :locals => {:exercise_list => @my_likes_exercises, :param_name => "my_ex"} %>
+
+<h3> My Published Exercises </h3>
+<%= render :partial => "exercise_list", :locals => {:exercise_list => @my_published_exercises, :param_name => "my_ex"} %>
+
+<h3> My Unpublished Exercises </h3>
+<%= render :partial => "exercise_list", :locals => {:exercise_list => @my_unpublished_exercises, :param_name => "my_ex"} %>
+
+
+<br />
+
+<%= link_to 'New Exercise', new_exercise_path, remote: true %>

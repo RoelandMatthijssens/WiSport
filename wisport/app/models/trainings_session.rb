@@ -4,6 +4,7 @@ class TrainingsSession < ActiveRecord::Base
 	belongs_to :owner, :class_name => "User", :foreign_key => "user_id"
 	validates_presence_of :owner, :title, :visibility
 	has_and_belongs_to_many :exercises
+	has_many :likes, :as => :likable
 
 	def self.published
 		where("visibility IS 'Published'")

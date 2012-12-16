@@ -2,7 +2,7 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
-    @exercises = Exercise.paginate(:page => params[:page])
+    @exercises = Exercise.published.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
