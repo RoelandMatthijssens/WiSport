@@ -3,6 +3,7 @@
 <% new_button ||= false %>
 <table class="table table-striped">
   <tr>
+		<th>Like</th>
 		<th>Owner</th>
     <th>Name</th>
     <th>Type</th>
@@ -11,6 +12,9 @@
 
 <% exercise_list.each do |exercise| %>
   <tr>
+		<td>
+			Like
+		</td>
     <td><%= link_to exercise.owner.username, exercise.owner %></td>
     <td><%= link_to exercise.name, exercise %></td>
     <td><%= exercise.type %></td>
