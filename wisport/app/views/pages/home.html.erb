@@ -1,12 +1,5 @@
-<div class="row-fluid"> 
-	<div class="span8 offset2 center">
-	</div>
-</div>
-
 <% if current_user %>
 	<%= render 'logged_in' %>
 <% else %>
-	<%= render 'slide_frame' %>
-	<br/>
 	<%=render 'not_logged_in' %>
 <% end %>
