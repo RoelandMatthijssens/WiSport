@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #sliderFrame {position:relative;width:700px;margin: 0 auto;} /*remove the "margin:0 auto;" if you want to align the whole slider to the left side*/
 
-#ribbon {width:111px;height:111px;position:absolute;top:-4px;left:-4px;background:url(ribbon.png) no-repeat;z-index:7;}
+#ribbon {width:111px;height:111px;position:absolute;top:-4px;left:-4px; z-index:7;}
         
 #slider {
     width:700px;height:306px;/* Make it the same size as your images */
-	background:#fff url(loading.gif) no-repeat 50% 50%;
+	background:#fff 50% 50%;
 	position:relative;
 	margin:0 auto;/*make the image slider center-aligned */
     box-shadow: 0px 1px 5px #999999;
@@ -71,7 +71,7 @@ div.navBulletsWrapper  {
 div.navBulletsWrapper div 
 {
     width:11px; height:11px;
-    background:transparent url(bullet.png) no-repeat 0 0;
+    background:transparent 0 0;
     float:left;overflow:hidden;vertical-align:middle;cursor:pointer;
     margin-right:11px;/* distance between each bullet*/
     _position:relative;/*IE6 hack*/
