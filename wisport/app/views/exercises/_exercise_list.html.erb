@@ -1,9 +1,12 @@
 <% publishable ||= false %>
 <% param_name ||= :page %>
 <% new_button ||= false %>
+<% likable ||= false %>
 <table class="table table-striped">
   <tr>
-		<th>Like</th>
+		<% if likable %>
+			<th>Like</th>
+		<% end %>
 		<th>Owner</th>
     <th>Name</th>
     <th>Type</th>
@@ -12,13 +15,17 @@
 
 <% exercise_list.each do |exercise| %>
 	<tr>
-		<td id='likes_<%= exercise.id %>' class='likes_<%= exercise.id %> starable' >
-			<% if Like.by_exercise(exercise.id).for_user(current_user.id).size == 0 %>
-				<%= render :partial => 'likes/like_form', :locals => {exercise: exercise} %>
-			<% else %>
-				<%= render :partial => 'likes/unlike', :locals => {:like => Like.by_exercise(exercise.id).for_user(current_user.id).first } %>
-			<% end %>
-		</td>
+		<% if likable && exercise.owner_id != current_user.id %>
+	 		<td id='likes_<%= exercise.id %>' class='likes_<%= exercise.id %> starable' >
+	 			<% if Like.by_exercise(exercise.id).for_user(current_user.id).size == 0 %>
+	 				<%= render :partial => 'likes/like_form', :locals => {exercise: exercise} %>
+	 			<% else %>
+	 				<%= render :partial => 'likes/unlike', :locals => {:like => Like.by_exercise(exercise.id).for_user(current_user.id).first } %>
+	 			<% end %>
+	 		</td>
+		<% elsif likable %>
+			<td></td>
+		<% end %>
     <td><%= link_to exercise.owner.username, exercise.owner %></td>
     <td><%= link_to exercise.name, exercise %></td>
     <td><%= exercise.type %></td>
