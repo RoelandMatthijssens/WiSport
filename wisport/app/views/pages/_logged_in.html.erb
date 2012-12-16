@@ -1,13 +1,13 @@
 <h3> Welcome <%= current_user.username %></h3>
 
-<div class="span6">
+<div class="span8">
 <h5>Pictures of Sumthing</h5>
-Plaats voor de Pics of sumthing sumthing dak totaal niet kan lezen for sum reason
+<%= render 'slide_frame_exercises'%>
 </div>
 
 <div class="span1">
 </div>
-<div class="span4">
+<div class="span3">
 <h5>Upcomming Events</h5>
 <table class="table table-striped">
 	<tr>
@@ -24,14 +24,30 @@ Plaats voor de Pics of sumthing sumthing dak totaal niet kan lezen for sum reaso
 	</tr>
 </table>
 </div>
-<div class="span6">
+</br>
+</br>
+<div class="span8">
 <h5>Grafiekje komt hier zo</h5>
 <%= image_tag("graph.png")%>
 </div>
 <div class="span1">
 </div>
-<div class="span4">
-<h5>Kledder kledder</h5>
-Hier komt blijkbeer nog een kotje, maar ik kan nie lezen met wat
+<div class="span3">
+<h5>Recently Completed events</h5>
+<table class="table table-striped">
+        <tr>
+        <th> Name</th>
+        <th> Date</th>
+        </tr>
+        <tr>
+        <td>Coowlest Thingie</td>
+        <td>11/11/11</td>
+        </tr>
+        <tr>
+        <td>Roeland Sports</td>
+        <td>12/12/12</td>
+        </tr>
+</table>
+
 </div>
 
