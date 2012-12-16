@@ -1,4 +1,8 @@
 Wisport::Application.routes.draw do
+  resources :do_exercises
+
+  resources :do_sessions
+
   resources :images
 
   resources :user_login_services

@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @do_exercise.user %>
+</p>
+
+<p>
+  <b>Visibility:</b>
+  <%= @do_exercise.visibility %>
+</p>
+
+<p>
+  <b>Distance:</b>
+  <%= @do_exercise.distance %>
+</p>
+
+<p>
+  <b>Reps:</b>
+  <%= @do_exercise.reps %>
+</p>
+
+<p>
+  <b>Hours:</b>
+  <%= @do_exercise.hours %>
+</p>
+
+<p>
+  <b>Minutes:</b>
+  <%= @do_exercise.minutes %>
+</p>
+
+<p>
+  <b>Seconds:</b>
+  <%= @do_exercise.seconds %>
+</p>
+
+<p>
+  <b>Exercise:</b>
+  <%= @do_exercise.exercise %>
+</p>
+
+<p>
+  <b>Do session:</b>
+  <%= @do_exercise.do_session %>
+</p>
+
+
+<%= link_to 'Edit', edit_do_exercise_path(@do_exercise) %> |
+<%= link_to 'Back', do_exercises_path %>

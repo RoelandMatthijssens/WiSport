@@ -2,7 +2,7 @@
 	<%= f.error_notification %>
 	<%= f.input :title %>
 	<%= f.association :exercises %>
-	<%= f.input :description %>
+	<%= f.input :description, input_html: {:rows => 5} %>
 	
 	<%= f.error :base %>
 	<div class="form-actions">
