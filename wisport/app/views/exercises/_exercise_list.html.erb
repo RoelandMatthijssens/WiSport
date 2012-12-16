@@ -21,6 +21,9 @@
 				<td><%= render :partial => "exercises/publish_button", :locals => {:exercise => exercise} %></td>
 			<% end %>
 			<td><%= link_to 'Destroy', exercise, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
+		<% else %>
+			<td></td>
+			<td></td>
 		<% end %>
   </tr>
 <% end %>
