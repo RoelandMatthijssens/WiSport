@@ -9,9 +9,11 @@ Wisport::Application.routes.draw do
 
   resources :user_login_services
 
-	resources :my_exercises
+	resources :my_exercises, :only => [:index]
 	
-	resources :my_sessions
+	resources :my_sessions, :only => [:index]
+	
+	resources :likes, :only => [:create, :destroy]
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user
 

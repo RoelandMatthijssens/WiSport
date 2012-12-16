@@ -11,9 +11,13 @@
   </tr>
 
 <% exercise_list.each do |exercise| %>
-  <tr>
-		<td>
-			Like
+	<tr>
+		<td id='likes_<%= exercise.id %>' >
+			<% if Like.by_exercise(exercise.id).for_user(current_user.id).size == 0 %>
+				<%= render :partial => 'likes/like_form', :locals => {exercise: exercise} %>
+			<% else %>
+				<%= render :partial => 'likes/unlike', :locals => {:like => Like.by_exercise(exercise.id).for_user(current_user.id).first } %>
+			<% end %>
 		</td>
     <td><%= link_to exercise.owner.username, exercise.owner %></td>
     <td><%= link_to exercise.name, exercise %></td>
