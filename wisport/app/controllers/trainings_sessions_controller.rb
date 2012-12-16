@@ -2,7 +2,7 @@ class TrainingsSessionsController < ApplicationController
   # GET /trainings_sessions
   # GET /trainings_sessions.json
   def index
-    @trainings_sessions = TrainingsSession.all
+    @trainings_sessions = TrainingsSession.published
 
     respond_to do |format|
       format.html # index.html.erb
