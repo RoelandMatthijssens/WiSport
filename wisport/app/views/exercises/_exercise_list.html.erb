@@ -3,6 +3,7 @@
 <% new_button ||= false %>
 <table class="table table-striped">
   <tr>
+		<th>Like</th>
 		<th>Owner</th>
     <th>Name</th>
     <th>Type</th>
@@ -10,7 +11,14 @@
   </tr>
 
 <% exercise_list.each do |exercise| %>
-  <tr>
+	<tr>
+		<td id='likes_<%= exercise.id %>' class='likes_<%= exercise.id %> starable' >
+			<% if Like.by_exercise(exercise.id).for_user(current_user.id).size == 0 %>
+				<%= render :partial => 'likes/like_form', :locals => {exercise: exercise} %>
+			<% else %>
+				<%= render :partial => 'likes/unlike', :locals => {:like => Like.by_exercise(exercise.id).for_user(current_user.id).first } %>
+			<% end %>
+		</td>
     <td><%= link_to exercise.owner.username, exercise.owner %></td>
     <td><%= link_to exercise.name, exercise %></td>
     <td><%= exercise.type %></td>
