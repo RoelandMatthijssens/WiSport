@@ -5,10 +5,11 @@ class TrainingsSession < ActiveRecord::Base
 	validates_presence_of :owner, :title, :visibility
 	has_and_belongs_to_many :exercises
 	has_many :likes, :as => :likable
-
-	def self.published
-		where("visibility IS 'Published'")
-	end
+	
+	scope :published, where("visibility IS 'Published'")
+	scope :unpublished, where("visibility IS 'Private'")
+	scope :owned_by, lambda { |id| where("user_id = ?", id) }
+	scope :liked_by, lambda { |id| joins(:likes).where("likes.user_id = ?", id) }
 
 	def self.visibility_options
 		["Published", "Private"]

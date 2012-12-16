@@ -1,11 +1,12 @@
 <% publishable ||= false %>
 <% param_name ||= :page %>
+<% new_button ||= false %>
 <table class="table table-striped">
   <tr>
 		<th>Owner</th>
     <th>Name</th>
     <th>Type</th>
-		<th colspan=4><%= link_to 'New', new_exercise_path, remote: true, class: "btn btn-primary" %></th>
+		<th colspan=4><%= (link_to 'New', new_exercise_path, remote: true, class: "btn btn-primary") if new_button %></th>
   </tr>
 
 <% exercise_list.each do |exercise| %>

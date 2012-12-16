@@ -1,14 +1,13 @@
-
+<% new_button ||= false %>
 <table class="table table-striped">
   <tr>
     <th>Title</th>	
     <th>Owner</th>
     <th>Description</th>
-    <th colspan=5><%= link_to 'New', new_trainings_session_path, remote: true, class: "btn btn-primary" %></th>
+    <th colspan=5><%= link_to 'New', new_trainings_session_path, remote: true, class: "btn btn-primary" if new_button %></th>
   </tr>
 
-<% @trainings_sessions.each do |trainings_session| %>
-<% if trainings_session.owner == current_user || trainings_session.visibility == "Published" %>
+<% trainings_sessions_list.each do |trainings_session| %>
   <tr>
     <td><%= link_to trainings_session.title, trainings_session %></td>
     <td><%= link_to trainings_session.owner.username, trainings_session.owner %></td>
@@ -41,7 +40,6 @@
 	</tr>
 	<tr>
 	</tr>
-<% end %>
 <% end %>
 </table>
 
