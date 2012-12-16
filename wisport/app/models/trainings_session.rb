@@ -5,6 +5,7 @@ class TrainingsSession < ActiveRecord::Base
 	validates_presence_of :owner, :title, :visibility
 	has_and_belongs_to_many :exercises
 	has_many :likes, :as => :likable
+	has_many :events
 	
 	scope :published, where("visibility IS 'Published'")
 	scope :unpublished, where("visibility IS 'Private'")
