@@ -1,0 +1,1 @@
+$('#likes_<%= @like.likable.id %>').html('<%=j render :partial => 'unlike', :locals => {:like => @like} %>');

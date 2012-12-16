@@ -1,0 +1,32 @@
+// Place all the styles related to the Likes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+form.new_like {
+	margin: 0;
+}
+
+.star {
+	background: url('/assets/star_rating_empty.png') transparent;
+	background-size: 24px;
+	border: none;
+	padding: 5;
+}
+.star:hover {
+	background: url('/assets/star_rating_full.png') transparent;
+	background-size: 24px;
+}
+
+.star-full {
+	background: url('/assets/star_rating_full.png') transparent;
+	background-size: 24px;
+	border: none;
+	padding: 5;
+}
+.star-full:hover {
+	background: url('/assets/star_rating_empty.png') transparent;
+	background-size: 24px;
+}
+form.starable{
+	margin: 0;
+}

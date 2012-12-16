@@ -1,0 +1,7 @@
+<% like = exercise.likes.new(user_id: current_user.id) %>
+<%= form_for like, remote: true do |f| %>
+				<%= f.hidden_field :user_id %>
+				<%= f.hidden_field :likable_type %>
+				<%= f.hidden_field :likable_id %>
+				<%= f.submit "   ", class: 'star' %>
+<% end %>
