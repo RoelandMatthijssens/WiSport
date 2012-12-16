@@ -1,23 +1,5 @@
-<<<<<<< HEAD
-<h1> <%= @title %> </h1>
-<br/>
-<% if current_user %>
-<%=render 'logged_in' %>
-<%end%>
-<% if ! current_user %>
-<%=render 'not_logged_in' %>
-<%end%>
-=======
-<div class="row-fluid"> 
-	<div class="span8 offset2 center">
-	</div>
-</div>
-
 <% if current_user %>
 	<%= render 'logged_in' %>
 <% else %>
-	<%= render 'slide_frame' %>
-	<br/>
 	<%=render 'not_logged_in' %>
 <% end %>
->>>>>>> b7f3bf49264be2bbeb2c45d21a6318effa39508b
