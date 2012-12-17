@@ -1,11 +1,49 @@
 <h3> Welcome <%= current_user.username %></h3>
 
+<<<<<<< HEAD
+<div class="span8">
+<h5>Your Exercises </h5>
+<%= render 'slide_frame_exercises'%>
+</div>
+<div class="span3">
+<h5>Upcomming Events</h5>
+<table class="table table-striped">
+	<tr>
+	<th> Name</th>
+	<th> Date</th>
+	</tr>
+	<tr>
+	<td>Coowlest Thingie</td>
+	<td>11/11/11</td>
+	</tr>
+	<tr>
+	<td>Roeland Sports</td>
+	<td>12/12/12</td>
+	</tr>
+	        <tr>
+        <td>Roeland Sports</td>
+        <td>12/12/12</td>
+        </tr>
+        <tr>
+        <td>Roeland Sports</td>
+        <td>12/12/12</td>
+        </tr>
+        <tr>
+        <td>Roeland Sports</td>
+        <td>12/12/12</td>
+        </tr>
+        <tr>
+        <td>Roeland Sports</td>
+        <td>12/12/12</td>
+        </tr>
+=======
 <div class="row-fluid">
 	<div class="span8">
 		<h5>Your Exercises </h5>
 		<%= render 'slide_frame_exercises'%>
 	</div>
 
+>>>>>>> d521b66537fb02f5d37625eca6111a1ff358b227
 
 	<div class="span4">
 		<h5>Upcomming Events</h5>
@@ -43,10 +81,14 @@
 	</div>
 </div>
 
+<<<<<<< HEAD
+<div class="span8">
+=======
 <div class="row-fluid">
 	<div class="span8">
 	</br>
 </br>
+>>>>>>> d521b66537fb02f5d37625eca6111a1ff358b227
 <h5>Progression</h5>
 <div id="tabs">
 	<ul>
@@ -65,13 +107,15 @@
 		<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
 	</div>
 </div>
-</br>
-</br>
 
 </div>
+<<<<<<< HEAD
+<div class="span3">
+=======
 <div class="span4">
 </br>
 </br>
+>>>>>>> d521b66537fb02f5d37625eca6111a1ff358b227
 <h5>Recently Completed events</h5>
 <table class="table table-striped">
 	<tr>
