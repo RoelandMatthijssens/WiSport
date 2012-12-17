@@ -1,4 +1,5 @@
 class TrainingsSessionsController < ApplicationController
+	before_filter :login_required
   # GET /trainings_sessions
   # GET /trainings_sessions.json
   def index

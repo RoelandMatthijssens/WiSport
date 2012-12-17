@@ -1,4 +1,5 @@
 class DoSessionsController < ApplicationController
+	before_filter :login_required
   # GET /do_sessions
   # GET /do_sessions.json
   def index

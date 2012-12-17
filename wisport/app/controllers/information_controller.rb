@@ -1,4 +1,5 @@
 class InformationController < ApplicationController
+	before_filter :login_required
   # GET /information
   # GET /information.json
   def index
