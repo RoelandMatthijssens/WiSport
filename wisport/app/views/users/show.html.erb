@@ -102,7 +102,7 @@
 
 		</table>
 </div>
-<div class="span5">
+<div class="span6">
 <% if @exercises.empty? %>
         <p>You have not yet created an exercise. Create your own <%= link_to "exercises", new_exercise_path %> </p>
 <% else %>
@@ -120,7 +120,8 @@
 	<%= render :partial => "exercises/exercise_list", :locals => {:exercise_list => @followers_exercises, :param_name => :followers_page} %>
 <% end %>
 </div>
-<div class="span5">
+<br/>
+<div class="span6">
 <% if @trainings_sessions.empty? %>
         <p>You have not yet created an exercise. Create your own <%= link_to "training sessions", new_trainings_session_path %> </p>
 <% else %>
@@ -131,11 +132,11 @@
 <div class="span5">
 <% if @user.friends.empty? %>
         <p>You are not following anyone that published trainings sessions. Look for more <%= link_to "friends", users_path %> to follow </p>
-<% elsif @followers_exercises.empty? %>
+<% elsif @followers_sessions.empty? %>
         <p>None of you friends has published any trainings sessions. Look for more <%= link_to "friends", users_path %> to follow </p>
 <% else %>
         <h2>Followed Sessions</h2>
-        <%= render :partial => "trainings_sessions/training_sessions_list", :locals => {:trainings_sessions_list => @followers_sessions, :param_name => :followers_page} %>
+        <%= render :partial => "trainings_sessions/trainings_sessions_list", :locals => {:trainings_sessions_list => @followers_sessions, :param_name => :followers_page} %>
 <% end %>
 </div>
 

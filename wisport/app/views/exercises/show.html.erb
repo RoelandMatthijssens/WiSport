@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row-fluid">
-<div class="span6">
+<div class="span7">
 
 <h1> <%= @exercise.name %> </h1>
 </div>
-<div class="span5">
+<div class="span3">
 </br>
+<p align="right">
 <%if @exercise.owner == current_user %>
 <p align="right">	
 	<%= link_to 'Edit', edit_exercise_path(@exercise), class:"btn", remote: true %>
@@ -14,13 +15,10 @@
 	<%= link_to 'Destroy', @exercise, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
 </p>
 <%else%>
-<p align="right">
 	Owner:
 	<%= link_to @exercise.owner.username, @exercise.owner %>
-</br>
-</br>
-</p>
 <% end %>
+</p>
 </div>
 </br>
 </br>
