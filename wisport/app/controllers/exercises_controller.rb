@@ -48,6 +48,7 @@ class ExercisesController < ApplicationController
   def create
 		x = {"DistanceExercise"=>DistanceExercise, "RepsExercise"=>RepsExercise, "TimeExercise"=>TimeExercise}
 		params[:exercise].delete "distance" if params[:exercise][:type] != "DistanceExercise"
+		params[:exercise].delete "unit" if params[:exercise][:type] != "DistanceExercise"
 		params[:exercise].delete "reps" if params[:exercise][:type] != "RepsExercise"
 		if params[:exercise][:type] != "TimeExercise"
 			params[:exercise].delete "hours"

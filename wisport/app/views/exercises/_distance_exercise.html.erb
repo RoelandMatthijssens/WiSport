@@ -1,3 +1,4 @@
 <div id="distance_exercise" <%= @exercise.type ==  "DistanceExercise" ? "TRUE" : "class=hidden" %> >
 	<%= f.input :distance %>
+	<%= f.input :unit, :colection => Exercise.unit_options %>
 </div>
