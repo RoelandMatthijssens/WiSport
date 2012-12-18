@@ -33,7 +33,9 @@ Wisport::Application.routes.draw do
 		put :toggle_follow, :on => :member
 	end
 
-  resources :trainings_sessions
+  resources :trainings_sessions do
+		put :publish, :on => :member
+	end
 
   resources :information
 
