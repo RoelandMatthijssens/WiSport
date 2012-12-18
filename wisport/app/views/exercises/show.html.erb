@@ -25,7 +25,11 @@
 </br>
 </br>
 <div class="span3">
- <%= image_tag("run.jpg") %>
+ <% if @exercise.information.images.first %> 
+  <%= image_tag(@exercise.information.images.first.original) %>
+ <% else %>
+  <%= image_tag("no_image.gif") %>
+ <% end %>
 </div>
 <div class="span5">
 <p>
@@ -51,4 +55,4 @@
 </p>
 </div>
 </div>
-<%= link_to 'Back', exercises_path %>
+<%= link_to 'Back', my_exercises_path %>
