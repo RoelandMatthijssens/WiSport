@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     @shown_month = Date.civil(@year, @month)
 
     @first_day_of_week = 1
-    @event_strips = Event.event_strips_for_month(@shown_month, @first_day_of_week)
+    @event_strips = current_user.events.event_strips_for_month(@shown_month, @first_day_of_week)
   end
 
   # GET /events/1
@@ -27,7 +27,8 @@ class EventsController < ApplicationController
   # GET /events/new.json
   def new
     @event = Event.new
-    @event.information = Information.new
+		@event.start_at = Time.now
+		@event.end_at = Time.now
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }
@@ -43,25 +44,18 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-		x = {"DistanceExercise"=>DistanceExercise, "RepsExercise"=>RepsExercise, "TimeExercise"=>TimeExercise}
-		params[:exercise].delete "distance" if params[:exercise][:type] != "DistanceExercise"
-		params[:exercise].delete "reps" if params[:exercise][:type] != "RepsExercise"
-		if params[:exercise][:type] != "TimeExercise"
-			params[:exercise].delete "hours"
-			params[:exercise].delete "minutes"
-			params[:exercise].delete "seconds"
-		end
-    @exercise = x[params[:exercise][:type]].new(params[:exercise])
-		@exercise.owner = current_user
-		@exercise.visibility = "Private"
+    @event = Event.new(params[:event])
+		@event.user = current_user
+		@event.visibility = "Published"
+		@event.end_at = @event.start_at
     respond_to do |format|
-      if @exercise.save
-        format.html { redirect_to @exercise, notice: 'Exercise was successfully created.' }
-        format.json { render json: @exercise, status: :created, location: @exercise }
+      if @event.save
+        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
+        format.json { render json: @event, status: :created, location: @event }
         format.js { render js: %(window.location='#{events_path}') }
       else
         format.html { render action: "new" }
-        format.json { render json: @exercise.errors, status: :unprocessable_entity }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
         format.js { render action: "new"}
       end
     end
@@ -74,7 +68,9 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        format.html { redirect_to @event, notice: 'event was successfully updated.' }
+				@event.end_at = @event.start_at
+				@event.save!
+        format.html { redirect_to events_path, notice: 'event was successfully updated.' }
         format.json { head :no_content }
         format.js { render js: %(window.location='#{events_path}') }
       else

@@ -49,9 +49,9 @@ class TrainingsSessionsController < ApplicationController
 
     respond_to do |format|
       if @trainings_session.save
-        format.html { redirect_to @trainings_session, notice: 'Trainings session was successfully created.' }
+        format.html { redirect_to my_sessions_path, notice: 'Trainings session was successfully created.' }
         format.json { render json: @trainings_session, status: :created, location: @trainings_session }
-				format.js { render js: %(window.location='#{trainings_sessions_path}') }
+				format.js { render js: %(window.location='#{my_sessions_path}') }
       else
         format.html { render action: "new" }
         format.json { render json: @trainings_session.errors, status: :unprocessable_entity }

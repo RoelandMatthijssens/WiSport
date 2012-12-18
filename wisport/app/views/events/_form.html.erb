@@ -1,0 +1,16 @@
+<h1>New event</h1>
+<%= simple_form_for(@event, remote: false, html: {class: 'form-horizontal' }) do |f| %>
+	<%= f.error_notification %>
+
+	<%= f.input :start_at, :as => :date_picker, :input_html => { :value => @event.start_at.to_date} %>
+
+	<%= f.association :trainings_session %>
+
+	<%= f.input :color, :collection => Event.color_options %>
+
+	<%= f.error :base %>
+  <div class="form_buttons">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+		<%= link_to 'Cancel', events_path, class: 'btn btn-danger' %>
+  </div>
+<% end %>
