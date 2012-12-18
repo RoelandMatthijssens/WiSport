@@ -1,37 +1,12 @@
 namespace :db do
 	desc "populates the database"
 
-	task :populate => :environment do
-		require 'faker'
-		@amount = 10
-		ActiveRecord::Base.subclasses.each(&:delete_all)
-		User.create(
-			:id => 1,
-			:username => "Enermis",
-			:email => "fulgens.ailurus@gmail.com",
-			:password => "roeland1",
-			:password_confirmation => "roeland1"
-		)
-		exeptions = [:image]
-		FactoryGirl.factories.each do |f|
-			puts "Creating #{f.name.to_s.pluralize}"
-			@amount.times do 
-				x = FactoryGirl.create(f.name) unless exeptions.include?(f.name)
-				if x
-					x = x.attributes
-					x.delete "id"
-					x.delete "created_at"
-					x.delete "updated_at"
-					x.delete "password_hash"
-					x.delete "password_salt"
-					puts "\t #{x}"
-				end
-			end
-		end
-		TrainingsSession.all.each do |ts|
-			3.times do
-				ts.exercises << Exercise.all.sample
-			end
-		end
+	task :populate, [:amount] => :environment do |t, args|
+		amount = args[:amount].to_i
+		amount ||= 10
+		Rake::Task["db:populate_users"].invoke(amount)
+		Rake::Task["db:populate_exercises"].invoke(amount)
+		Rake::Task["db:populate_trainings_sessions"].invoke(amount)
+		Rake::Task["db:populate_events"].invoke(amount)
 	end
 end

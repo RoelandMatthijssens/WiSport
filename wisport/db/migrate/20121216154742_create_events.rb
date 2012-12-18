@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :end_at
       t.boolean :all_day, :default => true
       t.string :color
+			t.string :description
       t.string :visibility
       t.timestamps
     end

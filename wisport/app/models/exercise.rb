@@ -2,7 +2,7 @@ class Exercise < ActiveRecord::Base
 	self.per_page = 10
 	#	default_scope where("visibility IS 'Published'")
 	attr_accessible :name, :type, :information, :visibility, :information_attributes, :owner,
-	:distance, :hours, :minutes, :seconds, :reps
+	:distance, :hours, :minutes, :seconds, :reps, :unit
 
 	has_one :information
 	belongs_to :owner, :class_name => "User", :foreign_key => "owner_id"
@@ -23,6 +23,10 @@ class Exercise < ActiveRecord::Base
 
 	def self.visibility_options
 		["Published", "Private"]
+	end
+
+	def self.unit_options
+		["Km","Mile","Meter"]
 	end
 
 	validates_inclusion_of :visibility, :in=>visibility_options, :allow_nil => false
@@ -61,6 +65,7 @@ class DistanceExercise < Exercise
 	attr_accessible :distance
 
 	validates_presence_of :distance
+	validates_presence_of :unit
 end
 class TimeExercise < Exercise
 	attr_accessible :hours, :minutes, :seconds
