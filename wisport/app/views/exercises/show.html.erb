@@ -9,7 +9,7 @@
 </br>
 <%if @exercise.owner == current_user %>
 <p align="right">	
-	<%= link_to 'Edit', edit_exercise_path(@exercise) %>
+	<%= link_to 'Edit', edit_exercise_path(@exercise), class:"btn", remote: true %>
 	<%= render :partial => "publish_button", :locals => {:exercise => @exercise} %>
 	<%= link_to 'Destroy', @exercise, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
 </p>
