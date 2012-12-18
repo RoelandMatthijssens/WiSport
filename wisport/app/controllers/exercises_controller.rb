@@ -3,11 +3,14 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
-    @exercises = Exercise.published.paginate(:page => params[:page])
-
+    @exercises = Exercise
+			.search_by_name(params[:search_name])
+			.search_by_type(params[:search_type])
+			.published.paginate(:page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @exercises }
+			format.js
     end
   end
 

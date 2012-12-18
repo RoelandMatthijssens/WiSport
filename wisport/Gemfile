@@ -54,6 +54,7 @@ gem "mocha", :group => :test
 
 gem 'google-api-client'
 
+gem 'chosen-rails'
 gem 'simple_form'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
