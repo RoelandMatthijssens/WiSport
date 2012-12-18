@@ -18,7 +18,7 @@ class LikesController < ApplicationController
   # DELETE /likes/1.json
 	def destroy
 		@like = Like.find(params[:id])
-		@exercise = @like.likable
+		@likable = @like.likable
 		@like.destroy
 		respond_to do |format|
 			format.json { head :no_content }
