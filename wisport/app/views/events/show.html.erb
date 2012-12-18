@@ -1,18 +1,53 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @event.name %>
+<div class="row-fluid">
+<div class="span6">
+ <h1> <%= @event.name %> </h1>
+</div>
+<div class="span5">
+<p align="right">
+ <% if @event.user == current_user %>     
+        <%= link_to 'Edit', edit_event_path(@event), class:"btn", remote: true %>
+	<%= link_to 'Destroy', @event, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+ <% else %>
+  Owner:
+  <%= link_to @event.user.username, @event.user %>
+ <% end %>
 </p>
+</br>
+</br>
+</div>
+<div class="span3">
+<%= image_tag("map.png") %>
+</div>
+<div class="span8">
+<b>Start:</b>
+<%= @event.start_at %>
+</br>
+<b>End:</b>
+<%= @event.end_at %>
+</div>
+<div class="span6"%>
+</br>
 
-<p>
-  <b>Date:</b>
-  <%= @event.start_at %>
-</p>
-<p>
-  <b>User:</b>
-  <%= @event.user.username %>
-</p>
+<b>Exercises:</b> 
+</br>
+<td>
+                        <table class="table table-striped">
+                                <tr>
+                                        <th>Name</th>
+                                        <th>Type</th>
+					<th>Owner</th>
+                                </tr>
+                                <% @event.trainings_session.exercises.each do |exercise| %>
+                                        <tr>
+                                                <td><%= link_to exercise.name, exercise %></td>
+                                                <td><%= exercise.type %></td>
+						<td><%= link_to exercise.owner.username, exercise.owner %></td>
+                                        </tr>
+                                <% end %>
+                        </table>
+                </td>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
+</div>
+</div>
 <%= link_to 'Back', events_path %>
