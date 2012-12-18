@@ -15,5 +15,6 @@
 //= require jquery.ui.all
 //= require jquery.effects.all
 //= require bootstrap
+//= require chosen-jquery
 //= require_tree .
 
