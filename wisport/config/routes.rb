@@ -1,6 +1,8 @@
 Wisport::Application.routes.draw do
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
+  resources :events
+
   resources :do_exercises
 
   resources :do_sessions
@@ -33,7 +35,9 @@ Wisport::Application.routes.draw do
 		put :toggle_follow, :on => :member
 	end
 
-  resources :trainings_sessions
+  resources :trainings_sessions do
+		put :publish, :on => :member
+	end
 
   resources :information
 

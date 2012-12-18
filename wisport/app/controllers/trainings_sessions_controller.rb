@@ -1,4 +1,5 @@
 class TrainingsSessionsController < ApplicationController
+	before_filter :login_required
   # GET /trainings_sessions
   # GET /trainings_sessions.json
   def index
@@ -48,9 +49,9 @@ class TrainingsSessionsController < ApplicationController
 
     respond_to do |format|
       if @trainings_session.save
-        format.html { redirect_to @trainings_session, notice: 'Trainings session was successfully created.' }
+        format.html { redirect_to my_sessions_path, notice: 'Trainings session was successfully created.' }
         format.json { render json: @trainings_session, status: :created, location: @trainings_session }
-				format.js { render js: %(window.location='#{trainings_sessions_path}') }
+				format.js { render js: %(window.location='#{my_sessions_path}') }
       else
         format.html { render action: "new" }
         format.json { render json: @trainings_session.errors, status: :unprocessable_entity }
@@ -68,9 +69,11 @@ class TrainingsSessionsController < ApplicationController
       if @trainings_session.update_attributes(params[:trainings_session])
         format.html { redirect_to @trainings_session, notice: 'Trainings session was successfully updated.' }
         format.json { head :no_content }
+				format.js { render js: %(window.location='#{trainings_sessions_path}') }
       else
         format.html { render action: "edit" }
         format.json { render json: @trainings_session.errors, status: :unprocessable_entity }
+				format.js { render action: "edit"}
       end
     end
   end
@@ -86,4 +89,20 @@ class TrainingsSessionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+	def publish
+		@trainings_session = TrainingsSession.find_by_id(params[:id])
+		logger.debug(@trainings_session.visibility)
+		if @trainings_session.visibility=="Private"
+			@trainings_session.visibility = "Published"
+		else
+			@trainings_session.visibility = "Private"
+		end
+		@trainings_session.save
+		respond_to do |format|
+			format.html
+			format.js
+		end
+	end
+	
 end

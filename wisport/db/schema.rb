@@ -45,13 +45,14 @@ ActiveRecord::Schema.define(:version => 20121216154742) do
 
   create_table "events", :force => true do |t|
     t.integer  "trainings_session_id"
+    t.integer  "user_id"
     t.datetime "start_at"
     t.datetime "end_at"
     t.boolean  "all_day",              :default => true
     t.string   "color"
-    t.boolean  "published",            :default => false
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
+    t.string   "visibility"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
   create_table "exercises", :force => true do |t|

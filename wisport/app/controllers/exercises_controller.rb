@@ -1,4 +1,5 @@
 class ExercisesController < ApplicationController
+	before_filter :login_required
   # GET /exercises
   # GET /exercises.json
   def index
@@ -54,9 +55,9 @@ class ExercisesController < ApplicationController
 		@exercise.visibility = "Private"
     respond_to do |format|
       if @exercise.save
-        format.html { redirect_to @exercise, notice: 'Exercise was successfully created.' }
+        format.html { redirect_to my_exercises_path, notice: 'Exercise was successfully created.' }
         format.json { render json: @exercise, status: :created, location: @exercise }
-        format.js { render js: %(window.location='#{exercises_path}') }
+        format.js { render js: %(window.location='#{my_exercises_path}') }
       else
         format.html { render action: "new" }
         format.json { render json: @exercise.errors, status: :unprocessable_entity }
