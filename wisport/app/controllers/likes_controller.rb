@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+	before_filter :login_required
 
 	def create
 		@like = Like.new(params[:like])

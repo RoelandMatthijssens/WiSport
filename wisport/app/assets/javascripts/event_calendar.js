@@ -4,6 +4,7 @@
  */
 jQuery(document).ready(function($) {
   var highlight_color = "#2EAC6A";
+	$("input.date_picker").datepicker({ dateFormat: 'dd/mm/yy' });
   
   // highlight events that have a background color
   $(".ec-event-bg").live("mouseover", function() {

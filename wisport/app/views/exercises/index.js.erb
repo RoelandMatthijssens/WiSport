@@ -1,1 +1,1 @@
-$('#exercises').html('<%= render :partial => 'exercises/exercises', :locals => {exercise_list: @exercises, likable: true, publishable: true} %>');
+$('#exercises').html('<%= j render :partial => 'exercises/exercises', :locals => {exercise_list: @exercises, likable: true} %>');

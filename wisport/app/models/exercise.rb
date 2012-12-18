@@ -34,6 +34,13 @@ class Exercise < ActiveRecord::Base
 			scoped
 		end
 	end
+	def self.search_by_type(type)
+		if type && ! type.empty?
+			where('type LIKE ?', "%#{type}%")
+		else
+			scoped
+		end
+	end
 
 	def self.select_options
 		descendants.map{ |c| c.to_s }.sort

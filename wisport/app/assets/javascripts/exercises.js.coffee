@@ -34,6 +34,9 @@ $(document).on 'change', '#exercise_type', (event) ->
                 $("#distance_exercise").addClass "hidden" 
 
 $ ->
-  $("#exercises_search input").keyup ->
-    $.get $("#exercises_search").attr("action"), $("#exercises_search").serialize(), null, "script"
-    false
+	$("#exercises_search input").keyup ->
+		$.get $("#exercises_search").attr("action"), $("#exercises_search").serialize(), null, "script"
+		false
+	$("#exercises_search select").change ->
+		$.get $("#exercises_search").attr("action"), $("#exercises_search").serialize(), null, "script"
+		false

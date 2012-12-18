@@ -1,7 +1,9 @@
+<% search_path ||= exercises_path %>
 <% publishable ||= false %>
 <% param_name ||= :page %>
 <% new_button ||= false %>
 <% likable ||= false %>
+<%= form_tag search_path, :method => 'get', :id => "exercises_search" do %>
 <table class="table table-striped">
 	<thead>
   <tr>
@@ -16,20 +18,19 @@
 	<tr>
 		<% if likable %>
 			<th></th>
-		<% end %>
+		<% end %>		
+		<th>				
+			<%= text_field_tag :search_name, params[:search_name], class: "exercises_search_select" %>
+		</th>		
 		<th>
-			<%= form_tag my_exercises_path, :method => 'get', :id => "exercises_search" do %>
-			    <%= text_field_tag :search_name, params[:search_name] %>
-			<% end %>
-		</th>
-		<th>
-			
+			<%= select_tag :search_type, options_for_select(Exercise.select_options, params[:search_type]), include_blank: true, class: "exercises_search_select" %>
 		</th>
     <th></th>
 		<th colspan=4></th>
   </tr>
 	</thead>
 	<tbody id="exercises">
-		<%= render :partial => 'exercises/exercises', :locals => {exercise_list: @exercises, likable: true, publishable: true} %>
+		<%= render :partial => 'exercises/exercises', :locals => {param_name: param_name, exercise_list: @exercises, likable: likable, publishable: publishable} %>
 	</tbody>
 	</table>
+<% end %>
