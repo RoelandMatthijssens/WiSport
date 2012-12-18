@@ -18,7 +18,7 @@
 		<% if likable && exercise.owner_id != current_user.id %>
 	 		<td id='likes_<%= exercise.id %>' class='likes_<%= exercise.id %> starable' >
 	 			<% if Like.by_exercise(exercise.id).for_user(current_user.id).size == 0 %>
-	 				<%= render :partial => 'likes/like_form', :locals => {exercise: exercise} %>
+	 				<%= render :partial => 'likes/like_form', :locals => {likable: exercise} %>
 	 			<% else %>
 	 				<%= render :partial => 'likes/unlike', :locals => {:like => Like.by_exercise(exercise.id).for_user(current_user.id).first } %>
 	 			<% end %>
