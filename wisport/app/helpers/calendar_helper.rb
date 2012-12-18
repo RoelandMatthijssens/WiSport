@@ -22,8 +22,9 @@ module CalendarHelper
     calendar event_calendar_opts do |args|
       event, day = args[:event], args[:day]
       html = %(<a href="/events/#{event.id}" title="#{h(event.name)}">)
-      html << display_event_time(event, day)
       html << %(#{h(event.name)}</a>)
+      html << %(<a href="/events/#{event.id}" title="edit" class="options ui-icon ui-icon-circle-close" data-remote="true" data-method="delete" rel="nofollow"></a>)
+      html << %(<a href="/events/#{event.id}/edit" title="edit" class="options ui-icon ui-icon-pencil"></a>)
       html
     end
   end
