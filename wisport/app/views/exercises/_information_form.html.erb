@@ -1,6 +1,6 @@
 
 <%= f.input :description, input_html: {:rows => 5} %>
-<div id="pictures hidden">  
+<div id="pictures" class="hidden">  
 	<% @exercise.information.images.each do |img| %>
 		<%= hidden_field_tag 'exercise[information_attributes][image_ids][]', img.id %>
 	<% end %>
