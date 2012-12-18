@@ -1,8 +1,8 @@
 class Exercise < ActiveRecord::Base
 	self.per_page = 10
-#	default_scope where("visibility IS 'Published'")
+	#	default_scope where("visibility IS 'Published'")
 	attr_accessible :name, :type, :information, :visibility, :information_attributes, :owner,
-		:distance, :hours, :minutes, :seconds, :reps
+	:distance, :hours, :minutes, :seconds, :reps
 
 	has_one :information
 	belongs_to :owner, :class_name => "User", :foreign_key => "owner_id"
@@ -24,20 +24,28 @@ class Exercise < ActiveRecord::Base
 	def self.visibility_options
 		["Published", "Private"]
 	end
-	
+
 	validates_inclusion_of :visibility, :in=>visibility_options, :allow_nil => false
+
+	def self.search_by_name(name)
+		if name && ! name.empty?
+			where('name LIKE ?', "%#{name}%")
+		else
+			scoped
+		end
+	end
 
 	def self.select_options
 		descendants.map{ |c| c.to_s }.sort
 	end
-def self.inherited(child)
-	child.instance_eval do
-		def model_name
-			Exercise.model_name
+	def self.inherited(child)
+		child.instance_eval do
+			def model_name
+				Exercise.model_name
+			end
 		end
+		super
 	end
-	super
-end
 
 
 end

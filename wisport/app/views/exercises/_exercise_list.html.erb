@@ -3,45 +3,33 @@
 <% new_button ||= false %>
 <% likable ||= false %>
 <table class="table table-striped">
+	<thead>
   <tr>
 		<% if likable %>
 			<th>Star</th>
 		<% end %>
-		<th>Owner</th>
-    <th>Name</th>
+		<th>Name</th>
     <th>Type</th>
+		<th>Owner</th>
 		<th colspan=4><%= (link_to 'New', new_exercise_path, remote: true, class: "btn btn-primary") if new_button %></th>
   </tr>
-
-<% exercise_list.each do |exercise| %>
 	<tr>
-		<% if likable && exercise.owner_id != current_user.id %>
-	 		<td id='likes_<%= exercise.id %>' class='likes_<%= exercise.id %> starable' >
-	 			<% if Like.by_exercise(exercise.id).for_user(current_user.id).size == 0 %>
-	 				<%= render :partial => 'likes/like_form', :locals => {likable: exercise} %>
-	 			<% else %>
-	 				<%= render :partial => 'likes/unlike', :locals => {:like => Like.by_exercise(exercise.id).for_user(current_user.id).first } %>
-	 			<% end %>
-	 		</td>
-		<% elsif likable %>
-			<td></td>
+		<% if likable %>
+			<th></th>
 		<% end %>
-    <td><%= link_to exercise.owner.username, exercise.owner %></td>
-    <td><%= link_to exercise.name, exercise %></td>
-    <td><%= exercise.type %></td>
-    <td><%= link_to 'Do!', {controller: "do_exercises", action: "new", do_exercise: {exercise_id: exercise.id, user_id: current_user.id}}, class: "btn" %></td>
-		<% if exercise.owner == current_user %>
-			<td><%= link_to 'Edit', edit_exercise_path(exercise), class: "btn", remote: true %></td>
-			<% if publishable %>
-				<td><%= render :partial => "exercises/publish_button", :locals => {:exercise => exercise} %></td>
+		<th>
+			<%= form_tag my_exercises_path, :method => 'get', :id => "exercises_search" do %>
+			    <%= text_field_tag :search_name, params[:search_name] %>
 			<% end %>
-			<td><%= link_to 'Destroy', exercise, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
-		<% else %>
-			<td></td>
-			<td></td>
-		<% end %>
+		</th>
+		<th>
+			
+		</th>
+    <th></th>
+		<th colspan=4></th>
   </tr>
-<% end %>
-</table>
-
-<%= will_paginate exercise_list, :param_name => param_name %>
+	</thead>
+	<tbody id="exercises">
+		<%= render :partial => 'exercises/exercises', :locals => {exercise_list: @exercises, likable: true, publishable: true} %>
+	</tbody>
+	</table>
