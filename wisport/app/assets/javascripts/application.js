@@ -16,5 +16,7 @@
 //= require jquery.effects.all
 //= require bootstrap
 //= require chosen-jquery
+//= require highcharts
+//= require highcharts/highcharts-more
 //= require_tree .
 
