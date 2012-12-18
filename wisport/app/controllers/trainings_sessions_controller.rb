@@ -3,11 +3,16 @@ class TrainingsSessionsController < ApplicationController
   # GET /trainings_sessions
   # GET /trainings_sessions.json
   def index
-    @trainings_sessions = TrainingsSession.published
+    @trainings_sessions = TrainingsSession
+			.search_by_title(params[:search_title])
+			.search_by_owner(params[:search_owner])
+			.search_by_description_and_exercise(params[:search_description])
+			.published.paginate(:page => params[:page], :per_page => 10)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @trainings_sessions }
+			format.js
     end
   end
 

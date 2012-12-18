@@ -1,0 +1,2 @@
+$('#trainings_sessions').html('<%= j render :partial => 'trainings_sessions/trainings_sessions', :locals => {trainings_sessions_list: @trainings_sessions, likable: true, publishable: true } %>');
+$('#trainingsessions_pagination').html('<%= j render :partial => 'trainings_sessions/pagination', locals: {trainings_sessions_list: @trainings_sessions, param_name: :page} %>');
