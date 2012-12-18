@@ -1,6 +1,7 @@
 <% publishable ||= false %>
 <% param_name ||= :page %>
 <% new_button ||= false %>
+<% buttons ||= false %>
 <% likable ||= false %>
 <% exercise_list.each do |exercise| %>
 	<tr>
@@ -18,7 +19,7 @@
     <td><%= link_to exercise.name, exercise %></td>
 		<td><%= exercise.type %></td>
 		<td><%= link_to exercise.owner.username, exercise.owner %></td>   
-		<% if exercise.owner == current_user %>
+		<% if exercise.owner == current_user && buttons %>
 			<td><%= link_to "Edit", edit_exercise_path(exercise), class: "btn", remote: true %></td>
 			<% if publishable %>
 				<td><%= render :partial => "exercises/publish_button", :locals => {:exercise => exercise} %></td>
@@ -33,4 +34,3 @@
 		<% end %>
   </tr>
 <% end %>
-<%= will_paginate exercise_list, :param_name => param_name %>
