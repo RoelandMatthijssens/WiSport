@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   # new columns need to be added here to be writable through mass assignment
-  attr_accessible :username, :email, :password, :password_confirmation, :exercises
+  attr_accessible :username, :email, :password, :password_confirmation, :exercises, :trainings_sessions
 
 	has_many :exercises, :foreign_key => "owner_id"
 	has_many :trainings_sessions
@@ -87,6 +87,13 @@ attr_accessor :password
 			@exercises += friend.exercises.published
 		end
 		return @exercises
+	end
+	def followers_exercises
+		@trainings_sessions = []
+		friends.each do |friend|
+			@trainings_sessions += friend.trainings_sessions.published
+		end
+		return @trainings_sessions
 	end
 
   private

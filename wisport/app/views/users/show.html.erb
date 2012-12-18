@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
+<div class="row-fluid" >
 <div class="row">
-	<div class="profile_image span2" >
+	<div class="profile_image offset1 span2" >
 		<%= image_tag profile_picture(@user) %>
 		<br/>
 		<%= render :partial => 'follow' %>
 	</div>
 	<div class="span9">
 		<div class="user_info">
-			<h1> User Info </h1>
+			<h1> <%= @user.username %> </h1>
 			<p>
 				<b>Name:</b>
 				<%= @user.username %>
@@ -30,6 +31,86 @@
 		</div>
 	</div>
 </div>
+<% if @user == current_user %>
+
+<div class="span5">
+<h5> Upcomming Events </h5>
+		<table class="table table-striped">
+			<tr>
+				<th> Name</th>
+				<th> Date</th>
+			</tr>
+			<tr>
+				<td>Coowlest Thingie</td>
+				<td>11/11/11</td>
+			</tr>
+			<tr>
+				<td>Roeland Sports</td>
+				<td>12/12/12</td>
+			</tr>
+			<tr>
+				<td>Roeland Sports</td>
+				<td>12/12/12</td>
+			</tr>
+			<tr>
+				<td>Roeland Sports</td>
+				<td>12/12/12</td>
+			</tr>
+			<tr>
+				<td>Roeland Sports</td>
+				<td>12/12/12</td>
+			</tr>
+			<tr>
+				<td>Roeland Sports</td>
+				<td>12/12/12</td>
+			</tr>
+
+		</table>
+</div>
+
+<div class="span5">
+<h5> Recently passes events </h5>
+		<table class="table table-striped">
+			<tr>
+				<th> Name</th>
+				<th> Date</th>
+			</tr>
+			<tr>
+				<td>Coowlest Thingie</td>
+				<td>11/11/11</td>
+			</tr>
+			<tr>
+				<td>Roeland Sports</td>
+				<td>12/12/12</td>
+			</tr>
+			<tr>
+				<td>Roeland Sports</td>
+				<td>12/12/12</td>
+			</tr>
+			<tr>
+				<td>Roeland Sports</td>
+				<td>12/12/12</td>
+			</tr>
+			<tr>
+				<td>Roeland Sports</td>
+				<td>12/12/12</td>
+			</tr>
+			<tr>
+				<td>Roeland Sports</td>
+				<td>12/12/12</td>
+			</tr>
+
+		</table>
+</div>
+<div class="span5">
+<% if @exercises.empty? %>
+        <p>You have not yet created an exercise. Create your own <%= link_to "exercises", new_exercise_path %> </p>
+<% else %>
+        <h2>My Exercises</h2>
+        <%= render :partial => "exercises/exercise_list", :locals => {:exercise_list => @exercises, :publishable => true, :param_name => :my_exercises_page} %>
+<% end %>
+</div>
+<div class="span5">
 <% if @user.friends.empty? %>
 	<p>You are not following anyone that published exercises. Look for more <%= link_to "friends", users_path %> to follow </p>
 <% elsif @followers_exercises.empty? %>
@@ -38,10 +119,25 @@
 	<h2>Followed Exercises</h2>
 	<%= render :partial => "exercises/exercise_list", :locals => {:exercise_list => @followers_exercises, :param_name => :followers_page} %>
 <% end %>
-<br/>
-<% if @exercises.empty? %>
-	<p>You have not yet created an exercise. Create your own <%= link_to "exercises", new_exercise_path %> </p>
+</div>
+<div class="span5">
+<% if @trainings_sessions.empty? %>
+        <p>You have not yet created an exercise. Create your own <%= link_to "training sessions", new_trainings_session_path %> </p>
 <% else %>
-	<h2>My Exercises</h2>
-	<%= render :partial => "exercises/exercise_list", :locals => {:exercise_list => @exercises, :publishable => true, :param_name => :my_exercises_page} %>
+        <h2>My Sessions </h2>
+        <%= render :partial => "trainings_sessions/trainings_sessions_list", :locals => {:trainings_sessions_list => @trainings_sessions, :publishable => true, :param_name => :my_sessions_page} %>
+<% end %>
+</div>
+<div class="span5">
+<% if @user.friends.empty? %>
+        <p>You are not following anyone that published trainings sessions. Look for more <%= link_to "friends", users_path %> to follow </p>
+<% elsif @followers_exercises.empty? %>
+        <p>None of you friends has published any trainings sessions. Look for more <%= link_to "friends", users_path %> to follow </p>
+<% else %>
+        <h2>Followed Sessions</h2>
+        <%= render :partial => "trainings_sessions/training_sessions_list", :locals => {:trainings_sessions_list => @followers_sessions, :param_name => :followers_page} %>
+<% end %>
+</div>
+
+</div>
 <% end %>

@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 		@exercises = @user.exercises.paginate(:page => params[:my_exercises_page])
+		@trainings_sessions = @user.trainings_sessions.paginate(:page => params[:my_sessions_page])
 		@followers_exercises = @user.followers_exercises.paginate(:page => params[:followers_page])
   end
 
