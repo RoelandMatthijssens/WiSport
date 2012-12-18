@@ -3,7 +3,8 @@
 <% param_name ||= :page %>
 <% new_button ||= false %>
 <% likable ||= false %>
-<%= form_tag search_path, :method => 'get', :id => "exercises_search" do %>
+<%= form_tag search_path, :method => 'get', :id => "exercises_search", class: "hidden" do %>
+<% end %>
 <table class="table table-striped">
 	<thead>
   <tr>
@@ -20,12 +21,14 @@
 			<th></th>
 		<% end %>		
 		<th>				
-			<%= text_field_tag :search_name, params[:search_name], class: "exercises_search_select" %>
+			<%= text_field_tag :search_name, params[:search_name], id: "name_search", class: "exercises_search_select" %>
 		</th>		
 		<th>
-			<%= select_tag :search_type, options_for_select(Exercise.select_options, params[:search_type]), include_blank: true, class: "exercises_search_select" %>
+			<%= select_tag :search_type, options_for_select(Exercise.select_options, params[:search_type]), include_blank: true, id: "type_search", class: "exercises_search_select" %>
 		</th>
-    <th></th>
+    <th>
+			<%= text_field_tag :search_owner, params[:search_ower], id: "owner_search", class: "exercises_search_select" %>
+    </th>
 		<th colspan=4></th>
   </tr>
 	</thead>
@@ -33,4 +36,4 @@
 		<%= render :partial => 'exercises/exercises', :locals => {param_name: param_name, exercise_list: @exercises, likable: likable, publishable: publishable} %>
 	</tbody>
 	</table>
-<% end %>
+

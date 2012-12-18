@@ -41,7 +41,13 @@ class Exercise < ActiveRecord::Base
 			scoped
 		end
 	end
-
+	def self.search_by_owner(username)
+		if username && ! username.empty?
+			joins(:owner).where('users.username LIKE ?', "%#{username}%")
+		else
+			scoped
+		end
+	end
 	def self.select_options
 		descendants.map{ |c| c.to_s }.sort
 	end

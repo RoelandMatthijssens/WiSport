@@ -3,7 +3,12 @@ class UsersController < ApplicationController
   before_filter :login_required, :except => [:new, :create]
 
 	def index
-		@users = User.all
+		@users = User.search_by_name(params[:q])
+		respond_to do |format|
+			format.html
+			format.js
+			format.json { render json: @users.map { |u| {:id => u.id, :name => u.username} } }
+		end
 	end
   def new
     @user = User.new

@@ -16,5 +16,6 @@
 //= require jquery.effects.all
 //= require bootstrap
 //= require chosen-jquery
+//= require jquery.tokeninput
 //= require_tree .
 
