@@ -1,0 +1,4 @@
+var event = $("#ec-event-<%= @event.id %>");
+var cell = event.parent();
+event.remove();
+cell.addClass("ec-no-event-cell");

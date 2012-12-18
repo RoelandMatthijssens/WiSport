@@ -60,4 +60,4 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'css-social-buttons-rails'
 gem 'will_paginate'
-gem 'event-calendar', :require => 'event_calendar'
+gem 'event-calendar', :path => 'vendor/gems/event_calendar', :require => "event_calendar"

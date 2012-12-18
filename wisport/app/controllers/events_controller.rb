@@ -84,12 +84,13 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event = Exercise.find(params[:id])
+    @event = Event.find(params[:id])
     @event.destroy
 
     respond_to do |format|
       format.html { redirect_to event_url }
       format.json { head :no_content }
+			format.js
     end
   end
 
