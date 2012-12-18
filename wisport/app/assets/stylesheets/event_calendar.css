@@ -149,8 +149,13 @@ a.ec-day-link {
 
 .ec-event-cell a {
   text-decoration: none;
-  display: block;
-  width: 100%;
+  width: 80%;
+  height: 100%;
+}
+.ec-event-cell a.options {
+	float: right;
+  text-decoration: none;
+  width: 10%;
   height: 100%;
 }
 
