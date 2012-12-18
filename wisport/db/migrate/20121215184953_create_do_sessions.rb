@@ -5,6 +5,7 @@ class CreateDoSessions < ActiveRecord::Migration
       t.string :visibility
       t.text :remarks
       t.references :trainings_session
+			t.datetime :done_at
 
       t.timestamps
     end
