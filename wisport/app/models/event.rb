@@ -1,10 +1,10 @@
 class Event < ActiveRecord::Base
-	attr_accessible :trainings_session_id, :visibility, :start_at, :end_at, :color
+	attr_accessible :trainings_session_id, :visibility, :start_at, :end_at, :color, :trainings_session, :description
   has_event_calendar
 	belongs_to :trainings_session
 	belongs_to :user
 
-	validates_presence_of :trainings_session, :visibility
+	validates_presence_of :trainings_session, :visibility, :start_at, :end_at, :color
 	scope :published, where("visibility is 'Published'")
 
 	def name

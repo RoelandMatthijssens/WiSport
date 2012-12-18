@@ -21,6 +21,14 @@ attr_accessor :password
   validates_confirmation_of :password
   validates_length_of :password, :minimum => 4, :allow_blank => true
 
+	def self.search_by_name(name)
+		if name && ! name.empty?
+			where('username LIKE ?', "%#{name}%")
+		else
+			scoped
+		end
+	end
+
   # login can be either username or email address
   def self.authenticate(login, pass)
     user = find_by_username(login) || find_by_email(login)

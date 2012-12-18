@@ -18,5 +18,13 @@
 //= require chosen-jquery
 //= require highcharts
 //= require highcharts/highcharts-more
+//= require jquery.tokeninput
 //= require_tree .
 
+$(function () {
+  $('#products th a, #ex_pagination .pagination a').live('click', function () {
+      $.getScript(this.href);
+      return false;
+    }
+  );
+});
