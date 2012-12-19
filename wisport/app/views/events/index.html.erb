@@ -18,7 +18,7 @@
 		</p>
 	</div>
 </div>
-
+<% @forecast = HTTParty.get("http://api.wunderground.com/api/7aeb11b8b6f1a700/forecast10day/q/autoip.json") %>
 <div class="row-fluid" id="weatherMAN" style="display: none">
 	<div class="span1"></div>
 	<% @forecast['forecast']['simpleforecast']['forecastday'].each do |b| %>
