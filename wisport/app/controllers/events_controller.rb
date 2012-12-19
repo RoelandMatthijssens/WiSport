@@ -12,7 +12,11 @@ class EventsController < ApplicationController
     @event_strips = current_user.events.event_strips_for_month(@shown_month, @first_day_of_week)
 		@forecast = nil#HTTParty.get("http://api.wunderground.com/api/7aeb11b8b6f1a700/forecast10day/geolookup/q/autoip.json")
 		unless @forecast && @forecast['forecast'] && @forecast['forecast']['simpleforecast'] && @forecast['forecast']['simpleforecast']['forecastday']
-			@forecast = HTTParty.get("http://api.wunderground.com/api/7aeb11b8b6f1a700/forecast10day/geolookup/q/Belgium/Brussels.json")
+			ip = HTTParty.get("http://api.ipinfodb.com/v3/ip-city/?key=419418c11c5a24c908bd6c5f2acfe4886e7b0e26762bcf1386fdf0f0bcec39b1&ip=#{request.remote_ip}0&format=json")
+			@forecast = HTTParty.get("http://api.wunderground.com/api/7aeb11b8b6f1a700/forecast10day/geolookup/q/#{ip["latitude"]},#{ip["longitude"]}.json")
+			unless @forecast && @forecast['forecast'] && @forecast['forecast']['simpleforecast'] && @forecast['forecast']['simpleforecast']['forecastday']
+				@forecast = HTTParty.get("http://api.wunderground.com/api/7aeb11b8b6f1a700/forecast10day/geolookup/q/Belgium/Brussels.json")
+			end
 		end 
   end
 
