@@ -5,19 +5,26 @@ class DoExercise < ActiveRecord::Base
   attr_accessible :distance, :hours, :minutes, :reps, :seconds, :visibility, :do_session_id, :exercise_id, :user_id, :done_at
 
 	def value
-		if distance != 0
+		if distance && distance != 0
 			return distance
 		else 
-			if reps != 0
+			if reps && reps != 0
 				return reps
-			else
-				return 3600*hours+60*minuts+seconds
+			else if (minutes && hours && seconds)
+					return 3600*hours+60*minutes+seconds
+				else
+					return 0
+				end
 			end
 		end
 	end
 
 	def time
-			return (3600*hours+60*minuts+seconds/goal())*100
+		#if !hours || !minutes || !seconds
+			return 0
+		#else
+		#	return (3600*hours+60*minutes+seconds/goal())*100
+		#end
 	end
 
 	def time_goal
@@ -25,7 +32,8 @@ class DoExercise < ActiveRecord::Base
 	end
 
 	def goal
-		return 3600*exercise.hours+60*exercise.minuts+exercise.seconds
+		#
+		#return 3600*exercise.hours+60*exercise.minutes+exercise.seconds
 	end
 
 	validate :user, :exercise, presence: true

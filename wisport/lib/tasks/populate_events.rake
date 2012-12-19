@@ -15,6 +15,7 @@ namespace :db do
 			event.start_at = Time.at(rand_in_range(2.weeks.ago.to_f, Time.now.to_f))
 			event.end_at = event.start_at
 			event.color = Event.color_options.sample()
+			event.address = Faker::Address.country + Faker::Address.city
 			event.save!
 		end
 	end

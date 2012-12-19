@@ -17,7 +17,7 @@
 </br>
 </div>
 <div class="span3">
-<%= image_tag("map.png") %>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@event.latitude}%2C#{@event.longitude}" %>
 </div>
 <div class="span8">
 <b>Start:</b>
@@ -25,6 +25,15 @@
 </br>
 <b>End:</b>
 <%= @event.end_at %>
+</br>
+<b>Longitude:</b>
+<%= @event.longitude %>
+</br>
+<b>Latitude:</b>
+<%= @event.latitude %>
+</br>
+<b>Address:</b>
+<%= @event.address %>
 </div>
 <div class="span6"%>
 </br>
