@@ -54,6 +54,7 @@ gem "mocha", :group => :test
 
 gem 'google-api-client'
 
+gem 'youtube_it',"2.1.8", :git => "git://github.com/kylejginavan/youtube_it.git"
 gem 'chosen-rails'
 gem 'simple_form'
 gem 'omniauth-google-oauth2'
