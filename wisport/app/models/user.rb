@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 	has_many :trainings_sessions
   has_many :user_login_services
 	has_many :events
+	has_many :do_sessions
   has_and_belongs_to_many :friends,
 		:class_name => "User",
 		:association_foreign_key => "friend_id",

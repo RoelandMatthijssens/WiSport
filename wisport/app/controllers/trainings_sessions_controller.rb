@@ -22,6 +22,12 @@ class TrainingsSessionsController < ApplicationController
     @trainings_session = TrainingsSession.find(params[:id])
 		@exercise_list = @trainings_session.exercises.paginate(:page => params[:page])
 
+		@graph_data = {}
+		@trainings_session.exercises.each do |e|
+			exercises = DoExercise.find(:all, :conditions => ["exercise_id=? and user_id=?", e.id, current_user.id])
+			@graph_data[e.id] = exercises
+		end
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @trainings_session }

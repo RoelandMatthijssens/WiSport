@@ -5,7 +5,7 @@
 
   <div class="form-inputs">
     <%= f.association :user, as: :hidden %>
-    <%= f.input :visibility %>
+    <%= f.input :visibility, :collection => TrainingsSession.visibility_options %>
     <%= f.input :remarks, input_html: {:rows => 5} %>
     <%= f.association :trainings_session, as: :hidden %>
 		
@@ -14,7 +14,7 @@
 		<fieldset>
 			<legend class="floating_form_legend"><%= ex.name %></legend>
 			<%= do_ex_form.association :user, as: :hidden %>
-	    <%= do_ex_form.input :visibility, :as => :hidden %>
+	    <%= do_ex_form.input :visibility, :as => :hidden, :value => "kaka" %>
 	    <%= do_ex_form.input :distance unless ex.distance == 0 %>
 	    <%= do_ex_form.input :reps unless ex.reps == 0 %>
 			<% unless ex.hours == 0 && ex.minutes == 0 && ex.seconds == 0 %>
