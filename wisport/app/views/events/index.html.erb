@@ -12,7 +12,7 @@
 	<div class="span7">
 		<p align="right">	
 			<p align="right">
-				<% unless @forecast['forecast'] %>
+				<% if @forecast && @forecast['forecast'] %>
 					<a href="#" onclick="expand_weather()" class="btn btn-info">Show Weather Forecast</a>
 				<% end %>
 				<%= link_to "New Event", new_event_path, remote: true, class: "btn btn-primary" %>
@@ -20,7 +20,7 @@
 		</p>
 	</div>
 </div>
-<% unless @forecast['forecast'] %>
+<% if @forecast && @forecast['forecast'] %>
 	<div class="row-fluid" id="weatherMAN" style="display: none">
 		<div class="span1">
 			<div class="row-fluid">
