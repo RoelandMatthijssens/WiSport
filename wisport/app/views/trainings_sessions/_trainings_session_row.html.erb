@@ -13,7 +13,7 @@
 	<td><%= link_to trainings_session.title, trainings_session %></td>
 	<td><%= link_to trainings_session.owner.username, trainings_session.owner %></td>
 	<td onclick="expand_trainings_session(<%= trainings_session.id %>)"><%= trainings_session.description %></td>
-	<td><%= link_to 'Do!', {controller: "do_sessions", action: "new", do_session: {trainings_session_id: trainings_session.id, user_id: current_user.id}}, remote: true, class: "btn" %></td>
+	<td><%= link_to 'Do!', {controller: "do_sessions", action: "new", do_session: {trainings_session_id: trainings_session.id, user_id: current_user.id}}, remote: true, class: "btn btn btn-success" %></td>
 	<% if trainings_session.owner == current_user %>
 		<td><%= link_to 'Edit', edit_trainings_session_path(trainings_session), class:"btn", remote: true %></td>
 		<% if publishable %>

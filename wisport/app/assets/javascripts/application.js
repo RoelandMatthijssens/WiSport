@@ -19,6 +19,7 @@
 //= require highcharts
 //= require highcharts/highcharts-more
 //= require jquery.tokeninput
+//= require event_calendar
 //= require_tree .
 
 $(function () {
