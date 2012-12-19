@@ -1,0 +1,5 @@
+$('#trainings_sessions').prepend('<%= j render :partial => 'trainings_sessions/trainings_session_row', :locals => {trainings_session: @trainings_session, likable: true, new_button: true, publishable: true} %>');
+$('#trainings_session_<%= @trainings_session.id %>').hide();
+$('#trainings_session_<%= @trainings_session.id %>').show(2000);
+$('#ts_form').remove();
+hide_popups();
