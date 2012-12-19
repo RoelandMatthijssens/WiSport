@@ -1,13 +1,16 @@
 <table class="table table-striped">
-                        <tr>
-                                <th> Name</th>
-                                <th> Date</th>
-                        </tr>
-<% current_user.events.select {|e|e.start_at < DateTime.now }.first(6).each do |event| %>
-                <tr>
-                        <td><%= link_to(event.trainings_session.title, event) %></td>
-                        <td><%= event.start_at.strftime("%d/%m/%Y") %></td>
-                </tr>
-
-<% end %>
+	<thead>
+		<tr>
+			<th> Name</th>
+			<th> Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% current_user.events.select {|e|e.start_at < DateTime.now }.first(6).each do |event| %>
+		<tr>
+			<td><%= link_to(event.trainings_session.title, event) %></td>
+			<td><%= event.start_at.strftime("%d/%m/%Y") %></td>
+		</tr>
+		<% end %>
+	</tbody>
 </table>
