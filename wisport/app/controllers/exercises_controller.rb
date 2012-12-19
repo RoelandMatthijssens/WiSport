@@ -61,7 +61,7 @@ class ExercisesController < ApplicationController
       if @exercise.save
         format.html { redirect_to my_exercises_path, notice: 'Exercise was successfully created.' }
         format.json { render json: @exercise, status: :created, location: @exercise }
-        format.js { render js: %(window.location='#{my_exercises_path}') }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @exercise.errors, status: :unprocessable_entity }
@@ -79,7 +79,7 @@ class ExercisesController < ApplicationController
       if @exercise.update_attributes(params[:exercise])
         format.html { redirect_to @exercise, notice: 'Exercise was successfully updated.' }
         format.json { head :no_content }
-        format.js { render js: %(window.location='#{exercises_path}') }
+        format.js
       else
         format.html { render action: "edit" }
         format.json { render json: @exercise.errors, status: :unprocessable_entity }
@@ -97,6 +97,7 @@ class ExercisesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to exercises_url }
       format.json { head :no_content }
+			format.js
     end
   end
 

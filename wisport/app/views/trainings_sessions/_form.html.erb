@@ -1,12 +1,18 @@
-<%= simple_form_for(@trainings_session) do |f| %>
+<h1>New Trainings Session</h1>
+<%= simple_form_for(@trainings_session, remote: true, html: {class: 'form-horizontal' }) do |f| %>
 	<%= f.error_notification %>
 	<%= f.input :title %>
-	<%= f.association :exercises %>
+	<%= f.input :visibility, :collection => TrainingsSession.visibility_options, :as => :radio_buttons %>
+	<%= f.association :exercises, :collection => @my_exercises, :input_html => { "data-placeholder" => 'Chose some Exercises' } %>
 	<%= f.input :description, input_html: {:rows => 5} %>
 	
 	<%= f.error :base %>
-	<div class="form-actions">
+	<div class="form_buttons">
 		<%= f.button :submit, :class => 'btn btn-primary' %>
-		<%= link_to 'Cancel', information_index_path, class: 'btn btn-danger' %>
+		<%= link_to 'Cancel', trainings_sessions_path, class: 'btn btn-danger' %>
 	</div>
 <% end %>
+
+<script type = "text/javascript">
+	$('#trainings_session_exercise_ids').chosen()
+</script>

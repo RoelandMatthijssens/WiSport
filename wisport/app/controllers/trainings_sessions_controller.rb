@@ -32,6 +32,9 @@ class TrainingsSessionsController < ApplicationController
   # GET /trainings_sessions/new.json
   def new
     @trainings_session = TrainingsSession.new
+		@my_exercises = Exercise.liked_by(current_user.id).published
+			.concat(Exercise.owned_by(current_user.id).published)
+			.concat(Exercise.owned_by(current_user.id).unpublished)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,6 +46,9 @@ class TrainingsSessionsController < ApplicationController
   # GET /trainings_sessions/1/edit
   def edit
     @trainings_session = TrainingsSession.find(params[:id])
+		@my_exercises = Exercise.liked_by(current_user.id).published
+			.concat(Exercise.owned_by(current_user.id).published)
+			.concat(Exercise.owned_by(current_user.id).unpublished)
   end
 
   # POST /trainings_sessions
@@ -51,12 +57,15 @@ class TrainingsSessionsController < ApplicationController
     @trainings_session = TrainingsSession.new(params[:trainings_session])
 		@trainings_session.visibility = "Private"
 		@trainings_session.owner = current_user if current_user
+		@my_exercises = Exercise.liked_by(current_user.id).published
+			.concat(Exercise.owned_by(current_user.id).published)
+			.concat(Exercise.owned_by(current_user.id).unpublished)
 
     respond_to do |format|
       if @trainings_session.save
         format.html { redirect_to my_sessions_path, notice: 'Trainings session was successfully created.' }
         format.json { render json: @trainings_session, status: :created, location: @trainings_session }
-				format.js { render js: %(window.location='#{my_sessions_path}') }
+				format.js
       else
         format.html { render action: "new" }
         format.json { render json: @trainings_session.errors, status: :unprocessable_entity }
@@ -69,12 +78,15 @@ class TrainingsSessionsController < ApplicationController
   # PUT /trainings_sessions/1.json
   def update
     @trainings_session = TrainingsSession.find(params[:id])
+		@my_exercises = Exercise.liked_by(current_user.id).published
+			.concat(Exercise.owned_by(current_user.id).published)
+			.concat(Exercise.owned_by(current_user.id).unpublished)
 
     respond_to do |format|
       if @trainings_session.update_attributes(params[:trainings_session])
         format.html { redirect_to @trainings_session, notice: 'Trainings session was successfully updated.' }
         format.json { head :no_content }
-				format.js { render js: %(window.location='#{trainings_sessions_path}') }
+				format.js
       else
         format.html { render action: "edit" }
         format.json { render json: @trainings_session.errors, status: :unprocessable_entity }
@@ -92,6 +104,7 @@ class TrainingsSessionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to trainings_sessions_url }
       format.json { head :no_content }
+			format.js
     end
   end
 

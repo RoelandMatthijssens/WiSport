@@ -3,12 +3,11 @@
 	<%= f.error_notification %>
 
 	<%= f.input :name %>
+	<%= f.input :visibility, :collection => Exercise.visibility_options, :as => :radio_buttons %>
 	<%= f.input :type, :collection => Exercise.select_options %>
 	<%= render partial: 'distance_exercise', locals: {f: f} %>
 	<%= render partial: 'reps_exercise', locals: {f: f} %>
 	<%= render partial: 'time_exercise', locals: {f: f} %>
-
-	<%= f.input :visibility, :collection => Exercise.visibility_options, :as => :radio_buttons %>
 
 	<%= f.simple_fields_for :information do |builder| %>
 		<%= render 'information_form', f: builder %>
