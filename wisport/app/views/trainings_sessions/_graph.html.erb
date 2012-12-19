@@ -37,28 +37,14 @@
 	
 							<% timeresult = [] %>
 							<% result = [] %>
-							<% goal = [] %>
 							<% data.each do |e| %>
 								<% result << e.value %>
-								<% goal << e.time_goal %>
 								<% timeresult << e.time %>
 							<% end %>
-							<% logger.debug "lala1="+goal.inspect %>
-							<% logger.debug "lala2="+result.inspect %>
-							<% logger.debug "lala3="+timeresult.inspect %>
 
 	            series: [{
 	                type: 'column',
 	                data: <%= result %>
-	            }, {
-	                type: 'spline',
-	                name: 'goal',
-	                data: <%= goal %>,
-	                marker: {
-	                    lineWidth: 2,
-	                    lineColor: Highcharts.getOptions().colors[3],
-	                    fillColor: 'red'
-	                }
 	            }, {
 	                type: 'spline',
 	                name: 'Time',

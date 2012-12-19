@@ -30,7 +30,7 @@
 </div>
 
 
-<div class="span6">
+<div class="span11">
 </br>
 <b>Exercises:</b> 
 </br>
@@ -51,20 +51,21 @@
                         </table>
                 </td>
 </div>
-<div class="span5">
-<h5>Progression</h5>
-<div id="tabs">
-	<ul>
-		<% @graph_data.each do |id, data| %>
-			<li><a href="#tabs-<%= id %>"><%= Exercise.find_by_id(id).name %></a></li>
-		<% end %>
-	</ul>
-		<% @graph_data.each do |id, data| %>
-			<div id="tabs-<%= id %>">
-			</div>
-		<% end %>
-
-</div>
+<div class="row-fluid">
+	<div class="span12">
+		<h5>Progression</h5>
+		<div id="tabs">
+			<ul>
+				<% @graph_data.each do |id, data| %>
+					<li><a href="#tabs-<%= id %>"><%= Exercise.find_by_id(id).name %></a></li>
+				<% end %>
+			</ul>
+			<% @graph_data.each do |id, data| %>
+				<div id="tabs-<%= id %>">
+				</div>
+			<% end %>
+		</div>
+	</div>
 </div>
 </div>
 <%= link_to 'Edit', edit_trainings_session_path(@trainings_session) %> |
