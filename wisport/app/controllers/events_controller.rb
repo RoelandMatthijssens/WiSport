@@ -10,7 +10,10 @@ class EventsController < ApplicationController
 
     @first_day_of_week = 1
     @event_strips = current_user.events.event_strips_for_month(@shown_month, @first_day_of_week)
-		@forecast = HTTParty.get("http://api.wunderground.com/api/7aeb11b8b6f1a700/forecast10day/geolookup/q/autoip.json")
+		@forecast = nil#HTTParty.get("http://api.wunderground.com/api/7aeb11b8b6f1a700/forecast10day/geolookup/q/autoip.json")
+		unless @forecast && @forecast['forecast'] && @forecast['forecast']['simpleforecast'] && @forecast['forecast']['simpleforecast']['forecastday']
+			@forecast = HTTParty.get("http://api.wunderground.com/api/7aeb11b8b6f1a700/forecast10day/geolookup/q/Belgium/Brussels.json")
+		end 
   end
 
   # GET /events/1
