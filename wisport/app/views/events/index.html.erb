@@ -10,6 +10,7 @@
 				<% if @forecast && @forecast['forecast'] %>
 					<a href="#" onclick="expand_weather()" class="btn btn-info">Show Weather Forecast</a>
 				<% end %>
+				<%= link_to 'Map', nearby_events_path, class: "btn btn btn-success" %>
 				<%= link_to "New Event", new_event_path, remote: true, class: "btn btn-primary" %>
 			</p>
 		</p>
