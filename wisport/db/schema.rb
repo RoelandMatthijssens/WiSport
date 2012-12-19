@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20121216154742) do
     t.integer  "seconds"
     t.integer  "exercise_id"
     t.integer  "do_session_id"
+    t.datetime "done_at"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

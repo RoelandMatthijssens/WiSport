@@ -5,6 +5,7 @@ namespace :db do
 		amount = args[:amount].to_i
 
 		DoSession.delete_all
+		DoExercise.delete_all
 		amount *= 3
 		amount.times do
 			done_session = DoSession.new()
@@ -12,11 +13,12 @@ namespace :db do
 			done_session.trainings_session_id = TrainingsSession.all.sample().id
 			done_session.remarks = Faker::Lorem.paragraphs(2)
 			done_session.user = User.all.sample()
-			done_session.done_at = Time.at(rand_in_range(done_session.trainings_session.created_at.to_f, Time.now.to_f))
+			done_session.done_at = Time.at(rand_in_range(2.weeks.ago.to_f, Time.now.to_f))
 			done_session.trainings_session.exercises.each do |e|
 				done_exercise = DoExercise.new()
 				done_exercise.user = done_session.user
 				done_exercise.exercise = e
+				done_exercise.done_at = Time.at(rand_in_range(2.weeks.ago.to_f, Time.now.to_f))
 				done_exercise.save!
 				done_session.do_exercises << done_exercise
 			end

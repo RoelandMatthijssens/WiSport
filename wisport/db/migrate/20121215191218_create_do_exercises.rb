@@ -10,6 +10,7 @@ class CreateDoExercises < ActiveRecord::Migration
       t.integer :seconds
       t.references :exercise
       t.references :do_session
+			t.datetime :done_at
 
       t.timestamps
     end
