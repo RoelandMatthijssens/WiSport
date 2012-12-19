@@ -1,6 +1,46 @@
 <!-- Probably move the stylesheet to you layout. Also make sure you include the javascript. -->
 <%= stylesheet_link_tag "event_calendar" %>
 
-<h1>Calendar
-<%= link_to "New Event", new_event_path, class: "btn" %></h1>
+
+
+<div class="row-fluid">
+	<div class="span5">
+
+		<h1>Calendar
+		</h1>
+	</div>
+	<div class="span7">
+		<p align="right">	
+			<p align="right">
+				<a href="#" onclick="expand_weather()" class="btn btn-info">Show Weather Forecast</a>
+				<%= link_to "New Event", new_event_path, class: "btn btn-primary" %>
+			</p>
+		</p>
+	</div>
+</div>
+
+<div class="row-fluid" id="weatherMAN" style="display: none">
+	<div class="span1"></div>
+	<% @forecast['forecast']['simpleforecast']['forecastday'].each do |b| %>
+	<div class="span1 forecastday">
+		<div class="row-fluid">
+			<div class="span12">
+				<%= image_tag b['icon_url'] %>
+			</div>
+		</div>
+		<div class="span12">
+			<div class="row-fluid">
+				<div class="span12">
+					<%= b["date"]["day"] %> <%= b["date"]["monthname"][0,3] %>		
+				</div>	
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<span class="temperature_arrow"><%= image_tag "arrow_high.png" %></span>	<%= b["high"]["celsius"] %>	<span class="temperature_arrow"><%= image_tag "arrow_low.png" %></span>	<%= b["low"]["celsius"] %>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<% end %>
+</div>
 <%= raw(event_calendar) %>

@@ -10,6 +10,7 @@ class EventsController < ApplicationController
 
     @first_day_of_week = 1
     @event_strips = current_user.events.event_strips_for_month(@shown_month, @first_day_of_week)
+		@forecast = HTTParty.get("http://api.wunderground.com/api/7aeb11b8b6f1a700/forecast10day/geolookup/q/autoip.json")
   end
 
   # GET /events/1
