@@ -1,10 +1,10 @@
 <h1>New event</h1>
-<%= simple_form_for(@event, remote: false, html: {class: 'form-horizontal' }) do |f| %>
+<%= simple_form_for(@event, remote: true, html: {class: 'form-horizontal' }) do |f| %>
 	<%= f.error_notification %>
 
 	<%= f.input :start_at, :as => :date_picker, :input_html => { :value => @event.start_at.to_date} %>
 
-	<%= f.association :trainings_session %>
+	<%= f.association :trainings_session, :collection => @my_sessions, :input_html => { "data-placeholder" => 'Choose a Session' } %>
 
 	<%= f.input :color, :collection => Event.color_options %>
 	<%= f.input :address %>
@@ -15,3 +15,6 @@
 		<%= link_to 'Cancel', events_path, class: 'btn btn-danger' %>
   </div>
 <% end %>
+<script type = "text/javascript">
+	$('#event_trainings_session_id').chosen()
+</script>

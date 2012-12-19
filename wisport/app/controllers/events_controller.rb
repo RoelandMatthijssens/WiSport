@@ -31,6 +31,9 @@ class EventsController < ApplicationController
     @event = Event.new
 		@event.start_at = Time.now
 		@event.end_at = Time.now
+		@my_sessions = TrainingsSession.liked_by(current_user.id).published
+			.concat(TrainingsSession.owned_by(current_user.id).published)
+			.concat(TrainingsSession.owned_by(current_user.id).unpublished)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }
@@ -41,6 +44,9 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+		@my_sessions = TrainingsSession.liked_by(current_user.id).published
+			.concat(TrainingsSession.owned_by(current_user.id).published)
+			.concat(TrainingsSession.owned_by(current_user.id).unpublished)
   end
 
   # POST /events
@@ -50,6 +56,9 @@ class EventsController < ApplicationController
 		@event.user = current_user
 		@event.visibility = "Published"
 		@event.end_at = @event.start_at
+		@my_sessions = TrainingsSession.liked_by(current_user.id).published
+			.concat(TrainingsSession.owned_by(current_user.id).published)
+			.concat(TrainingsSession.owned_by(current_user.id).unpublished)
     respond_to do |format|
       if @event.save
         format.html { redirect_to events_path, notice: 'Event was successfully created.' }
@@ -67,7 +76,9 @@ class EventsController < ApplicationController
   # PUT /events/1.json
   def update
     @event= Event.find(params[:id])
-
+		@my_sessions = TrainingsSession.liked_by(current_user.id).published
+			.concat(TrainingsSession.owned_by(current_user.id).published)
+			.concat(TrainingsSession.owned_by(current_user.id).unpublished)
     respond_to do |format|
       if @event.update_attributes(params[:event])
 				@event.end_at = @event.start_at
