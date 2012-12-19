@@ -4,33 +4,5 @@
 <% buttons ||= false %>
 <% likable ||= false %>
 <% exercise_list.each do |exercise| %>
-	<tr>
-		<% if likable && exercise.owner_id != current_user.id %>
-	 		<td id="likes_<%= exercise.id %>" class="likes_<%= exercise.id %> starable" >
-	 			<% if Like.by_exercise(exercise.id).for_user(current_user.id).size == 0 %>
-	 				<%= render :partial => "likes/like_form", :locals => {likable: exercise} %>
-	 			<% else %>
-	 				<%= render :partial => "likes/unlike", :locals => {:like => Like.by_exercise(exercise.id).for_user(current_user.id).first } %>
-	 			<% end %>
-	 		</td>
-		<% elsif likable %>
-			<td></td>
-		<% end %>    
-    <td><%= link_to exercise.name, exercise %></td>
-		<td><%= exercise.type %></td>
-		<td><%= link_to exercise.owner.username, exercise.owner %></td>   
-		<% if exercise.owner == current_user && buttons %>
-			<td><%= link_to "Edit", edit_exercise_path(exercise), class: "btn", remote: true %></td>
-			<% if publishable %>
-				<td><%= render :partial => "exercises/publish_button", :locals => {:exercise => exercise} %></td>
-			<% end %>
-			<td><%= link_to "Destroy", exercise, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %></td>
-		<% else %>
-			<td></td>
-			<% if publishable %>
-				<td></td>
-			<% end %>
-			<td></td>
-		<% end %>
-  </tr>
+	<%= render :partial => 'exercises/exercise_list_row', :locals => {param_name: param_name, exercise: exercise, likable: likable, publishable: publishable, buttons: buttons} %>
 <% end %>

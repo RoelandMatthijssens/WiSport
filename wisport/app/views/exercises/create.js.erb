@@ -1,0 +1,5 @@
+$('#exercises').prepend('<%= j render :partial => 'exercises/exercise_list_row', :locals => {param_name: :page, exercise: @exercise, likable: true, publishable: true, buttons: true} %>');
+$('#exercise_<%= @exercise.id %>').hide();
+$('#exercise_<%= @exercise.id %>').show(2000);
+$('#ex_form').remove();
+hide_popups();
