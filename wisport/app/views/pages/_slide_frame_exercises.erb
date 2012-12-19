@@ -1,9 +1,12 @@
-<div id="sliderFrame">
-	<div id="ribbon"></div>
-	<div id="slider">
-	<%= image_tag("run2.jpg")%>
-	<%= image_tag("swim2.jpg")%>
-	<%= image_tag("cycling2.jpg")%>
-	<%= image_tag("fitness.png")%>
-	</div>
+<div id="myCarousel" class="carousel slide">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item"><%= image_tag("run2.jpg", :size => "100%x100%") %></div>
+    <div class="item"><%= image_tag("swim2.jpg", :size => "100%x100%") %></div>
+    <div class="item"><%= image_tag("cycling2.jpg", size: "100%x100%") %></div>
+		<div class="item"><%= image_tag("fitness.png", size: "100%x100%") %></div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
