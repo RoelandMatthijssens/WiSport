@@ -2,8 +2,7 @@
 <%= render :partial => "pie_chart", :locals => {div_id: "tabs-2"} %>
 <h3> Welcome <%= current_user.username %></h3>
 
-<div class="row-fluid">
-	<div class="span8">
+	<div class="span7">
 		<h5>Your Exercises </h5>
 		<%= render 'slide_frame_exercises'%>
 	</div>
@@ -11,100 +10,33 @@
 
 	<div class="span4">
 		<h5>Upcomming Events</h5>
-		<table class="table table-striped">
-			<tr>
-				<th> Name</th>
-				<th> Date</th>
-			</tr>
-			<tr>
-				<td>Coowlest Thingie</td>
-				<td>11/11/11</td>
-			</tr>
-			<tr>
-				<td>Roeland Sports</td>
-				<td>12/12/12</td>
-			</tr>
-			<tr>
-				<td>Roeland Sports</td>
-				<td>12/12/12</td>
-			</tr>
-			<tr>
-				<td>Roeland Sports</td>
-				<td>12/12/12</td>
-			</tr>
-			<tr>
-				<td>Roeland Sports</td>
-				<td>12/12/12</td>
-			</tr>
-			<tr>
-				<td>Roeland Sports</td>
-				<td>12/12/12</td>
-			</tr>
-
-		</table>
+		<%= render 'upcomming_events' %>
 	</div>
 </div>
-
+<br/>
 <div class="row-fluid">
-	<div class="span8">
-	</br>
-</br>
-<h5>Progression</h5>
-<div id="tabs">
-	<ul>
-		<li><a href="#tabs-1">User Activity</a></li>
-		<li><a href="#tabs-2">Exercise Type Share</a></li>
-		<li><a href="#tabs-3">Aenean lacinia</a></li>
-	</ul>
-	<div id="tabs-1">
+	<div class="span7">
+		<h5>Progression</h5>
+		<div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">User Activity</a></li>
+				<li><a href="#tabs-2">Exercise Type Share</a></li>
+				<li><a href="#tabs-3">Aenean lacinia</a></li>
+			</ul>
+			<div id="tabs-1">
+			</div>
+			<div id="tabs-2">
+			</div>
+			<div id="tabs-3">
+			<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+			<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+			</div>
+		</div>
 	</div>
-	<div id="tabs-2">
-	</div>
-	<div id="tabs-3">
-		<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-		<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+	<div class="span4">
+		<h5>Recently Completed events</h5>
+		<%= render('past_events') %>
 	</div>
 </div>
-</br>
-</br>
-
-</div>
-<div class="span4">
-</br>
-</br>
-<h5>Recently Completed events</h5>
-<table class="table table-striped">
-	<tr>
-		<th> Name</th>
-		<th> Date</th>
-	</tr>
-	<tr>
-		<td>Coowlest Thingie</td>
-		<td>11/11/11</td>
-	</tr>
-	<tr>
-		<td>Roeland Sports</td>
-		<td>12/12/12</td>
-	</tr>
-	<tr>
-		<td>Roeland Sports</td>
-		<td>12/12/12</td>
-	</tr>
-	<tr>
-		<td>Roeland Sports</td>
-		<td>12/12/12</td>
-	</tr>
-	<tr>
-		<td>Roeland Sports</td>
-		<td>12/12/12</td>
-	</tr>
-	<tr>
-		<td>Roeland Sports</td>
-		<td>12/12/12</td>
-	</tr>
-
-</table>
-
-</div>
-</div>
+<br/>
 

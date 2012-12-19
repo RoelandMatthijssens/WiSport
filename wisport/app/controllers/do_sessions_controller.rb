@@ -47,12 +47,13 @@ class DoSessionsController < ApplicationController
   # POST /do_sessions.json
   def create
     @do_session = DoSession.new(params[:do_session])
+		#@do_session.trainings_session
 
     respond_to do |format|
       if @do_session.save
-        format.html { redirect_to @do_session, notice: 'Do session was successfully created.' }
+        format.html { redirect_to @do_session.trainings_session, notice: 'Do session was successfully created.' }
         format.json { render json: @do_session, status: :created, location: @do_session }
-				format.js { render js: %(window.location='#{trainings_sessions_path}') }
+				format.js { render js: %(window.location='#{trainings_session_path(@do_session.trainings_session)}') }
       else
         format.html { render action: "new" }
         format.json { render json: @do_session.errors, status: :unprocessable_entity }

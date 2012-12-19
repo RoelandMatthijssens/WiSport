@@ -10,7 +10,7 @@
 <div class="span5">
 </br>
  <p align="right">
-<%= link_to 'Do!', {controller: "do_sessions", action: "new", do_session: {trainings_session_id: @trainings_session.id, user_id: current_user.id}}, remote: true, class: "btn" %>
+<%= link_to 'Do!', {controller: "do_sessions", action: "new", do_session: {trainings_session_id: @trainings_session.id, user_id: current_user.id}}, remote: true, class: "btn btn btn-success" %>
 <% if @trainings_session.owner == current_user %>
    <%= link_to 'Edit', edit_trainings_session_path(@trainings_session), class:"btn", remote: true %> 
    <%= link_to 'Destroy', @trainings_session, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
