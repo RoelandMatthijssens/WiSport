@@ -18,6 +18,10 @@ class EventsController < ApplicationController
 				@forecast = HTTParty.get("http://api.wunderground.com/api/7aeb11b8b6f1a700/forecast10day/geolookup/q/Belgium/Brussels.json")
 			end
 		end 
+		respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: Event.all }
+    end
   end
 
 	def nearby
