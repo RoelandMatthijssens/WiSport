@@ -54,6 +54,9 @@ ActiveRecord::Schema.define(:version => 20121219021957) do
     t.string   "color"
     t.string   "description"
     t.string   "visibility"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end

@@ -84,6 +84,7 @@ GEM
       i18n (~> 0.5)
     faraday (0.8.4)
       multipart-post (~> 1.1)
+    geocoder (1.1.5)
     google-api-client (0.5.0)
       addressable (>= 2.3.2)
       autoparse (>= 0.3.2)
@@ -229,6 +230,7 @@ DEPENDENCIES
   event-calendar
   factory_girl_rails (~> 4.0)
   faker
+  geocoder
   google-api-client
   highcharts-rails (~> 2.3.0)
   jquery-rails

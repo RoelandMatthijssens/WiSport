@@ -9,6 +9,9 @@ class CreateEvents < ActiveRecord::Migration
       t.string :color
 			t.string :description
       t.string :visibility
+			t.string :address
+			t.float :latitude
+			t.float :longitude
       t.timestamps
     end
   end
