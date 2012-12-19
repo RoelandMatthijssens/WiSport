@@ -96,7 +96,7 @@ attr_accessor :password
 		end
 		return @exercises
 	end
-	def followers_sessions
+	def followers_exercises
 		@trainings_sessions = []
 		friends.each do |friend|
 			@trainings_sessions += friend.trainings_sessions.published
