@@ -32,6 +32,9 @@ class TrainingsSessionsController < ApplicationController
   # GET /trainings_sessions/new.json
   def new
     @trainings_session = TrainingsSession.new
+		@my_exercises = Exercise.liked_by(current_user.id).published
+			.concat(Exercise.owned_by(current_user.id).published)
+			.concat(Exercise.owned_by(current_user.id).unpublished)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,6 +46,9 @@ class TrainingsSessionsController < ApplicationController
   # GET /trainings_sessions/1/edit
   def edit
     @trainings_session = TrainingsSession.find(params[:id])
+		@my_exercises = Exercise.liked_by(current_user.id).published
+			.concat(Exercise.owned_by(current_user.id).published)
+			.concat(Exercise.owned_by(current_user.id).unpublished)
   end
 
   # POST /trainings_sessions
@@ -51,6 +57,9 @@ class TrainingsSessionsController < ApplicationController
     @trainings_session = TrainingsSession.new(params[:trainings_session])
 		@trainings_session.visibility = "Private"
 		@trainings_session.owner = current_user if current_user
+		@my_exercises = Exercise.liked_by(current_user.id).published
+			.concat(Exercise.owned_by(current_user.id).published)
+			.concat(Exercise.owned_by(current_user.id).unpublished)
 
     respond_to do |format|
       if @trainings_session.save
@@ -69,6 +78,9 @@ class TrainingsSessionsController < ApplicationController
   # PUT /trainings_sessions/1.json
   def update
     @trainings_session = TrainingsSession.find(params[:id])
+		@my_exercises = Exercise.liked_by(current_user.id).published
+			.concat(Exercise.owned_by(current_user.id).published)
+			.concat(Exercise.owned_by(current_user.id).unpublished)
 
     respond_to do |format|
       if @trainings_session.update_attributes(params[:trainings_session])
