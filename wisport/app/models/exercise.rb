@@ -29,6 +29,10 @@ class Exercise < ActiveRecord::Base
 		["Km","Mile","Meter"]
 	end
 
+	def self.type_options
+		["DistanceExercise", "RepsExercise", "TimeExercise"]
+	end
+
 	validates_inclusion_of :visibility, :in=>visibility_options, :allow_nil => false
 
 	def self.search_by_name(name)
@@ -68,7 +72,7 @@ class Exercise < ActiveRecord::Base
 end
 
 class DistanceExercise < Exercise
-	attr_accessible :distance
+	attr_accessible :distance, :unit
 
 	validates_presence_of :distance
 	validates_presence_of :unit

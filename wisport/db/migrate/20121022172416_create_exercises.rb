@@ -6,6 +6,7 @@ class CreateExercises < ActiveRecord::Migration
       t.string  :visibility
       t.string :type
       t.float :distance, :default => 0 #in km
+			t.string :unit
       t.integer :reps, :default => 0
       t.integer :hours, :default => 0
       t.integer :minutes, :default => 0

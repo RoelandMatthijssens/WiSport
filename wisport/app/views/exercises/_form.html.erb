@@ -8,7 +8,7 @@
 	<%= render partial: 'reps_exercise', locals: {f: f} %>
 	<%= render partial: 'time_exercise', locals: {f: f} %>
 
-	<%= f.input :visibility, :collection => Exercise.visibility_options %>
+	<%= f.input :visibility, :collection => Exercise.visibility_options, :as => :radio_buttons %>
 
 	<%= f.simple_fields_for :information do |builder| %>
 		<%= render 'information_form', f: builder %>

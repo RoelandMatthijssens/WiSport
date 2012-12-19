@@ -3,7 +3,6 @@ namespace :db do
 
 	task :populate, [:amount] => :environment do |t, args|
 		amount = args[:amount].to_i
-		amount ||= 10
 		Rake::Task["db:populate_users"].invoke(amount)
 		Rake::Task["db:populate_exercises"].invoke(amount)
 		Rake::Task["db:populate_trainings_sessions"].invoke(amount)

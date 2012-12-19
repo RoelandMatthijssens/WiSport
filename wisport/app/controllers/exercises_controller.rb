@@ -57,7 +57,6 @@ class ExercisesController < ApplicationController
 		end
     @exercise = x[params[:exercise][:type]].new(params[:exercise])
 		@exercise.owner = current_user
-		@exercise.visibility = "Private"
     respond_to do |format|
       if @exercise.save
         format.html { redirect_to my_exercises_path, notice: 'Exercise was successfully created.' }

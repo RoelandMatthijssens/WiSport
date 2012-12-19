@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20121216154742) do
     t.string   "visibility"
     t.string   "type"
     t.float    "distance",       :default => 0.0
+    t.string   "unit"
     t.integer  "reps",           :default => 0
     t.integer  "hours",          :default => 0
     t.integer  "minutes",        :default => 0
