@@ -4,6 +4,8 @@ class DoExercise < ActiveRecord::Base
   belongs_to :do_session
   attr_accessible :distance, :hours, :minutes, :reps, :seconds, :visibility, :do_session_id, :exercise_id, :user_id, :done_at
 
+	before_save :set_done_at
+
 	def value
 		if distance && distance != 0
 			return distance
@@ -37,4 +39,10 @@ class DoExercise < ActiveRecord::Base
 	end
 
 	validate :user, :exercise, presence: true
+	
+	private
+	
+	def set_done_at
+		self.done_at ||= Time.now
+	end
 end
