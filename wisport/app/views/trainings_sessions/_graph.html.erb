@@ -10,7 +10,6 @@
 	                text: 'Combination chart'
 	            },
 	            xAxis: {
-	                categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
 	            },
 	            tooltip: {
 	                formatter: function() {
@@ -40,11 +39,13 @@
 							<% result = [] %>
 							<% goal = [] %>
 							<% data.each do |e| %>
-								<% logger.debug("tlololol "+e.value) %>
 								<% result << e.value %>
 								<% goal << e.time_goal %>
 								<% timeresult << e.time %>
 							<% end %>
+							<% logger.debug "lala1="+goal.inspect %>
+							<% logger.debug "lala2="+result.inspect %>
+							<% logger.debug "lala3="+timeresult.inspect %>
 
 	            series: [{
 	                type: 'column',

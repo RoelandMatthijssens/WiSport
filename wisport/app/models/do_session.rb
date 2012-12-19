@@ -6,5 +6,5 @@ class DoSession < ActiveRecord::Base
 	has_many :do_exercises
   
 	accepts_nested_attributes_for :do_exercises
-	validates_presence_of :done_at, :user, :trainings_session, :visibility
+	validates_presence_of :user, :trainings_session, :visibility
 end
