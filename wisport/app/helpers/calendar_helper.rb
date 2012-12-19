@@ -25,7 +25,6 @@ module CalendarHelper
       html << %(#{h(event.name)}</a>)
       html << %(<a href="/events/#{event.id}" title="edit" class="options ui-icon ui-icon-circle-close" data-remote="true" data-method="delete" rel="nofollow"></a>)
       html << %(<a href="/events/#{event.id}/edit" title="edit" class="options ui-icon ui-icon-pencil"></a>)
-			html << %(<img alt="Partlycloudy" src="http://icons-ak.wxug.com/i/c/k/partlycloudy.gif">)
       html
     end
   end
