@@ -40,6 +40,6 @@ class Image < ActiveRecord::Base
   private
   
   def self.to_base64 file
-    ActiveSupport::Base64.encode64(file.read)
+    Base64.encode64(file.read)
   end
 end
