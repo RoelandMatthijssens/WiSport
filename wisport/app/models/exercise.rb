@@ -72,7 +72,7 @@ class Exercise < ActiveRecord::Base
 end
 
 class DistanceExercise < Exercise
-	attr_accessible :distance, :unit
+	attr_accessible :distance, :unit, :hours, :minutes, :seconds
 
 	validates_presence_of :distance
 	validates_presence_of :unit
@@ -85,7 +85,7 @@ class TimeExercise < Exercise
 	validates_presence_of :seconds
 end
 class RepsExercise < Exercise
-	attr_accessible :reps
+	attr_accessible :reps, :hours, :minutes, :seconds
 
 	validates_presence_of :reps
 end

@@ -1,0 +1,75 @@
+<script type="text/javascript" charset="utf-8">
+	$(function () {
+	    var chart;
+	    $(document).ready(function() {
+	        chart = new Highcharts.Chart({
+	            chart: {
+	                renderTo: 'tabs-<%= div_id %>'
+	            },
+	            title: {
+	                text: 'Combination chart'
+	            },
+	            xAxis: {
+	                categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
+	            },
+	            tooltip: {
+	                formatter: function() {
+	                    var s;
+	                    if (this.point.name) { // the pie chart
+	                        s = ''+
+	                            this.point.name +': '+ this.y +' fruits';
+	                    } else {
+	                        s = ''+
+	                            this.x  +': '+ this.y;
+	                    }
+	                    return s;
+	                }
+	            },
+	            labels: {
+	                items: [{
+	                    html: 'Total fruit consumption',
+	                    style: {
+	                        left: '40px',
+	                        top: '8px',
+	                        color: 'black'
+	                    }
+	                }]
+	            },
+	
+							<% timeresult = [] %>
+							<% result = [] %>
+							<% goal = [] %>
+							<% data.each do |e| %>
+								<% logger.debug("tlololol "+e.value) %>
+								<% result << e.value %>
+								<% goal << e.time_goal %>
+								<% timeresult << e.time %>
+							<% end %>
+
+	            series: [{
+	                type: 'column',
+	                data: <%= result %>
+	            }, {
+	                type: 'spline',
+	                name: 'goal',
+	                data: <%= goal %>,
+	                marker: {
+	                    lineWidth: 2,
+	                    lineColor: Highcharts.getOptions().colors[3],
+	                    fillColor: 'red'
+	                }
+	            }, {
+	                type: 'spline',
+	                name: 'Time',
+	                data: <%= timeresult %>,
+	                marker: {
+	                    lineWidth: 2,
+	                    lineColor: Highcharts.getOptions().colors[3],
+	                    fillColor: 'white'
+	                }
+	            }]
+	        });
+	    });
+	    
+	});
+</script>
