@@ -29,9 +29,9 @@ $(document).on 'change', '#exercise_type', (event) ->
 		$("#time_exercise").addClass "hidden" 
 		$("#distance_exercise").addClass "hidden" 
 	if $("#exercise_type").val() is ''
-                $("#reps_exercise").addClass "hidden"
-                $("#time_exercise").addClass "hidden"    
-                $("#distance_exercise").addClass "hidden" 
+		$("#reps_exercise").addClass "hidden"
+		$("#time_exercise").addClass "hidden"
+		$("#distance_exercise").addClass "hidden" 
 
 $ ->
 	serialize_form = () ->
