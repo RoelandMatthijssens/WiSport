@@ -1,13 +1,19 @@
 class Event < ActiveRecord::Base
 	attr_accessible :trainings_session_id, :visibility, :start_at, :end_at, :color, :trainings_session, :description, :address, :latitude, :longitude
   has_event_calendar
-	geocoded_by :address
 	belongs_to :trainings_session
 	belongs_to :user
-	after_validation :geocode
 
 	validates_presence_of :trainings_session, :visibility, :start_at, :end_at, :color
 	scope :published, where("visibility is 'Published'")
+
+	acts_as_gmappable :lat => 'latitude', :lng => 'longitude', :process_geocoding => :geocode?,
+	                  :address => "address", :normalized_address => "address",
+	                  :msg => "Sorry, not even Google could figure out where that is"
+	
+	def geocode?
+	  (!address.blank? && (latitude.blank? || longitude.blank?)) || address_changed?
+	end
 
 	def name
 		return trainings_session.title
