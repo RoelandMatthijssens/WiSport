@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.11.20)  20 DEC 2012 18:52
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.11.20)  20 DEC 2012 19:44
 entering extended mode
  %&-line parsing enabled.
 **VUB_report_template.tex
@@ -604,10 +604,10 @@ LaTeX Info: Redefining \pageref on input line 213.
 
 \AtBeginShipoutBox=\box37
 
-<afbeeldingen/VUB_logo_grijs.png, id=19, 252.945pt x 51.3117pt>
-File: afbeeldingen/VUB_logo_grijs.png Graphic file (type png)
+<afbeeldingen/VUB_logo.jpg, id=19, 276.232pt x 52.998pt>
+File: afbeeldingen/VUB_logo.jpg Graphic file (type jpg)
 
-<use afbeeldingen/VUB_logo_grijs.png>
+<use afbeeldingen/VUB_logo.jpg>
 Overfull \hbox (1.42375pt too wide) in paragraph at lines 215--215
 [][] 
  []
@@ -618,8 +618,7 @@ File: afbeeldingen/VUB_schild.png Graphic file (type png)
 <use afbeeldingen/VUB_schild.png> [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdf
 tex.map}
 
- <./afbeeldingen/VUB_logo_grijs.png (PNG copy)> <./afbeeldingen/VUB_schild.png 
-(PNG copy)>]
+ <./afbeeldingen/VUB_logo.jpg> <./afbeeldingen/VUB_schild.png (PNG copy)>]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 223.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
@@ -641,21 +640,20 @@ Class scrartcl Info: You've told me to use the font selection of the element
 \tf@toc=\write5
 \openout5 = `VUB_report_template.toc'.
 
- [2] [3]
-(./VUB_report_template.bbl) (./VUB_report_template.ind)
-(./VUB_report_template.aux) ) 
+ [2] [3] (./VUB_report_template.bbl)
+(./VUB_report_template.ind) (./VUB_report_template.aux) ) 
 Here is how much of TeX's memory you used:
- 10294 strings out of 495061
- 150282 string characters out of 1182620
+ 10295 strings out of 495061
+ 150256 string characters out of 1182620
  240997 words of memory out of 3000000
  13286 multiletter control sequences out of 15000+50000
  14246 words of font info for 27 fonts, out of 3000000 for 9000
  30 hyphenation exceptions out of 8191
  43i,6n,43p,308b,326s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.
-enc}</usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/t
-exmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on VUB_report_template.pdf (3 pages, 52935 bytes).
+{/usr/share/texmf-texl
+ive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texlive/fonts/type1/urw/helve
+tic/uhvb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on VUB_report_template.pdf (3 pages, 45487 bytes).
 PDF statistics:
  55 PDF objects out of 1000 (max. 8388607)
  9 named destinations out of 1000 (max. 500000)
