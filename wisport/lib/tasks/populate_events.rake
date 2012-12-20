@@ -15,6 +15,8 @@ namespace :db do
 			event.start_at = Time.at(rand_in_range(2.weeks.ago.to_f, Time.now.to_f))
 			event.end_at = event.start_at
 			event.color = Event.color_options.sample()
+			event.latitude = rand_in_range(4900, 5100)/100.0
+			event.longitude = rand_in_range(300, 500)/100.0
 			event.save!
 		end
 	end

@@ -1,7 +1,7 @@
 <div class="row-fluid">
 	<div class="span5">
 
-		<h1>Calendar
+		<h1>Events On a Map
 		</h1>
 	</div>
 	<div class="span7">
@@ -10,7 +10,6 @@
 				<% if @forecast && @forecast['forecast'] %>
 					<a href="#" onclick="expand_weather()" class="btn btn-info">Show Weather Forecast</a>
 				<% end %>
-				<%= link_to 'Map', nearby_events_path, class: "btn btn btn-success" %>
 				<%= link_to "New Event", new_event_path, remote: true, class: "btn btn-primary" %>
 			</p>
 		</p>
@@ -50,4 +49,4 @@
 		<% end %>
 	</div>
 <% end %>
-<%= raw(event_calendar) %>
+<%= gmaps4rails(@markers) %>

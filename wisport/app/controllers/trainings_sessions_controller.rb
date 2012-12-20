@@ -61,7 +61,6 @@ class TrainingsSessionsController < ApplicationController
   # POST /trainings_sessions.json
   def create
     @trainings_session = TrainingsSession.new(params[:trainings_session])
-		@trainings_session.visibility = "Private"
 		@trainings_session.owner = current_user if current_user
 		@my_exercises = Exercise.liked_by(current_user.id).published
 			.concat(Exercise.owned_by(current_user.id).published)
