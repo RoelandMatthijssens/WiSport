@@ -1,0 +1,5 @@
+\select@language {dutch}
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
+\contentsline {section}{\numberline {2}Used API's}{3}{section.2}
+\contentsline {section}{\numberline {3}Features}{3}{section.3}
+\contentsline {section}{\numberline {4}Tutorial}{3}{section.4}
