@@ -1,5 +1,7 @@
 \select@language {dutch}
 \contentsline {section}{\numberline {1}Introduction}{3}{section.1}
-\contentsline {section}{\numberline {2}Used API's}{3}{section.2}
-\contentsline {section}{\numberline {3}Features}{3}{section.3}
-\contentsline {section}{\numberline {4}Tutorial}{3}{section.4}
+\contentsline {section}{\numberline {2}Ruby On Rails}{4}{section.2}
+\contentsline {section}{\numberline {3}Used API's}{4}{section.3}
+\contentsline {section}{\numberline {4}Features}{4}{section.4}
+\contentsline {section}{\numberline {5}Tutorial}{4}{section.5}
+\contentsline {section}{\numberline {6}Deployment information}{4}{section.6}
