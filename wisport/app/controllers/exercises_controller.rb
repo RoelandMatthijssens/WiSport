@@ -1,5 +1,5 @@
 class ExercisesController < ApplicationController
-	before_filter :login_required
+	before_filter :login_required, :except => [:index, :show ]
   # GET /exercises
   # GET /exercises.json
   def index

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.7)  21 DEC 2012 21:33
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.11.20)  21 DEC 2012 16:48
 entering extended mode
  %&-line parsing enabled.
 **VUB_report_template.tex
@@ -126,7 +126,7 @@ File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-(/var/lib/texmf/tex/generic/babel/babel.sty
+(/usr/share/texmf-texlive/tex/generic/babel/babel.sty
 Package: babel 2008/07/06 v3.8l The Babel package
 
 (/usr/share/texmf-texlive/tex/generic/babel/dutch.ldf
@@ -137,9 +137,14 @@ File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count89
 \U@D=\dimen105
 )
+
+Package babel Warning: No hyphenation patterns were loaded for
+(babel)                the language `Dutch'
+(babel)                I will use the patterns loaded for \language=0 instead.
+
+\l@dutch = a dialect from \language0
 Package babel Info: Making " an active character on input line 132.
-))
-(/usr/share/texmf-texlive/tex/latex/psnfss/palatino.sty
+)) (/usr/share/texmf-texlive/tex/latex/psnfss/palatino.sty
 Package: palatino 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
 (/usr/share/texmf-texlive/tex/latex/ltxmisc/relsize.sty
@@ -605,7 +610,7 @@ LaTeX Info: Redefining \pageref on input line 213.
 
 \AtBeginShipoutBox=\box37
 
-<afbeeldingen/VUB_logo.jpg, id=99, 276.232pt x 52.998pt>
+<afbeeldingen/VUB_logo.jpg, id=95, 276.232pt x 52.998pt>
 File: afbeeldingen/VUB_logo.jpg Graphic file (type jpg)
 
 <use afbeeldingen/VUB_logo.jpg>
@@ -613,7 +618,7 @@ Overfull \hbox (1.42375pt too wide) in paragraph at lines 215--215
 [][] 
  []
 
-<afbeeldingen/VUB_schild.png, id=100, 351.3125pt x 351.3125pt>
+<afbeeldingen/VUB_schild.png, id=96, 351.3125pt x 351.3125pt>
 File: afbeeldingen/VUB_schild.png Graphic file (type png)
 
 <use afbeeldingen/VUB_schild.png> [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdf
@@ -631,56 +636,52 @@ Class scrartcl Info: You've told me to use the font selection of the element
 Class scrartcl Info: You've told me to use the font selection of the element
 (scrartcl)           `sectioning' that is an alias of element `disposition'
 (scrartcl)            on input line 3.
-LaTeX Font Info:    Try loading font information for U+msa on input line 4.
+Class scrartcl Info: You've told me to use the font selection of the element
+(scrartcl)           `sectioning' that is an alias of element `disposition'
+(scrartcl)            on input line 4.
+Class scrartcl Info: You've told me to use the font selection of the element
+(scrartcl)           `sectioning' that is an alias of element `disposition'
+(scrartcl)            on input line 5.
+LaTeX Font Info:    Try loading font information for U+msa on input line 6.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 4.
+LaTeX Font Info:    Try loading font information for U+msb on input line 6.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 Class scrartcl Info: You've told me to use the font selection of the element
 (scrartcl)           `sectioning' that is an alias of element `disposition'
-(scrartcl)            on input line 5.
-Class scrartcl Info: You've told me to use the font selection of the element
-(scrartcl)           `sectioning' that is an alias of element `disposition'
-(scrartcl)            on input line 6.
+(scrartcl)            on input line 23.
 Class scrartcl Info: You've told me to use the font selection of the element
 (scrartcl)           `sectioning' that is an alias of element `disposition'
 (scrartcl)            on input line 24.
-Class scrartcl Info: You've told me to use the font selection of the element
-(scrartcl)           `sectioning' that is an alias of element `disposition'
-(scrartcl)            on input line 25.
 )
 \tf@toc=\write5
 \openout5 = `VUB_report_template.toc'.
 
- [2] (./RoR.tex
+ [2] [3]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 1.
- [3])
-[4] [5] [6] [7] [8] [9] (./VUB_report_template.bbl) (./VUB_report_template.ind)
-(./VUB_report_template.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 257.
+ [4] [5] [6]
+[7] [8] [9] (./VUB_report_template.bbl) (./VUB_report_template.ind)
+(./VUB_report_template.aux) ) 
 Here is how much of TeX's memory you used:
- 10408 strings out of 493848
- 151813 string characters out of 1152824
- 249512 words of memory out of 3000000
- 13445 multiletter control sequences out of 15000+50000
+ 10395 strings out of 495061
+ 151638 string characters out of 1182620
+ 247997 words of memory out of 3000000
+ 13339 multiletter control sequences out of 15000+50000
  21076 words of font info for 49 fonts, out of 3000000 for 9000
- 716 hyphenation exceptions out of 8191
- 43i,6n,43p,333b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
-ve/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-texlive/fonts/type1/ur
-w/helvetic/uhvr8a.pfb>
-Output written on VUB_report_template.pdf (9 pages, 76988 bytes).
+ 30 hyphenation exceptions out of 8191
+ 43i,6n,43p,308b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.
+enc}</usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/t
+exmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on VUB_report_template.pdf (9 pages, 75039 bytes).
 PDF statistics:
- 186 PDF objects out of 1000 (max. 8388607)
- 36 named destinations out of 1000 (max. 500000)
- 203 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 180 PDF objects out of 1000 (max. 8388607)
+ 34 named destinations out of 1000 (max. 500000)
+ 195 words of extra memory for PDF output out of 10000 (max. 10000000)
 
