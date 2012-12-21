@@ -2,3 +2,6 @@
 *.g*
 .rvmrc
 *.gz
+*.toc
+*.log
+*.aux
