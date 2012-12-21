@@ -1,75 +1,99 @@
-<div class="row-fluid">
-	<div class="span5">
+<div class = "row-fluid">
+	<div class = "span5">
 
 		<h1>Events On a Map
 		</h1>
 	</div>
-	<div class="span7">
-		<p align="right">	
-			<p align="right">
+	<div class = "span7">
+		<p align = "right">	
+			<p align = "right">
 				<% if @forecast && @forecast['forecast'] %>
-					<a href="#" onclick="expand_weather()" class="btn btn-info">Show Weather Forecast</a>
+				<a href = "#" onclick="expand_weather()" class="btn btn-info">Show Weather Forecast</a>
 				<% end %>
+				<%= link_to 'Calendar', events_path, class: "btn btn-success" %>
 				<%= link_to "New Event", new_event_path, remote: true, class: "btn btn-primary" %>
 			</p>
 		</p>
 	</div>
 </div>
 <% if @forecast && @forecast['forecast'] %>
-	<div class="row-fluid" id="weatherMAN" style="display: none">
-		<div class="span1">
-			<div class="row-fluid">
-			</div>
-			<div class="row-fluid">
-				<%= @forecast['location']['city'] %>
-			</div>
-			<div class="row-fluid">
-			</div>
+<div class = "row-fluid" id="weatherMAN" style="display: none">
+	<div class = "span1">
+		<div class = "row-fluid">
 		</div>
-		<% @forecast['forecast']['simpleforecast']['forecastday'].each do |b| %>
-		<div class="span1 forecastday">
-			<div class="row-fluid">
-				<div class="span12">
-					<%= image_tag b['icon_url'] %>
-				</div>
-			</div>
-			<div class="span12">
-				<div class="row-fluid">
-					<div class="span12">
-						<%= b["date"]["day"] %> <%= b["date"]["monthname"][0,3] %>		
-					</div>	
-				</div>
-				<div class="row-fluid">
-					<div class="span12">
-						<span class="temperature_arrow"><%= image_tag "arrow_high.png" %></span>	<%= b["high"]["celsius"] %>	<span class="temperature_arrow"><%= image_tag "arrow_low.png" %></span>	<%= b["low"]["celsius"] %>
-					</div>	
-				</div>
-			</div>
+		<div class = "row-fluid">
+			<%= @forecast['location']['city'] %>
 		</div>
-		<% end %>
+		<div class = "row-fluid">
+		</div>
 	</div>
+	<% @forecast['forecast']['simpleforecast']['forecastday'].each do |b| %>
+	<div class = "span1 forecastday">
+		<div class = "row-fluid">
+			<div class = "span12">
+				<%= image_tag b['icon_url'] %>
+			</div>
+		</div>
+		<div class = "span12">
+			<div class = "row-fluid">
+				<div class = "span12">
+					<%= b["date"]["day"] %> <%= b["date"]["monthname"][0,3] %>		
+				</div>	
+			</div>
+			<div class = "row-fluid">
+				<div class = "span12">
+					<span class = "temperature_arrow"><%= image_tag "arrow_high.png" %></span>	<%= b["high"]["celsius"] %>	<span class="temperature_arrow"><%= image_tag "arrow_low.png" %></span>	<%= b["low"]["celsius"] %>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<% end %>
+</div>
 <% end %>
-<%= gmaps(:markers => {:data => @markers, :options => { :raw => '{ optimized: false }',"custom_infowindow_class" => "maps_popup" } } ) %> 
+<%= form_tag nearby_events_path, :method => 'get', :id => "exercises_search" do %>
+	<%= text_field_tag :search_name, params[:search_name], id: "name_search" %>
+	<%= submit_tag "Set Location", class: "btn maps_search_button" %> OR 
+	<%= link_to 'Use my current location','#', class: "btn maps_search_button", id: "getLocation" %>
+<% end %>
+<div id="google_map"> 
+<%= render :partial => 'google_maps', locals: {markers: @markers} %>
+</div>
 <script type = "text/javascript">
-	$(function() {
-	Gmaps.map.infobox = function(boxText) {
-  return {
-     content: boxText
-    ,disableAutoPan: false
-    ,maxWidth: 0
-    ,pixelOffset: new google.maps.Size(-140, 0)
-    ,zIndex: null
-    ,boxStyle: { 
-      background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.5/examples/tipbox.gif') no-repeat"
-      ,opacity: 0.85
-      ,width: "280px"
-       }
-    ,closeBoxMargin: "10px 2px 2px 2px"
-    ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
-    ,infoBoxClearance: new google.maps.Size(1, 1)
-    ,isHidden: false
-    ,pane: "floatPane"
-    ,enableEventPropagation: false
- }};
-})
+$(function() {
+	$("#getLocation").click(function() {
+		navigator.geolocation.getCurrentPosition(
+			onSuccess,
+			onError, {
+				enableHighAccuracy: true,
+				timeout: 20000,
+				maximumAge: 120000
+			}
+		);
+		function onSuccess(position) {
+			//alert('latitude=' + position.coords.latitude +'&longitude=' + position.coords.longitude);
+			$.ajax({
+				url: "/events/nearby",
+				dataType: "script",
+				data: 'latitude=' + position.coords.latitude +'&longitude=' + position.coords.longitude
+			 })
+		}
+		function onError(err) {
+			var message;
+			switch (err.code) {
+				case 0:
+				alert('Unknown error: ' + err.message);
+				break;
+				case 1:
+				alert('You denied permission to retrieve a position.');
+				break;
+				case 2:
+				alert('The browser was unable to determine a position: ' + error.message);
+				break;
+				case 3:
+				alert('The browser timed out before retrieving the position.');
+				break;
+			}
+		}
+	});	
+});
 </script>

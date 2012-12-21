@@ -6,6 +6,9 @@ class Event < ActiveRecord::Base
 
 	validates_presence_of :trainings_session, :visibility, :start_at, :end_at, :color
 	scope :published, where("visibility is 'Published'")
+	
+	geocoded_by :address   # can also be an IP address
+	after_validation :geocode
 
 	acts_as_gmappable :lat => 'latitude', :lng => 'longitude', :process_geocoding => :geocode?,
 	                  :address => "address", :normalized_address => "address",

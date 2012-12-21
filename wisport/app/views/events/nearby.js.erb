@@ -1,0 +1,22 @@
+markers = <%=raw(@markers)%>
+console.log(markers[0]);
+Gmaps.map.replaceMarkers(markers);
+var user_image = "/assets/50px-Wikimap-blue-dot.png";
+<% if params["latitude"] && params["longitude"] %>
+var lat = <%= params["latitude"] %>;
+var long = <%= params["longitude"] %>;
+
+
+//add current location marker
+Gmaps.map.addMarkers([{
+  "lng": long,
+  "lat": lat,
+  "width":"40",
+  "height":"48",
+  "picture": user_image
+}]);
+
+//center the screen on your current location
+Gmaps.map.serviceObject.setCenter(new google.maps.LatLng(lat, long));
+<% end %>
+Gmaps.map.serviceObject.setZoom(10);

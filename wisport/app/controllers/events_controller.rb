@@ -25,12 +25,21 @@ class EventsController < ApplicationController
   end
 
 	def nearby
-		@markers = Event.all.to_gmaps4rails do |event, marker|
-			marker.infowindow render_to_string(:partial => "/events/maps_marker", :locals => { :event => event})
-		  #marker.json({ :id => event.id, :description => event.trainings_session.description })
+		
+		if params["latitude"] && params["longitude"] 
+			@markers = Event.where("start_at > ?", Time.now).near([params["latitude"], params["longitude"]], 10).to_gmaps4rails do |event, marker|
+				marker.infowindow render_to_string(:partial => "/events/maps_marker", :locals => { :event => event})
+			end
+		elsif params["search_name"]
+			@markers = Event.where("start_at > ?", Time.now).near(params["search_name"], 10).to_gmaps4rails do |event, marker|
+				marker.infowindow render_to_string(:partial => "/events/maps_marker", :locals => { :event => event})
+			end
+		else
+			my_loc = request.location
+			@markers = Event.where("start_at > ?", Time.now).near([my_loc.latitude, my_loc.longitude], 10).to_gmaps4rails do |event, marker|
+				marker.infowindow render_to_string(:partial => "/events/maps_marker", :locals => { :event => event})
+			end
 		end
-
-
 		@forecast = HTTParty.get("http://api.wunderground.com/api/7aeb11b8b6f1a700/forecast10day/geolookup/q/autoip.json")
 		unless @forecast && @forecast['forecast'] && @forecast['forecast']['simpleforecast'] && @forecast['forecast']['simpleforecast']['forecastday']
 			ip = HTTParty.get("http://api.ipinfodb.com/v3/ip-city/?key=419418c11c5a24c908bd6c5f2acfe4886e7b0e26762bcf1386fdf0f0bcec39b1&ip=#{request.remote_ip}0&format=json")
@@ -39,6 +48,11 @@ class EventsController < ApplicationController
 				@forecast = HTTParty.get("http://api.wunderground.com/api/7aeb11b8b6f1a700/forecast10day/geolookup/q/Belgium/Brussels.json")
 			end
 		end 
+		respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @markers }
+			format.js
+    end
   end
 
   # GET /events/1

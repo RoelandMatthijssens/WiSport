@@ -16,6 +16,9 @@
   </div>
 <% end %>
 <script type = "text/javascript">
-	$('#event_trainings_session_id').chosen()
-	$("#event_start_at").datepicker();
+	$(function(){
+		$('#event_trainings_session_id').chosen();
+		$("#event_start_at").datepicker();
+		$("#event_start_at").datepicker("option", "dateFormat", "dd-mm-yy" );
+	});
 </script>
