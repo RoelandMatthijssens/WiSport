@@ -228,27 +228,15 @@
 %\mainmatter
 
 \section{Introduction}
-This document will describe the implementation and usage of WiSport. WiSport is website created within the scope of the course Web and Information Systems at the Vrije 
-Universiteit Brussel. The goal of the website is to offer users a guide with with their personal training, aswell as making users able to do some training exercises 
-together with some friends.
 
-
-WiSport offers users the possibility to create exercises. These exercises can be exercises over time, distance or a number of repetitions. These exercises can be
-shared with the WiSport community. Next to exercises users can also create training sessions. Training session contain a number of exercises that have to be completed
-within this one session. Just as with the exercises these sessions can be shared with the WiSport community.
-
-
-Shared exercises or sessions can be found by all WiSport users. These users can star these exercises or sessions. Each starred exercise or session gets added to the 
-exercises or sessions of the user himselve. This means that from now one users can create new sessions containing some starred exercises.
-
-
-Next to exercises and training sessions users can also create events. Events are moments on wich a training session will take place. Users can add to each event a place
-where it will take place. After creating an event this event gets added to the personal calendar of the user.
-
-When a session is done multiple times we can track our progress in doing this session, or on each individual exercise of the training session. The progression made is 
-showed in clear graphs
-
-In short is WiSport the ideal help for anyone willing to organize their training and share these trainings with other users.
+\paragraph{}This document will describe the implementation and usage of WiSport. WiSport is website created within the scope of the course Web and Information Systems at the Vrije Universiteit Brussel. The goal of the website is to offer its users a means to log and plan their personal training sessions. The website also allows the users to interact with others, and be social with their planned activities.
+\paragraph{}WiSport offers users the possibility to create a variety of exercises. At the time of writing there are only three types of exercises (but more types can be added easily)i. The first type is an exercise based on time, e.g. walking three hours, independantly of how far one walks. The second type is one based on an amount of repetitions. e.g. Swim 10 lanes in an olimpic swimming pool. The third exercise is an exercise based on a distane. e.g. Sprinting 200 meters. Once these exercises are created, they can be shared with the WiSport community or kept private for personal use.
+\paragraph{}Users can also bundle these exercises into training sessions. This allows the user to structure their workout schema in more managable chunks. Like exercises these sessions can also be shared with the WiSport community if desired.
+\paragraph{}When a user finds an exercise (or training session) created by an other user that he likes he can star this exercise. This allows him to use it in his own planning as well.
+\paragraph{}Once a user has created a trainings session he is allowed to "Do" the exercise. This means that he enters the information about the exercises performed into the system. The system will from then on track the progress of the user troughout all his training sessions. The user can then see his progress in clear graphs displayed with their training sessions.
+\paragraph{}Of course the user doens't only want to plan what he is going to do during his workout. But he is also planning when he wants to exercise. Thats why WiSport allows the users to create events as well. These events can be given a location (where they are going to do the training) and a date. Creating these events will allow the system to notify the user of upcomming events, and generate a trainings schema displayed on a calendar. Like all resources these events can be shared, and used by other users when desired.
+\paragraph{}In short WiSport is the ideal tool for anyone willing to organize their training and share their workouts with other users.
+\paragraph{}They can even share their schemas with friends who are not in the WiSports community by using our restfull json export webservice
 
 \section{Ruby On Rails}
 \input{./RoR.tex}
@@ -256,242 +244,104 @@ In short is WiSport the ideal help for anyone willing to organize their training
 subsubsectietekst
 \section{Features}
 \subsection{Login through social media}
-Next to the tradtional possibility to sign up and login with an account made on our
-website there's the possibility to log in with multiple versions of social media. We
-have provided a log in with Google, Facebook and Twitter. When logging in with you
-
-Google account the picture of you Google profile is copied on to your WiSport profile.
+\paragraph{}Next to the tradtional sign up and login with an account on our website we offer the possibility to log in with most of the popular social media profiles. We allow loggin in  with a Google, Facebook or Twitter account. When logging in with your Google account the picture of you Google profile is used on to your WiSport profile.
 
 \subsection{Editting sessions/exercises/events}
-After you have created an exercise, session or event you have to possibility to change
-this event. In the case of an exercise you can edit your properties of this exercise.
-A clear example of this could be if you have a distance exercise, in wich you run 5
-kilometers. Chances are big that after half a year you don't even bother about running
-5 kilometers, but would like to start running 10 kilometers in stead. If this is the case
-you don't need to create a new exercise, being a running exercise of 10 kilometers, and
-possible delete the old exercise of 5 kilometers. You can just edit the existing exercise
-to a 10 km running exercise. As the graphs of your progress do not rely on this value,
-but rely on the value you enter when doing an exercise this will not effect your progress
-on this exercise. Within your progress graph you'll see the actual distances you ran.
+\paragraph{}After you have created an exercise, session or event you have to possibility to change this event. In the case of an exercise you can edit your properties of this exercise. A clear example of this could be if you have a distance exercise, in wich you run 5 kilometers. Odds are that after six months you don't even bother running 5 kilometers, but would like to start running 10 kilometers instead.
+\paragraph{}However you already have a whole graph of your progress of this exercise, and you might want to keep tracking your progress through both 5 and 10 kilometers run. If this is the case you don't need to create a new exercise but you can edit the existing exercise to a 10 km running exercise instead. As the graphs of your progress do not rely on this value, but rely on the value you enter when doing an exercise this will not affect your progress on this exercise.
 \subsection{Publish exercises and sessions}
-When a user creates an exercise or session and they are pleased with it they can share it whith the WiSport community. This is done by
-pressing the Publish button on showed on each page of an exercise or session, showed within the list of own exercises, or even when 
-creating an exercise or session you can immediatly choose to publish this exercise or session.
-
-The published exercises can be starred by other users. As explained in the starred feature when starred a user can use an exercise
-or session to create own sessions or events.
+\paragraph{}When a user creates an exercise or session and they are pleased with it they can share it whith the WiSport community. This is done by pressing the Publish button showed on each page of an exercise or training session, showed within the list of own exercises, or even when creating an exercise or session you can immediatly choose to publish this exercise or session.
+\paragraph{}The published exercises can be starred by other users. As explained in the starred feature when starred a user can use the exercise or session to compose their  own sessions or events.
 \subsection{Smart searchfields for exercises and sessions}
-Within the list of all exercises and session some search form are implemented. You can search by name of the exercise/session or by
-the creator. Next to this we also implemented a select box for the exercises. With this select box you can choose the type of exercises
-that are getting displayed. This can help you whenever you are looking for a particular exercise to add to you own exercises. All these
-searchforms can be combined together so that you can narrow your search down a long way.
-
-The search forms are smart forms, this means you don't need to press search anywhere, but they dynamiclly change the list filtering out 
-any results not matching the searchfield.
+\paragraph{}Within the list of all exercises and session search form are implemented. You can search by name of the exercise/session, the creator, or the description. Beside this we also implemented a select box for the exercises. With this select box you can choose the type of exercises that are displayed. This can help you whenever you are looking for a particular exercise to add to you own exercises. All these search forms can be combined together so that you can narrow your search down to your needs.
+\paragraph{}The search forms are AJAX forms, this means you don't need to press search anywhere, but they dynamically change the list filtering out any results not matching the searchfield.
 
 \subsection{Star sessions/exercises}
-Every user has the possibility to publish their exercises or sessions. When published
-these will apprear in the list of all exercises or sessions and other users will be able to
-see these. When a user is browsing true this list they can star exercises or session which
-look particular intresting to them. They can star these exercises or sessions and when
-starred these will apear in personal excercises or sessions of the user.
-
-This means that starred exercises can be used to create sessions and starred session can
-be used to organise an event containing this session.
-
+\paragraph{}Every user has the possibility to publish their exercises or sessions. When published these will apprear in the list of all exercises or sessions and other users will be able to see these. When a user is browsing through this list they can star exercises or session which look particular intresting to them. Starred items will also apear in their personal exercises or sessions.
+\paragraph{}This means that starred exercises can be used to create sessions and starred session can be used to organise an event containing these sessions.
 
 \subsection{Do a session}
-Next to the possibilty to create a session an create an event around this session you
-actually need to do a session. This means that even though you planned an event
-today, you still have to say on the website you effectively done it. This is because
-there's always a possibility somthing comes up, so you didn't do the event, but even
-more, when doing a session you can enter some extra information. This can be some
-additional notes, but, more importantly you can insert the actual value's you did for each
-exercise. This means that if your exercise told you to run 10 kilometers, but you only
-ran 8 you can enter this in the systems and this will take this into account when creating
-your progression graph.
+\paragraph{}When a session, or event, is created you still need to do the session. This means that even though you planned an event today, you still have to say on the website that you did the exercises specified in the session. When entering the session in the system you are allowed to enter some extra information about the performed exercises. This can be some additional notes, but, more importantly you can insert the actual values you did for each exercise. This means that if your exercise told you to run 10 kilometers, but you only ran 8 you can enter this in the systems and this will will be taken into account when creating your progression graph.
 \subsection{Graphs tracking progress}
-After you have completed a session and entered the actual numbers you performed to
-each exercise graphs will be generated for earch exercise within this session. This gives
-you the possibility to track your progression on a session, and even more you can check
-the number times you completed an exercise, or the entire session.
-
-Next to making graphs on the completion of exercises, you also get graphs on your
-entire usage of the platform. For example on the login page you get a pie-graph which
-shows you what percentage of what kind of exercises you made. This can be helpfull for
-you to decide what kinds of exercise you can need more training in.
-
+\paragraph{}After you have completed a session and entered the actual numbers you performed to each exercise a graph will be generated for earch exercise within this session. This gives you the possibility to track your progression on a session, and even more you can check the number of times you completed an exercise, or the entire session.
+\paragraph{}On the homepage there are also some graphs showing some system wide information. There is a user-activity graph, showing how much exercises users are doing currently. A piechart is also displayed showing the popularity of the different types of exercises.
 \subsection{Calendar view for events}
-For events we make use of a clear calendar view. On this view you can see your planned
-events, and from this view you can go to the actual page of this event, or delete or edit
-this event. This gives you a clear view on your workload and makes it easier to plan
-your sessions
+\paragraph{}For events we make use of a clear calendar view. On this view you can see your planned events, and from this view you can go to the actual page of the events, delete or edit events. This gives you a clear view on your workload and makes it easier to plan your sessions
 
 \subsection{Weather}
-On the events page before creating an event you can check the weather for your current
-location. This gives you the possibility to plan your exercise session on a day the
-weather is suitable. For example shedule your indoors exercises on a rainy day and plan
-your outdoor activities on days it is less likely to rain.
+\paragraph{}On the events page before creating an event you can check the weather for your current location. This gives you the possibility to plan your exercise session on a day the weather is suitable. For example shedule your indoors exercises on a rainy day and plan your outdoor activities on less rainy days
 \subsection{Share on Google+}
-When you created a nice exercise or session on wich you are really proud you can
-share this on you Google+ profile. Just as if you planned an event within the WiSport
-platform you can choose to share this on your Google+ profile. This ensures you only
-share this information with people you want it to be shared with. The idea behind this
-is privacy, especially sharing on the internet when you are not going to be home isn't
-always a good idea.
-\subsection{Star sessions/exercises}
-Every user has the possibility to publish their exercises or sessions. When published
-these will apprear in the list of all exercises or sessions and other users will be able to
-see these. When a user is browsing true this list they can star exercises or session which
-look particular intresting to them. They can star these exercises or sessions and when
-starred these will apear in personal excercises or sessions of the user.
-
-This means that starred exercises can be used to create sessions and starred session can
-be used to organise an event containing this session.
+\paragraph{}When you finished a nice exercise or session of which you are really proud you can share this on your Google+ profile. We have chosen Google+ because only Google+ ensures you that you only share this information with people you want it to be shared with. The is for privacy reasons, especially sharing on the internet when you are not going to be home isn't always a good idea.
 
 \subsection{Gravatar usage}
-When people create an account or log in not using their Google account a picture is provided by Gravatar. This means people don't have 
-to upload their profile picture to their WiSport account, but their pictures used by Gravatar is inserted in to their profile page.
+\paragraph{}When displaying the user's profile page, we try to show their profile image as well. When a google account's profile picture is displayed we try to get the information from google. However when this information is not available, we request an image from the popular avatar website Gravatar. If this does not yield a match, we will display a placeholder image as a backup plan.
 \subsection{Scaleable interface}
-Thanks to the use of Twitter Bootstrap the entire interface scales to the size of the screen it is displayed on. This means that when
-the size of the screen is made smaller the entire website is scaled with it. Even when the size is to small to show the entire headerline
-this line is reformed to a scrolldown box.
-
+\paragraph{}Thanks to the use of Twitter Bootstrap the entire interface scales to the size of the screen it is displayed on. This means that when the size of the screen is made smaller the entire website is scaled with it. Even when the size is to small to show the entire header line this line is reformed to a dropdown box. This is particulary handy for rendering the website on mobile devices, or devices with smaller screens.
 \subsection{Add location to an event by giving address}
-Whenever an event is created the user can enter where this event will take place. This is done by just entering the address of the 
-location. When the event is created on the event page a map will be shown on wich the location of the event is showed.
+\paragraph{}Whenever an event is created the user can enter where this event will take place. This is done by just entering the address of the location or even keywords (we will request the propper location from google). When the event is created a map will be displayed which shows the location of the event.
 \subsection{Location my ip/ geoloc}
-For the usage of the Weather API we make use of Location by ip. This means that you don't need to enter your location, but the location
-of your current ip address is tracked.
+\paragraph{}For the usage of the Weather API we try to get the user's location by geolocation. However when this fails we make use of Location by ip API. This is however only a backup plan, since the IP based location is not as accurate on mobile devices
 \subsection{Find nearby events}
-When going to the events page your can find all events planned on a map. This map is centralized around your curren location, so the 
-closest events will be shown first. This gives you the ability to find all near events and if you please tag along on these.
-
-By clicking on the markers more information is shown about this event. You can also go to the event page to get more information about
-the event, and plan go along with this event.
+\paragraph{}When going to the events page your can find all events planned on a map. This map is centralized around your current location, so the closest events will be shown first. This gives you the ability to find all near events and if you so desire, you can tag along on these events.
+\paragraph{}By clicking on the markers more information is shown about this event. You can also go to the event page to get more information about the event, and go along with this event.
 \subsection{Database populator for testing purpose}
-For testing purposes a database populator is created. This creator generates random dat, such as users, exercises, training sessions and
-events. 
-
-The use of this populator is to check the site's performances and acting with a higher number of users and data. This gives us the 
-possibility to do some experiments with a lot of data. Especially for the creating the graphs this can be usefull.
+\paragraph{}For testing purposes a database populator is created. This creator generates random data, such as users, exercises, training sessions and events.
+\paragraph{}The use of this populator is to check the site's performances when handeling a higher number of users and data. This gives us the possibility to do some experiments with a lot of data. Especially for visualising the website when a lot of data is added to the website. These scripts allowed us to verify the scalability of the website's design
 \section{Tutorial}
 \subsection{Logging in}
-When entering the website for the first time you'll get some general information about the website. The first thing we advice you to do is create
-an account, by pressing the Sign in button. Once you've made an account, or want to use one of your social media accounts you can log in by
-pressing the Log In button and choose wether to enter the account information of an account created on our website, or log in trough Google,
-Facebook or Twitter.
-
-Once logged in you reach a new screen with some general information about your account. These are things like upcomming events, recently passed 
-events and some statistics about the usage of your account.
+\paragraph{}When entering the website for the first time you'll get some general information about the website. The first thing we advice you to do is create an account, by pressing the Sign in button. Once you've made an account, or want to use one of your social media accounts you can log in by pressing the Log In button and choose whether to enter the account information of an account created on our website, or log in trough Google, Facebook or Twitter.
+\paragraph{}Once logged in you reach a new screen with some general information about your account. These are things like upcomming events, recently passed events and some statistics about the usage of your account.
 
 \subsection{Exercise}
 \subsubsection{My Exercises}
-When clicking under the tab Exercises on My Exercises you'll see a list of all exercises you made and all exercises you starred. The 
-exercises in this list can be used to later on make some training sessions.
-
-For every exercise the you created you'll get some options as Destroy, Edit or Publish/Unpublish. The Destroy will delete this exercise
-from the system, Edit wil give you ability to edit this exercise and Publish/Unpublish decides whether this exercise will show up
-in the list of all exercises.
+\paragraph{}When clicking under the tab Exercises on My Exercises you'll see a list of all exercises you made and all exercises you starred. The exercises in this list can be used to later on make some training sessions.
+\paragraph{}For every exercise the you created you'll get some options as Destroy, Edit or Publish/Unpublish. The Destroy will delete this exercise from the system, Edit wil give you ability to edit this exercise and Publish/Unpublish decides whether this exercise will show up in the list of all exercises.
 \subsubsection{All Exercises}
-Under the tab All Exercises you'll see all exercises made by other users which are Published. You'll be able to take a look at the 
-page of the exercise, to see what this exercise does by just clicking on it's name. You'll have to posibitly to check the creators page
-by clicking on the name of the creator.
-
-In front of the exercises in this list stands a little star which can be toggled on or off. When this star is toggled on, when the 
-exercise is starred, this exercise will appear in the My Exercises list.
-
-As you can see underneath the Title and Owner page there are some searchfields. Here you can enter some letters and instantly the 
-list of exercises will be filtered, only containing those titles or users containing this sequence of letters. Under the Type you'll see
-a foldbox in which you can enter the type of exercises you are looking for.
+\paragraph{}Under the tab All Exercises you'll see all exercises made by other users which are Published. You'll be able to take a look at the page of the exercise, to see what this exercise does by just clicking on it's name. You'll have to possibility to check the creators page by clicking on the name of the creator.
+\paragraph{}In front of the exercises in this list stands a little star which can be toggled on or off. When this star is toggled on, when the exercise is starred, this exercise will appear in the My Exercises list.
+\paragraph{}As you can see underneath the Title and Owner page there are some searchfields. Here you can enter some letters and instantly the list of exercises will be filtered, only containing those titles or users containing this sequence of letters. Under the Type you'll see a foldbox in which you can enter the type of exercises you are looking for.
 
 \subsubsection{Creating an exercise}
-From within the My Exercises page you'll be able to press the New button to create a new exercise. Creating a new exercise will ask you
-to give a name to the exercise, a type, decide if you will publish it or keep it private (which can be editted later on), it will also 
-give you the chance to give a small description with this exercise.
-
-At the bottem you'll be able to add a link to a youtube video, what can for example give a demo of the exercise, or add one or more
-pictures bu or dragging them into the drag box, or by selecting them using the Select File button. 
-
-To create the exercise you simply press Create Exercise on the bottem, or press Cancel if you changed your mind.
-
-When pressing the Edit button of an exercise you'll get a similar form again, with the old information filled in. This will give you the
-possiblity the edit this information.
+\paragraph{}From within the My Exercises page you'll be able to press the New button to create a new exercise. Creating a new exercise will ask you to give a name to the exercise, a type, decide if you will publish it or keep it private (which can be editted later on), it will also give you the chance to give a small description with this exercise.
+\paragraph{}At the bottem you'll be able to add a link to a youtube video, what can for example give a demo of the exercise, or add one or more pictures bu or dragging them into the drag box, or by selecting them using the Select File button. 
+\paragraph{}To create the exercise you simply press Create Exercise on the bottem, or press Cancel if you changed your mind.
+\paragraph{}When pressing the Edit button of an exercise you'll get a similar form again, with the old information filled in. This will give you the possiblity the edit this information.
 
 \subsubsection{The exercise page}
-Each exercise has a page of it's own. On this page you can see more information about the exercise, such as the added picturer, or 
-added youtube video's, the value's entered for each sort of exercise (for example 10 km) and you can read the entire description 
-of the exercise.
-
-As owner of an exercise you'll be provided by some extra button, where you can choose to Edit, Publish/Unpublish the exercise or Destroy
-the exercise. When looking at an exercise that is not made by you you'll see who created this exercise.
+\paragraph{}Each exercise has a page of it's own. On this page you can see more information about the exercise, such as the added picturer, or added youtube video's, the value's entered for each sort of exercise (for example 10 km) and you can read the entire description of the exercise.
+\paragraph{}As owner of an exercise you'll be provided by some extra button, where you can choose to Edit, Publish/Unpublish the exercise or Destroy the exercise. When looking at an exercise that is not made by you you'll see who created this exercise.
 
 \subsection{Training sessions}
 \subsubsection{My Training sessions}
-In the My Training sessions page every session made by you, or starred by you will be listed. This list can be seen as the All
-Exercises page. It contains search fields as the exercises, but here you can search on the title, the creator and the desciption of a session.
-Also searching by exercises contained by a session can be done.
-
-As an extra button here you can Do a training session. What this does you can check in the Do a trainings session section.
-When pressing on the descirption of the training session you can see what exercises this training session contains.
+\paragraph{}In the My Training sessions page every session made by you, or starred by you will be listed. This list can be seen as the All Exercises page. It contains search fields as the exercises, but here you can search on the title, the creator and the desciption of a session. Also searching by exercises contained by a session can be done.
+\paragraph{}As an extra button here you can Do a training session. What this does you can check in the Do a trainings session section. When pressing on the descirption of the training session you can see what exercises this training session contains.
 \subsubsection{All Training sessions}
-The All trainings Sessions can be seen as the All Exercises page. The differences are offcourse the search fields, here you can search,
-similar to the My Trainings Session on owner, name and descirption. Similar as with the My Training Session page you can click on the 
-discription to show the exercises it contains. 
+The All trainings Sessions can be seen as the All Exercises page. The differences are offcourse the search fields, here you can search, similar to the My Trainings Session on owner, name and descirption. Similar as with the My Training Session page you can click on the discription to show the exercises it contains.
 
 \subsubsection{Create Training session}
-By pressing the New button on the My Training Session page you'll be able to create a new trainings session. To create a new training
-session you'll need to choose a number of exercises. You will be able to choose between all exercises listed in your My Exercise page.
-You'll also be able to add a little description about the session and, as with the exercises you'll be able to publish these instantly.
+\paragraph{}By pressing the New button on the My Training Session page you'll be able to create a new trainings session. To create a new training session you'll need to choose a number of exercises. You will be able to choose between all exercises listed in your My Exercise page. You'll also be able to add a little description about the session and, as with the exercises you'll be able to publish these instantly.
 \subsubsection{The Training session}
-When clicking on the name of a training session you'll be redirected to this page. This page contains all information about a training
-session such as the exercises that need to be done within this session and a description of this session. At the bottem of this page
-you'll see some graphs containing your progress on each exercise of this session. With this you'll be able to track you progress on this
-exercise.
+\paragraph{}When clicking on the name of a training session you'll be redirected to this page. This page contains all information about a training session such as the exercises that need to be done within this session and a description of this session. At the bottem of this page you'll see some graphs containing your progress on each exercise of this session. With this you'll be able to track you progress on this exercise.
 \subsubsection{Do a Training session} 
-When you're at the My Training Sessions page, the All Trainings session page or at the page of a trainings session you'll see a Do button
-This buttons allows you to tell the system you've done the session and submit your results. You can give it a small note, you can enter
-the real value's you've realized (when you for example only ran 8km on a 10km exercerise) and enter the time you needed to complete an 
-exercise. This data will be used to create the graphs showing your progress.
+\paragraph{}When you're at the My Training Sessions page, the All Trainings session page or at the page of a trainings session you'll see a Do button This buttons allows you to tell the system you've done the session and submit your results. You can give it a small note, you can enter the real value's you've realized (when you for example only ran 8km on a 10km exercerise) and enter the time you needed to complete an exercise. This data will be used to create the graphs showing your progress.
 
 \subsection{Events} 
-When you click on the Events link you'll find your personal calendar within Wisport. On this calendar you can see you planned events
-in the future or in the past. Next to this you can remove an event, or edit an event by clicking on the buttons next to the eventnames
-on the calendar.
-
-On top of the page you'll see a Get Weather Forecast button, this will show you the weather for the comming week, based on the location 
-recieved by your ip-address. This can be a usefull help to plan outdoor events on days it's less likely to rain.
+\paragraph{}When you click on the Events link you'll find your personal calendar within Wisport. On this calendar you can see you planned events in the future or in the past. Next to this you can remove an event, or edit an event by clicking on the buttons next to the eventnames on the calendar.
+\paragraph{}On top of the page you'll see a Get Weather Forecast button, this will show you the weather for the comming week, based on the location recieved by your ip-address. This can be a usefull help to plan outdoor events on days it's less likely to rain.
 \subsubsection{Create an event}
-On the events page you'll see a new button to create a new event. When creating a new event you'll need to choose the training session
-you want to do during this event and pick a date on which you want to do it using the date picker. You'll also be able to add some extra
-information about this event and give the address of the event. This address will later, on the events page be shown on a map.
-
-When you've entered all information about the event you'll simple click in the Create event button at the bottem or the cancel bottem
-if you've changed your mind.
-
-Whenever you'll click on the edit button of an event you'll be redirected to this this sort of form with the old information filled in
-so you can simple edit the information.
+\paragraph{}On the events page you'll see a new button to create a new event. When creating a new event you'll need to choose the training session you want to do during this event and pick a date on which you want to do it using the date picker. You'll also be able to add some extra information about this event and give the address of the event. This address will later, on the events page be shown on a map.
+\paragraph{}When you've entered all information about the event you'll simple click in the Create event button at the bottem or the cancel bottem if you've changed your mind.
+\paragraph{}Whenever you'll click on the edit button of an event you'll be redirected to this this sort of form with the old information filled in so you can simple edit the information.
 \subsubsection{Events page}
-When clicking on an event on the calendar the events page will be shown. This page will show the location of the event on a map, will
-show the description of the event and at the bottem it will show the exercises contained by the session of this event.
-
-As owner of the event you'll also be able to see the Edit and Destroy buttons on the top right of the events page to respectivily edit 
-or destroy this event.
+\paragraph{}When clicking on an event on the calendar the events page will be shown. This page will show the location of the event on a map, will show the description of the event and at the bottem it will show the exercises contained by the session of this event.
+\paragraph{}As owner of the event you'll also be able to see the Edit and Destroy buttons on the top right of the events page to respectivily edit or destroy this event.
 \subsubsection{Nearby events}
-When pressing the nearby events button you'll get a map displaying all events on map. The map will be centered around your current location
-what will make you see the nearest events first. When cliking on a marker of an event you'll see the name and descirption of the event
-and you'll be able to follow the link to the event page of this event.
-
+\paragraph{}When pressing the nearby events button you'll get a map displaying all events on map. The map will be centered around your current location what will make you see the nearest events first. When cliking on a marker of an event you'll see the name and descirption of the event and you'll be able to follow the link to the event page of this event.
 \subsection{Profile}
-When logged in you can enter your profile page by clicking on your name in the topright corner. This page will show you your own profile, an will 
-give you to opportunity to edit some profile information. Next to the profile information are you upcomming and recently passed events showed here.
-
-At the bottom a list of your own exercises and sessions is shown, aswell as the exercises and session shown by people you follow.
-
-As an extra bit of information there is shown a how many people that are following you. 
-
-When pressing on the name of a user, in for example the exercises or sessions list brings you to the profile page of this person.
-This page gives you the possibitly to follow this person, so you can track the exercises and sessions he made.
+\paragraph{}When logged in you can enter your profile page by clicking on your name in the topright corner. This page will show you your own profile, an will give you to opportunity to edit some profile information. Next to the profile information are you upcomming and recently passed events showed here.
+\paragraph{}At the bottom a list of your own exercises and sessions is shown, aswell as the exercises and session shown by people you follow.
+\paragraph{}As an extra bit of information there is shown a how many people that are following you.
+\paragraph{}When pressing on the name of a user, in for example the exercises or sessions list brings you to the profile page of this person. This page gives you the possibitly to follow this person, so you can track the exercises and sessions he made.
 \section{Deployment information}
 \input{./deploy.tex}
 
