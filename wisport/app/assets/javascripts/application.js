@@ -20,6 +20,8 @@
 //= require highcharts/highcharts-more
 //= require jquery.tokeninput
 //= require event_calendar
+//= require gmaps4rails/gmaps4rails.base
+//= require gmaps4rails/gmaps4rails.googlemaps
 //= require maps_infobox
 //= require_tree .
 
