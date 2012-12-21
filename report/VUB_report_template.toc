@@ -1,0 +1,24 @@
+\select@language {dutch}
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
+\contentsline {section}{\numberline {2}Ruby On Rails}{4}{section.2}
+\contentsline {section}{\numberline {3}Used API's}{4}{section.3}
+\contentsline {section}{\numberline {4}Features}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}Login through social media}{4}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Editting sessions/exercises/events}{4}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Publish exercises and sessions}{4}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Smart searchfields for exercises and sessions}{5}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Star sessions/exercises}{5}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Do a session}{6}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}Graphs tracking progress}{6}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.8}Calendar view for events}{6}{subsection.4.8}
+\contentsline {subsection}{\numberline {4.9}Weather}{7}{subsection.4.9}
+\contentsline {subsection}{\numberline {4.10}Share on Google+}{7}{subsection.4.10}
+\contentsline {subsection}{\numberline {4.11}Star sessions/exercises}{7}{subsection.4.11}
+\contentsline {subsection}{\numberline {4.12}Gravatar usage}{7}{subsection.4.12}
+\contentsline {subsection}{\numberline {4.13}Scaleable interface}{8}{subsection.4.13}
+\contentsline {subsection}{\numberline {4.14}Add location to an event by giving address}{8}{subsection.4.14}
+\contentsline {subsection}{\numberline {4.15}Location my ip/ geoloc}{8}{subsection.4.15}
+\contentsline {subsection}{\numberline {4.16}Find nearby events}{8}{subsection.4.16}
+\contentsline {subsection}{\numberline {4.17}Database populator for testing purpose}{8}{subsection.4.17}
+\contentsline {section}{\numberline {5}Tutorial}{9}{section.5}
+\contentsline {section}{\numberline {6}Deployment information}{9}{section.6}
