@@ -243,19 +243,19 @@
 
 \section{Used API's}
 \subsection{Gravatar}
-It is always nice to have an avatar to users. The web service Gravatar gives users a central location to setup avatars. We use the Gravatar API to automatically take the user's gravatar and display it on his profile page.
+\paragraph{}It is always nice to have an avatar to users. The web service Gravatar gives users a central location to setup avatars. We use the Gravatar API to automatically take the user's gravatar and display it on his profile page.
 \subsection{Authentication}
-Users often don't like to create yet an other account, with a username and password which they will not remember. This is why we decide to allow users to login using different web services. The Omniauth gem \footnote{Visit https://github.com/intridea/omniauth for more information} makes it easy to add authentication from some of the major services on the web. Our most used log in method is Google. It will take your Google plus profile picture and use it on the website, in stead of the Gravatar avatar.
+\paragraph{}Users often don't like to create yet an other account, with a username and password which they will not remember. This is why we decide to allow users to login using different web services. The Omniauth gem \footnote{Visit https://github.com/intridea/omniauth for more information} makes it easy to add authentication from some of the major services on the web. Our most used log in method is Google. It will take your Google plus profile picture and use it on the website, in stead of the Gravatar avatar.
 \subsection{Weather}
-In class we used wunderground in the exercises. Their easy API made us chose them above weather.com.
+\paragraph{}In class we used wunderground in the exercises. Their easy API made us chose them above weather.com.
 \subsection{Maps}
-Google maps is integrated using the google maps for rails gem\footnote{Visit https://github.com/apneadiving/Google-Maps-for-Rails for more information}. This gem provides us hooks between the rails controller and the Google maps Javascript API. We use html5 geolocation for location based queries, as well as IP based location. You can read more about IP based location in the next section
+\paragraph{}Google maps is integrated using the google maps for rails gem\footnote{Visit https://github.com/apneadiving/Google-Maps-for-Rails for more information}. This gem provides us hooks between the rails controller and the Google maps Javascript API. We use html5 geolocation for location based queries, as well as IP based location. You can read more about IP based location in the next section
 \subsection{IP based location}
-In a many cases it is not necessary to annoy the user with permission requests, that is why we decided to also use IP based location. InfoDB\footnote{http://ipinfodb.com/} provides you with an easy API to translate IP addresses into geographical coordinates.
+\paragraph{}In a many cases it is not necessary to annoy the user with permission requests, that is why we decided to also use IP based location. InfoDB\footnote{http://ipinfodb.com/} provides you with an easy API to translate IP addresses into geographical coordinates.
 \subsection{Media hosting}
-Users can add pictures and movies to exercises. In stead of storing the pictures on our own servers, we use the Imgur api\footnote{Visit http://api.imgur.com/ for more information} to upload the pictures to Imgur. Currently we only accept youtube clips. These will be displayed using the static youtube API.
+\paragraph{}Users can add pictures and movies to exercises. In stead of storing the pictures on our own servers, we use the Imgur api\footnote{Visit http://api.imgur.com/ for more information} to upload the pictures to Imgur. Currently we only accept youtube clips. These will be displayed using the static youtube API.
 \subsection{Graphs}
-TODO
+\paragraph{}For displaying both system wide statistics, as well as userbased statistics we use the HighChart API. This is a JavaScript only API that can be loaded in a web page. After that we comunicate with the plugin through XML configurations.
 
 \section{Features}
 \subsection{Login through social media}
