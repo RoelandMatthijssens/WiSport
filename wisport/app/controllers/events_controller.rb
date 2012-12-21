@@ -27,18 +27,16 @@ class EventsController < ApplicationController
 	def nearby
 		
 		if params["latitude"] && params["longitude"] 
-			@markers = Event.where("start_at > ?", Time.now).near([params["latitude"], params["longitude"]], 10).to_gmaps4rails do |event, marker|
-				marker.infowindow render_to_string(:partial => "/events/maps_marker", :locals => { :event => event})
-			end
+			define_map_markers [params["latitude"], params["longitude"]]
 		elsif params["search_name"]
-			@markers = Event.where("start_at > ?", Time.now).near(params["search_name"], 10).to_gmaps4rails do |event, marker|
-				marker.infowindow render_to_string(:partial => "/events/maps_marker", :locals => { :event => event})
-			end
+			define_map_markers params["search_name"]
+		elsif request.location.latitude == 0 && request.location.longitude == 0
+			define_map_markers "brussels, belgium"
 		else
 			my_loc = request.location
-			@markers = Event.where("start_at > ?", Time.now).near([my_loc.latitude, my_loc.longitude], 10).to_gmaps4rails do |event, marker|
-				marker.infowindow render_to_string(:partial => "/events/maps_marker", :locals => { :event => event})
-			end
+			define_map_markers
+			logger.debug "AAAAAAAA #{my_loc.inspect}"
+			define_map_markers [my_loc.latitude, my_loc.longitude]
 		end
 		@forecast = HTTParty.get("http://api.wunderground.com/api/7aeb11b8b6f1a700/forecast10day/geolookup/q/autoip.json")
 		unless @forecast && @forecast['forecast'] && @forecast['forecast']['simpleforecast'] && @forecast['forecast']['simpleforecast']['forecastday']
@@ -54,6 +52,20 @@ class EventsController < ApplicationController
 			format.js
     end
   end
+
+	def define_map_markers qry
+		if qry.class == Array
+			@lat = qry[0]
+			@long = qry[1]
+		else
+			r = Geocoder.search("Brussels, belgium")[0]
+			@lat = r.latitude
+			@long = r.longitude
+		end
+		@markers = Event.where("start_at > ?", Time.now).near(qry, 15).to_gmaps4rails do |event, marker|
+			marker.infowindow render_to_string(:partial => "/events/maps_marker", :locals => { :event => event})
+		end
+	end
 
   # GET /events/1
   # GET /events/1.json
