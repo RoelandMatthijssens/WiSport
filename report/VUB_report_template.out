@@ -1,45 +1,44 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Ruby On Rails}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Framework}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{RubyGems}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Performance}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.4}{Why did we choose rails}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Used API's}{}% 7
-\BOOKMARK [1][-]{section.4}{Features}{}% 8
-\BOOKMARK [2][-]{subsection.4.1}{Login through social media}{section.4}% 9
-\BOOKMARK [2][-]{subsection.4.2}{Editting sessions/exercises/events}{section.4}% 10
-\BOOKMARK [2][-]{subsection.4.3}{Publish exercises and sessions}{section.4}% 11
-\BOOKMARK [2][-]{subsection.4.4}{Smart searchfields for exercises and sessions}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.5}{Star sessions/exercises}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.6}{Do a session}{section.4}% 14
-\BOOKMARK [2][-]{subsection.4.7}{Graphs tracking progress}{section.4}% 15
-\BOOKMARK [2][-]{subsection.4.8}{Calendar view for events}{section.4}% 16
-\BOOKMARK [2][-]{subsection.4.9}{Weather}{section.4}% 17
-\BOOKMARK [2][-]{subsection.4.10}{Share on Google+}{section.4}% 18
-\BOOKMARK [2][-]{subsection.4.11}{Star sessions/exercises}{section.4}% 19
-\BOOKMARK [2][-]{subsection.4.12}{Gravatar usage}{section.4}% 20
-\BOOKMARK [2][-]{subsection.4.13}{Scaleable interface}{section.4}% 21
-\BOOKMARK [2][-]{subsection.4.14}{Add location to an event by giving address}{section.4}% 22
-\BOOKMARK [2][-]{subsection.4.15}{Location my ip/ geoloc}{section.4}% 23
-\BOOKMARK [2][-]{subsection.4.16}{Find nearby events}{section.4}% 24
-\BOOKMARK [2][-]{subsection.4.17}{Database populator for testing purpose}{section.4}% 25
-\BOOKMARK [1][-]{section.5}{Tutorial}{}% 26
-\BOOKMARK [2][-]{subsection.5.1}{Logging in}{section.5}% 27
-\BOOKMARK [2][-]{subsection.5.2}{Exercise}{section.5}% 28
-\BOOKMARK [3][-]{subsubsection.5.2.1}{My Exercises}{subsection.5.2}% 29
-\BOOKMARK [3][-]{subsubsection.5.2.2}{All Exercises}{subsection.5.2}% 30
-\BOOKMARK [3][-]{subsubsection.5.2.3}{Creating an exercise}{subsection.5.2}% 31
-\BOOKMARK [3][-]{subsubsection.5.2.4}{The exercise page}{subsection.5.2}% 32
-\BOOKMARK [2][-]{subsection.5.3}{Training sessions}{section.5}% 33
-\BOOKMARK [3][-]{subsubsection.5.3.1}{My Training sessions}{subsection.5.3}% 34
-\BOOKMARK [3][-]{subsubsection.5.3.2}{All Training sessions}{subsection.5.3}% 35
-\BOOKMARK [3][-]{subsubsection.5.3.3}{Create Training session}{subsection.5.3}% 36
-\BOOKMARK [3][-]{subsubsection.5.3.4}{The Training session}{subsection.5.3}% 37
-\BOOKMARK [3][-]{subsubsection.5.3.5}{Do a Training session}{subsection.5.3}% 38
-\BOOKMARK [2][-]{subsection.5.4}{Events}{section.5}% 39
-\BOOKMARK [3][-]{subsubsection.5.4.1}{Create an event}{subsection.5.4}% 40
-\BOOKMARK [3][-]{subsubsection.5.4.2}{Events page}{subsection.5.4}% 41
-\BOOKMARK [3][-]{subsubsection.5.4.3}{Nearby events}{subsection.5.4}% 42
-\BOOKMARK [2][-]{subsection.5.5}{Profile}{section.5}% 43
-\BOOKMARK [1][-]{section.6}{Deployment information}{}% 44
-\BOOKMARK [2][-]{subsection.6.1}{Deploy for Development}{section.6}% 45
+\BOOKMARK [1][-]{section.1}{Introduction}{}
+\BOOKMARK [1][-]{section.2}{Ruby On Rails}{}
+\BOOKMARK [2][-]{subsection.2.1}{Framework}{section.2}
+\BOOKMARK [2][-]{subsection.2.2}{RubyGems}{section.2}
+\BOOKMARK [2][-]{subsection.2.3}{Performance}{section.2}
+\BOOKMARK [2][-]{subsection.2.4}{Why did we choose rails}{section.2}
+\BOOKMARK [1][-]{section.3}{Used API's}{}
+\BOOKMARK [1][-]{section.4}{Features}{}
+\BOOKMARK [2][-]{subsection.4.1}{Login through social media}{section.4}
+\BOOKMARK [2][-]{subsection.4.2}{Editting sessions/exercises/events}{section.4}
+\BOOKMARK [2][-]{subsection.4.3}{Publish exercises and sessions}{section.4}
+\BOOKMARK [2][-]{subsection.4.4}{Smart searchfields for exercises and sessions}{section.4}
+\BOOKMARK [2][-]{subsection.4.5}{Star sessions/exercises}{section.4}
+\BOOKMARK [2][-]{subsection.4.6}{Do a session}{section.4}
+\BOOKMARK [2][-]{subsection.4.7}{Graphs tracking progress}{section.4}
+\BOOKMARK [2][-]{subsection.4.8}{Calendar view for events}{section.4}
+\BOOKMARK [2][-]{subsection.4.9}{Weather}{section.4}
+\BOOKMARK [2][-]{subsection.4.10}{Share on Google+}{section.4}
+\BOOKMARK [2][-]{subsection.4.11}{Gravatar usage}{section.4}
+\BOOKMARK [2][-]{subsection.4.12}{Scaleable interface}{section.4}
+\BOOKMARK [2][-]{subsection.4.13}{Add location to an event by giving address}{section.4}
+\BOOKMARK [2][-]{subsection.4.14}{Location my ip/ geoloc}{section.4}
+\BOOKMARK [2][-]{subsection.4.15}{Find nearby events}{section.4}
+\BOOKMARK [2][-]{subsection.4.16}{Database populator for testing purpose}{section.4}
+\BOOKMARK [1][-]{section.5}{Tutorial}{}
+\BOOKMARK [2][-]{subsection.5.1}{Logging in}{section.5}
+\BOOKMARK [2][-]{subsection.5.2}{Exercise}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.2.1}{My Exercises}{subsection.5.2}
+\BOOKMARK [3][-]{subsubsection.5.2.2}{All Exercises}{subsection.5.2}
+\BOOKMARK [3][-]{subsubsection.5.2.3}{Creating an exercise}{subsection.5.2}
+\BOOKMARK [3][-]{subsubsection.5.2.4}{The exercise page}{subsection.5.2}
+\BOOKMARK [2][-]{subsection.5.3}{Training sessions}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.3.1}{My Training sessions}{subsection.5.3}
+\BOOKMARK [3][-]{subsubsection.5.3.2}{All Training sessions}{subsection.5.3}
+\BOOKMARK [3][-]{subsubsection.5.3.3}{Create Training session}{subsection.5.3}
+\BOOKMARK [3][-]{subsubsection.5.3.4}{The Training session}{subsection.5.3}
+\BOOKMARK [3][-]{subsubsection.5.3.5}{Do a Training session}{subsection.5.3}
+\BOOKMARK [2][-]{subsection.5.4}{Events}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Create an event}{subsection.5.4}
+\BOOKMARK [3][-]{subsubsection.5.4.2}{Events page}{subsection.5.4}
+\BOOKMARK [3][-]{subsubsection.5.4.3}{Nearby events}{subsection.5.4}
+\BOOKMARK [2][-]{subsection.5.5}{Profile}{section.5}
+\BOOKMARK [1][-]{section.6}{Deployment information}{}
+\BOOKMARK [2][-]{subsection.6.1}{Deploy for Development}{section.6}
