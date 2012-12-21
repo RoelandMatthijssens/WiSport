@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.11.20)  20 DEC 2012 22:03
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.11.20)  21 DEC 2012 16:48
 entering extended mode
  %&-line parsing enabled.
 **VUB_report_template.tex
@@ -604,7 +604,7 @@ LaTeX Info: Redefining \pageref on input line 213.
 
 \AtBeginShipoutBox=\box37
 
-<afbeeldingen/VUB_logo.jpg, id=27, 276.232pt x 52.998pt>
+<afbeeldingen/VUB_logo.jpg, id=95, 276.232pt x 52.998pt>
 File: afbeeldingen/VUB_logo.jpg Graphic file (type jpg)
 
 <use afbeeldingen/VUB_logo.jpg>
@@ -612,7 +612,7 @@ Overfull \hbox (1.42375pt too wide) in paragraph at lines 215--215
 [][] 
  []
 
-<afbeeldingen/VUB_schild.png, id=28, 351.3125pt x 351.3125pt>
+<afbeeldingen/VUB_schild.png, id=96, 351.3125pt x 351.3125pt>
 File: afbeeldingen/VUB_schild.png Graphic file (type png)
 
 <use afbeeldingen/VUB_schild.png> [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdf
@@ -636,32 +636,46 @@ Class scrartcl Info: You've told me to use the font selection of the element
 Class scrartcl Info: You've told me to use the font selection of the element
 (scrartcl)           `sectioning' that is an alias of element `disposition'
 (scrartcl)            on input line 5.
+LaTeX Font Info:    Try loading font information for U+msa on input line 6.
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 6.
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
 Class scrartcl Info: You've told me to use the font selection of the element
 (scrartcl)           `sectioning' that is an alias of element `disposition'
-(scrartcl)            on input line 6.
+(scrartcl)            on input line 23.
 Class scrartcl Info: You've told me to use the font selection of the element
 (scrartcl)           `sectioning' that is an alias of element `disposition'
-(scrartcl)            on input line 7.
+(scrartcl)            on input line 24.
 )
 \tf@toc=\write5
 \openout5 = `VUB_report_template.toc'.
 
- [2] [3] [4] (./VUB_report_template.bbl)
-(./VUB_report_template.ind) (./VUB_report_template.aux) ) 
+ [2] [3]
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 257.
+ [4] [5] [6]
+[7] [8] [9] (./VUB_report_template.bbl) (./VUB_report_template.ind)
+(./VUB_report_template.aux) ) 
 Here is how much of TeX's memory you used:
- 10300 strings out of 495061
- 150302 string characters out of 1182620
- 243997 words of memory out of 3000000
- 13288 multiletter control sequences out of 15000+50000
- 14246 words of font info for 27 fonts, out of 3000000 for 9000
+ 10395 strings out of 495061
+ 151638 string characters out of 1182620
+ 247997 words of memory out of 3000000
+ 13339 multiletter control sequences out of 15000+50000
+ 21076 words of font info for 49 fonts, out of 3000000 for 9000
  30 hyphenation exceptions out of 8191
  43i,6n,43p,308b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texl
-ive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texlive/fonts/type1/urw/helve
-tic/uhvb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on VUB_report_template.pdf (4 pages, 50912 bytes).
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.
+enc}</usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/t
+exmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on VUB_report_template.pdf (9 pages, 75039 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
- 12 named destinations out of 1000 (max. 500000)
- 59 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 180 PDF objects out of 1000 (max. 8388607)
+ 34 named destinations out of 1000 (max. 500000)
+ 195 words of extra memory for PDF output out of 10000 (max. 10000000)
 

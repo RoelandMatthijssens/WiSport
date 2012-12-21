@@ -2,5 +2,22 @@
 \BOOKMARK [1][-]{section.2}{Ruby On Rails}{}
 \BOOKMARK [1][-]{section.3}{Used API's}{}
 \BOOKMARK [1][-]{section.4}{Features}{}
+\BOOKMARK [2][-]{subsection.4.1}{Login through social media}{section.4}
+\BOOKMARK [2][-]{subsection.4.2}{Editting sessions/exercises/events}{section.4}
+\BOOKMARK [2][-]{subsection.4.3}{Publish exercises and sessions}{section.4}
+\BOOKMARK [2][-]{subsection.4.4}{Smart searchfields for exercises and sessions}{section.4}
+\BOOKMARK [2][-]{subsection.4.5}{Star sessions/exercises}{section.4}
+\BOOKMARK [2][-]{subsection.4.6}{Do a session}{section.4}
+\BOOKMARK [2][-]{subsection.4.7}{Graphs tracking progress}{section.4}
+\BOOKMARK [2][-]{subsection.4.8}{Calendar view for events}{section.4}
+\BOOKMARK [2][-]{subsection.4.9}{Weather}{section.4}
+\BOOKMARK [2][-]{subsection.4.10}{Share on Google+}{section.4}
+\BOOKMARK [2][-]{subsection.4.11}{Star sessions/exercises}{section.4}
+\BOOKMARK [2][-]{subsection.4.12}{Gravatar usage}{section.4}
+\BOOKMARK [2][-]{subsection.4.13}{Scaleable interface}{section.4}
+\BOOKMARK [2][-]{subsection.4.14}{Add location to an event by giving address}{section.4}
+\BOOKMARK [2][-]{subsection.4.15}{Location my ip/ geoloc}{section.4}
+\BOOKMARK [2][-]{subsection.4.16}{Find nearby events}{section.4}
+\BOOKMARK [2][-]{subsection.4.17}{Database populator for testing purpose}{section.4}
 \BOOKMARK [1][-]{section.5}{Tutorial}{}
 \BOOKMARK [1][-]{section.6}{Deployment information}{}

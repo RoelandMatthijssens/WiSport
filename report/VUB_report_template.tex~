@@ -228,13 +228,152 @@
 %\mainmatter
 
 \section{Introduction}
-tekst tekst tekst tekst tekst tekst 
+This document will describe the implementation and usage of WiSport. WiSport is website created within the scope of the course Web and Information Systems at the Vrije 
+Universiteit Brussel. The goal of the website is to offer users a guide with with their personal training, aswell as making users able to do some training exercises 
+together with some friends.
+
+
+WiSport offers users the possibility to create exercises. These exercises can be exercises over time, distance or a number of repetitions. These exercises can be
+shared with the WiSport community. Next to exercises users can also create training sessions. Training session contain a number of exercises that have to be completed
+within this one session. Just as with the exercises these sessions can be shared with the WiSport community.
+
+
+Shared exercises or sessions can be found by all WiSport users. These users can star these exercises or sessions. Each starred exercise or session gets added to the 
+exercises or sessions of the user himselve. This means that from now one users can create new sessions containing some starred exercises.
+
+
+Next to exercises and training sessions users can also create events. Events are moments on wich a training session will take place. Users can add to each event a place
+where it will take place. After creating an event this event gets added to the personal calendar of the user.
+
+When a session is done multiple times we can track our progress in doing this session, or on each individual exercise of the training session. The progression made is 
+showed in clear graphs
+
+In short is WiSport the ideal help for anyone willing to organize their training and share these trainings with other users.
 
 \section{Ruby On Rails}
 \section{Used API's}
 subsubsectietekst
 \section{Features}
-features
+\subsection{Login through social media}
+Next to the tradtional possibility to sign up and login with an account made on our
+website there's the possibility to log in with multiple versions of social media. We
+have provided a log in with Google, Facebook and Twitter. When logging in with you
+
+Google account the picture of you Google profile is copied on to your WiSport profile.
+
+\subsection{Editting sessions/exercises/events}
+After you have created an exercise, session or event you have to possibility to change
+this event. In the case of an exercise you can edit your properties of this exercise.
+A clear example of this could be if you have a distance exercise, in wich you run 5
+kilometers. Chances are big that after half a year you don't even bother about running
+5 kilometers, but would like to start running 10 kilometers in stead. If this is the case
+you don't need to create a new exercise, being a running exercise of 10 kilometers, and
+possible delete the old exercise of 5 kilometers. You can just edit the existing exercise
+to a 10 km running exercise. As the graphs of your progress do not rely on this value,
+but rely on the value you enter when doing an exercise this will not effect your progress
+on this exercise. Within your progress graph you'll see the actual distances you ran.
+\subsection{Publish exercises and sessions}
+When a user creates an exercise or session and they are pleased with it they can share it whith the WiSport community. This is done by
+pressing the Publish button on showed on each page of an exercise or session, showed within the list of own exercises, or even when 
+creating an exercise or session you can immediatly choose to publish this exercise or session.
+
+The published exercises can be starred by other users. As explained in the starred feature when starred a user can use an exercise
+or session to create own sessions or events.
+\subsection{Smart searchfields for exercises and sessions}
+Within the list of all exercises and session some search form are implemented. You can search by name of the exercise/session or by
+the creator. Next to this we also implemented a select box for the exercises. With this select box you can choose the type of exercises
+that are getting displayed. This can help you whenever you are looking for a particular exercise to add to you own exercises. All these
+searchforms can be combined together so that you can narrow your search down a long way.
+
+The search forms are smart forms, this means you don't need to press search anywhere, but they dynamiclly change the list filtering out 
+any results not matching the searchfield.
+
+\subsection{Star sessions/exercises}
+Every user has the possibility to publish their exercises or sessions. When published
+these will apprear in the list of all exercises or sessions and other users will be able to
+see these. When a user is browsing true this list they can star exercises or session which
+look particular intresting to them. They can star these exercises or sessions and when
+starred these will apear in personal excercises or sessions of the user.
+
+This means that starred exercises can be used to create sessions and starred session can
+be used to organise an event containing this session.
+
+
+\subsection{Do a session}
+Next to the possibilty to create a session an create an event around this session you
+actually need to do a session. This means that even though you planned an event
+today, you still have to say on the website you effectively done it. This is because
+there's always a possibility somthing comes up, so you didn't do the event, but even
+more, when doing a session you can enter some extra information. This can be some
+additional notes, but, more importantly you can insert the actual value's you did for each
+exercise. This means that if your exercise told you to run 10 kilometers, but you only
+ran 8 you can enter this in the systems and this will take this into account when creating
+your progression graph.
+\subsection{Graphs tracking progress}
+After you have completed a session and entered the actual numbers you performed to
+each exercise graphs will be generated for earch exercise within this session. This gives
+you the possibility to track your progression on a session, and even more you can check
+the number times you completed an exercise, or the entire session.
+
+Next to making graphs on the completion of exercises, you also get graphs on your
+entire usage of the platform. For example on the login page you get a pie-graph which
+shows you what percentage of what kind of exercises you made. This can be helpfull for
+you to decide what kinds of exercise you can need more training in.
+
+\subsection{Calendar view for events}
+For events we make use of a clear calendar view. On this view you can see your planned
+events, and from this view you can go to the actual page of this event, or delete or edit
+this event. This gives you a clear view on your workload and makes it easier to plan
+your sessions
+
+\subsection{Weather}
+On the events page before creating an event you can check the weather for your current
+location. This gives you the possibility to plan your exercise session on a day the
+weather is suitable. For example shedule your indoors exercises on a rainy day and plan
+your outdoor activities on days it is less likely to rain.
+\subsection{Share on Google+}
+When you created a nice exercise or session on wich you are really proud you can
+share this on you Google+ profile. Just as if you planned an event within the WiSport
+platform you can choose to share this on your Google+ profile. This ensures you only
+share this information with people you want it to be shared with. The idea behind this
+is privacy, especially sharing on the internet when you are not going to be home isn't
+always a good idea.
+\subsection{Star sessions/exercises}
+Every user has the possibility to publish their exercises or sessions. When published
+these will apprear in the list of all exercises or sessions and other users will be able to
+see these. When a user is browsing true this list they can star exercises or session which
+look particular intresting to them. They can star these exercises or sessions and when
+starred these will apear in personal excercises or sessions of the user.
+
+This means that starred exercises can be used to create sessions and starred session can
+be used to organise an event containing this session.
+
+\subsection{Gravatar usage}
+When people create an account or log in not using their Google account a picture is provided by Gravatar. This means people don't have 
+to upload their profile picture to their WiSport account, but their pictures used by Gravatar is inserted in to their profile page.
+\subsection{Scaleable interface}
+Thanks to the use of Twitter Bootstrap the entire interface scales to the size of the screen it is displayed on. This means that when
+the size of the screen is made smaller the entire website is scaled with it. Even when the size is to small to show the entire headerline
+this line is reformed to a scrolldown box.
+
+\subsection{Add location to an event by giving address}
+Whenever an event is created the user can enter where this event will take place. This is done by just entering the address of the 
+location. When the event is created on the event page a map will be shown on wich the location of the event is showed.
+\subsection{Location my ip/ geoloc}
+For the usage of the Weather API we make use of Location by ip. This means that you don't need to enter your location, but the location
+of your current ip address is tracked.
+\subsection{Find nearby events}
+When going to the events page your can find all events planned on a map. This map is centralized around your curren location, so the 
+closest events will be shown first. This gives you the ability to find all near events and if you please tag along on these.
+
+By clicking on the markers more information is shown about this event. You can also go to the event page to get more information about
+the event, and plan go along with this event.
+\subsection{Database populator for testing purpose}
+For testing purposes a database populator is created. This creator generates random dat, such as users, exercises, training sessions and
+events. 
+
+The use of this populator is to check the site's performances and acting with a higher number of users and data. This gives us the 
+possibility to do some experiments with a lot of data. Especially for the creating the graphs this can be usefull.
 \section{Tutorial}
 \section{Deployment information}
 
