@@ -20,6 +20,7 @@
 //= require highcharts/highcharts-more
 //= require jquery.tokeninput
 //= require event_calendar
+//= require maps_infobox
 //= require_tree .
 
 $(function () {
