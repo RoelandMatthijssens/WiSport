@@ -1,3 +1,7 @@
+<% content_for :body_tag do %>
+  itemscope itemtype="http://schema.org/Event"
+<% end %>
+
 <% @graph_data.each do |id, data| %>
 	<%= render :partial => "graph", :locals => {div_id: id, data: data} %>
 	<% end %>
