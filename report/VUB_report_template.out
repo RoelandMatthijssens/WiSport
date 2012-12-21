@@ -1,5 +1,9 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}
 \BOOKMARK [1][-]{section.2}{Ruby On Rails}{}
+\BOOKMARK [2][-]{subsection.2.1}{Framework}{section.2}
+\BOOKMARK [2][-]{subsection.2.2}{RubyGems}{section.2}
+\BOOKMARK [2][-]{subsection.2.3}{Performance}{section.2}
+\BOOKMARK [2][-]{subsection.2.4}{Why did we choose rails}{section.2}
 \BOOKMARK [1][-]{section.3}{Used API's}{}
 \BOOKMARK [1][-]{section.4}{Features}{}
 \BOOKMARK [2][-]{subsection.4.1}{Login through social media}{section.4}
